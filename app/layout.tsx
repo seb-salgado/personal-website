@@ -12,6 +12,10 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Sebastião Sommer",
   description: "Founding Product Designer",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#111213" },
+  ],
   icons: {
     icon: [
       { url: "/favicon-light.svg", media: "(prefers-color-scheme: light)" },
