@@ -410,6 +410,9 @@ export default function Home() {
             ref={constraintsRef}
             className={`fixed inset-0 pointer-events-none ${modalClosing ? 'z-[10002]' : 'z-[60]'}`}
           >
+            {isTouch && surfOpen && (
+              <div className="absolute inset-0 pointer-events-auto" onClick={closeSurf} />
+            )}
             <motion.div
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
               initial={prefersReducedMotion ? {} : { y: "100vh" }}
