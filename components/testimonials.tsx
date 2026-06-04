@@ -168,7 +168,7 @@ export function Testimonials() {
           animate="animate"
           exit="exit"
           transition={{
-            duration: 0.4,
+            duration: 0.25,
             ease,
           }}
           style={{ x: dragX, opacity: dragOpacity }}

@@ -15,7 +15,7 @@ import { JobExperienceModal, type ExperienceItem, type OriginRects } from "@/com
 const block = (delay: number, rm: boolean | null | undefined = false) => ({
   initial: rm ? { opacity: 0 } : { opacity: 0, filter: "blur(8px)" },
   animate: rm ? { opacity: 1 } : { opacity: 1, filter: "blur(0px)" },
-  transition: { duration: rm ? 0.2 : 0.4, ease: [0.23, 1, 0.32, 1] as [number, number, number, number], delay },
+  transition: { duration: rm ? 0.2 : 0.3, ease: [0.23, 1, 0.32, 1] as [number, number, number, number], delay },
 });
 
 const experience: ExperienceItem[] = [

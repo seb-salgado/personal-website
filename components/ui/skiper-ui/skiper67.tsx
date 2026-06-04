@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, useSpring } from "motion/react";
 import { Pause, Play, Volume2, VolumeX, X } from "lucide-react";
 import {
   MediaControlBar,
@@ -213,18 +213,18 @@ const VideoPopOver = ({
               clipPath: "inset(43.5% 43.5% 33.5% 43.5% )",
               opacity: 0,
               transition: {
-                duration: 1,
+                duration: 0.35,
                 type: "spring",
-                stiffness: 100,
-                damping: 20,
-                opacity: { duration: 0.2, delay: 0.8 },
+                stiffness: 300,
+                damping: 30,
+                opacity: { duration: 0.2, delay: 0.15 },
               },
             }}
         transition={prefersReducedMotion ? { duration: 0.2 } : {
-          duration: 1,
+          duration: 0.35,
           type: "spring",
-          stiffness: 100,
-          damping: 20,
+          stiffness: 300,
+          damping: 30,
         }}
         className="relative aspect-video max-w-7xl"
       >

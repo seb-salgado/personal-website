@@ -216,11 +216,12 @@ const SurfDevice = forwardRef<SurfDeviceHandle, SurfDeviceProps>(({ onClose }, r
         }}
       >
         <div
-          className="absolute bottom-0 w-full bg-[rgba(255,255,255,0.75)]"
+          className="absolute bottom-0 w-full h-full bg-[rgba(255,255,255,0.75)]"
           style={{
             borderRadius: "2px",
-            height: `${(volumeLevel / VOLUME_MAX) * 100}%`,
-            transition: "height 80ms cubic-bezier(0.23,1,0.32,1)",
+            transform: `scaleY(${volumeLevel / VOLUME_MAX})`,
+            transformOrigin: "bottom",
+            transition: "transform 80ms cubic-bezier(0.23,1,0.32,1)",
           }}
         />
       </div>
