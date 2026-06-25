@@ -70,7 +70,7 @@ const socials = [
   { label: "X/Twitter", href: "https://x.com/SebastiaoSommer" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/sebastiao-sommer/" },
   { label: "GitHub", href: "https://github.com/sebastiaosommer-123" },
-  { label: "Email", href: "mailto:sebastiaosommer@gmail.com" },
+  { label: "Email", href: "mailto:hi@sebastiaosommer.com" },
 ];
 
 export default function Home() {
