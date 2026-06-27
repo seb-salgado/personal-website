@@ -1,9 +1,11 @@
+import type { ReactNode } from "react"
+
 export function TextSection({
   heading,
   children,
 }: {
   heading: string
-  children: React.ReactNode
+  children: ReactNode
 }) {
   return (
     <div className="max-w-[560px] flex flex-col gap-1">
@@ -35,7 +37,7 @@ export function ImageBlock({
       <div
         className={`w-full rounded-xl bg-[var(--color-surface)] ${className ?? ""}`}
         style={{ height }}
-        aria-hidden
+        aria-hidden="true"
       />
     )
   }
