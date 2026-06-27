@@ -19,11 +19,13 @@ export function CaseStudyLayout({
   return (
     <main className="min-h-screen flex items-start justify-center px-6 pt-10 md:pt-[60px] lg:pt-[80px] pb-10 md:pb-[60px] lg:pb-[80px]">
       <div className="relative w-full max-w-[840px] flex flex-col gap-[80px]">
-        {readTime && footerPrev && (
+        {readTime && (
           <div className="-mb-[40px] max-w-[560px] mx-auto w-full flex justify-between items-center text-base text-[var(--color-fg)]">
-            <Link href={footerPrev.href} className="flex items-center gap-1.5">
-              <ArrowLeft size={16} strokeWidth={1.5} />
-              <span>{footerPrev.label}</span>
+            <Link href="/">
+              <DirectionalUnderline className="flex items-center gap-1.5">
+                <ArrowLeft size={16} strokeWidth={1.5} />
+                Home
+              </DirectionalUnderline>
             </Link>
             <span className="opacity-70">{readTime}</span>
           </div>

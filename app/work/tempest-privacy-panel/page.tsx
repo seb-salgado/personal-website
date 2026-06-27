@@ -39,7 +39,6 @@ export default function TempestCaseStudy() {
   const shouldReduceMotion = useReducedMotion()
   return (
     <CaseStudyLayout
-      footerPrev={{ label: "Home", href: "/" }}
       readTime="2 min read"
     >
       {/* ── Narrative block (24px gaps throughout) ─────────────────── */}
