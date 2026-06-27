@@ -2,8 +2,8 @@
 
 import type { ReactNode } from "react"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
+import { CaseStudyBreadcrumb } from "@/components/case-study-breadcrumb"
 import { DirectionalUnderline } from "@/components/ui/directional-underline"
 
 const EASE = [0.23, 1, 0.32, 1] as const
@@ -15,15 +15,13 @@ export function CaseStudyLayout({
   footerPrev,
   footerNext,
   readTime,
-  backHref = "/",
-  backLabel = "Home",
+  breadcrumbPage,
 }: {
   children: ReactNode
   footerPrev?: FooterLink
   footerNext?: FooterLink
   readTime?: string
-  backHref?: string
-  backLabel?: string
+  breadcrumbPage?: string
 }) {
   const shouldReduceMotion = useReducedMotion()
   return (
@@ -35,14 +33,9 @@ export function CaseStudyLayout({
             initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, filter: "blur(8px)" }}
             animate={{ opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.3, ease: EASE, delay: 0 }}
-            className="-mb-[40px] max-w-[560px] mx-auto w-full flex justify-between items-center text-base text-[var(--color-fg)]"
+            className="-mb-[40px] max-w-[560px] mx-auto w-full flex justify-between items-center text-sm text-[var(--color-fg-muted)]"
           >
-            <Link href={backHref}>
-              <DirectionalUnderline className="flex items-center gap-1.5">
-                <ArrowLeft size={16} strokeWidth={1.5} />
-                {backLabel}
-              </DirectionalUnderline>
-            </Link>
+            <CaseStudyBreadcrumb currentPage={breadcrumbPage} />
             <span className="opacity-70">{readTime}</span>
           </motion.div>
         )}

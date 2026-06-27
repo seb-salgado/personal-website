@@ -40,8 +40,7 @@ export function TempestCaseStudy() {
   return (
     <CaseStudyLayout
       readTime="2 min read"
-      backHref="/case-studies"
-      backLabel="Case studies"
+      breadcrumbPage="Tempest Browser Privacy Panel"
     >
       {/* Narrative block (24px gaps throughout) */}
       <div className="flex flex-col gap-[40px]">
