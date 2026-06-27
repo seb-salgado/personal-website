@@ -17,6 +17,7 @@ function ModalContent({ onClose, onSuccess }: Omit<PasswordModalProps, "isOpen">
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const shouldRestoreScrollRef = useRef(true);
   const shouldReduceMotion = useReducedMotion();
   const transition = { duration: shouldReduceMotion ? 0.15 : 0.24, ease: [0.23, 1, 0.32, 1] as const };
 
@@ -47,7 +48,9 @@ function ModalContent({ onClose, onSuccess }: Omit<PasswordModalProps, "isOpen">
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
-      window.scrollTo(0, scrollY);
+      if (shouldRestoreScrollRef.current) {
+        window.scrollTo(0, scrollY);
+      }
     };
   }, []);
 
@@ -69,6 +72,8 @@ function ModalContent({ onClose, onSuccess }: Omit<PasswordModalProps, "isOpen">
         return;
       }
 
+      shouldRestoreScrollRef.current = false;
+      window.scrollTo(0, 0);
       onSuccess();
     } catch {
       setError("Something went wrong. Please try again.");

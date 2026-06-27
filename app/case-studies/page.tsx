@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { DirectionalUnderline } from "@/components/ui/directional-underline";
+import { ScrollToTopOnMount } from "@/components/scroll-to-top-on-mount";
 import { CASE_STUDIES_COOKIE, verifyToken } from "@/lib/auth";
 import { caseStudies } from "@/lib/case-studies-data";
 
@@ -31,6 +32,7 @@ export default async function CaseStudiesPage() {
 
   return (
     <main className="min-h-screen bg-[var(--color-bg)] px-6 py-10 md:py-[60px] lg:py-[80px]">
+      <ScrollToTopOnMount />
       <div className="mx-auto flex w-full max-w-[680px] flex-col gap-8">
         <div className="flex flex-col gap-4">
           <Link href="/" className="w-fit text-base text-[var(--color-fg)]">

@@ -35,12 +35,6 @@ export const caseStudies: CaseStudy[] = [
     available: true,
     sections: [
       {
-        type: "text",
-        heading: "Overview",
-        content:
-          "Tempest Browser is a privacy-centric browser that redefines the way users interact with the web, by allowing users to adjust the intensity of tracking prevention, so they can strike the ideal balance between privacy and functionality.",
-      },
-      {
         type: "image",
         src: "/assets/tempest/hero.jpg",
         alt: "Tempest Browser Privacy Panel hero",
@@ -63,7 +57,7 @@ export const caseStudies: CaseStudy[] = [
         type: "text",
         heading: "Solution",
         content:
-          "Design a privacy-centric browser that redefines the way users interact with the web, by allowing users to adjust the intensity of tracking prevention, so they can strike the ideal balance between privacy and functionality. Additionally, add a panel that displays the invasive threats that the browser is blocking in real time, from ads to trackers to cookies, ensuring users feel safer online.",
+          "Design a privacy-centric browser that redefines the way users interact with the web, by allowing users to adjust the intensity of tracking prevention, so they can strike the ideal balance between privacy and functionality. Additionally, add a panel that displays the invasive threats that the browser is blocking in real time – from ads to trackers to cookies – ensuring user's feeling of online safety.",
       },
       {
         type: "text",
@@ -82,7 +76,7 @@ export const caseStudies: CaseStudy[] = [
         type: "text",
         heading: "Flowchart",
         content:
-          "The flowchart displayed all user flows that the privacy panel contained. By visually describing the relationships between pages, screens, and interactive possibilities, collaboration with stakeholders improved considerably.",
+          "The present flowchart displays all user flows that the privacy panel contains. By visually describing the relationships between pages/screens and show all interactive possibilities the collaboration with all stakeholders improved considerably.",
       },
       {
         type: "image",
@@ -115,27 +109,27 @@ export const caseStudies: CaseStudy[] = [
           {
             alt: "Desktop privacy panel state",
             caption:
-              "When a user with No Blocking selected intends to activate the privacy panel, the toggle remains accessible because it is a critical event.",
+              "When a user who sat their preference to No blocking is browsing the web and intends to activate the privacy panel, it becomes imperative that the privacy panel's toggle remains perpetually accessible, since it's a critical event.",
           },
           {
             alt: "Desktop privacy panel confirmation state",
             caption:
-              "Once the user turns on the toggle, this moment becomes an opportunity to ask whether they want to reconsider their chosen blocking level.",
+              "Once the user turns ON the toggle, this juncture becomes opportune to inquire whether they wish to reconsider their chosen blocking level.",
           },
           {
             alt: "Desktop privacy panel settings reminder state",
             caption:
-              "If the user chooses not to make adjustments, they are reminded that they can update their blocking level in settings.",
+              "If the user chooses not to make any adjustments, they are alerted that they can update their blocking level on settings.",
           },
           {
             alt: "Desktop privacy panel repeated prompt state",
             caption:
-              "A subsequent prompt appears on the tenth activation, allowing the user to dismiss the inquiry permanently.",
+              "A subsequent prompt will be presented on the tenth occasion they activate the privacy panel. This time, allowing the user to dismiss the inquiry permanently.",
           },
           {
             alt: "Desktop privacy panel updated settings state",
             caption:
-              "If the user opts for a modification, they receive confirmation while settings update in the background.",
+              "Should they opt for a modification, they are provided confirmation of the changes made and their settings are updated in the background.",
           },
         ],
       },
@@ -143,7 +137,7 @@ export const caseStudies: CaseStudy[] = [
         type: "text",
         heading: "Blocking Level",
         content:
-          "An example where the design team enhanced both user experience and company objectives involved refining the process of activating the privacy panel when the user's blocking level is set to No Blocking.",
+          "An example where the design team effectively enhanced both user experience and upheld the company's core objectives revolved around refining the process of activating the privacy panel when the user's blocking level is set to No Blocking.",
       },
       {
         type: "image",
