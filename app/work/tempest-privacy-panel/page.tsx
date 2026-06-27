@@ -40,7 +40,6 @@ export default function TempestCaseStudy() {
   return (
     <CaseStudyLayout
       footerPrev={{ label: "Home", href: "/" }}
-      footerNext={{ label: "Next case study", href: "/" }}
     >
       {/* ── Narrative block (24px gaps throughout) ─────────────────── */}
       <div className="flex flex-col gap-[24px]">
@@ -123,28 +122,10 @@ export default function TempestCaseStudy() {
       <div className="relative w-full h-[442px] rounded-xl overflow-hidden">
         {/* Left half: Privacy Panel OFF (dark background) */}
         <div className="absolute left-0 top-0 w-1/2 h-full bg-[#2B313D] flex items-center justify-center">
-          <img
-            src="/case-studies/tempest/comparison-off.webp"
-            alt="Privacy Panel OFF"
-            width={225}
-            height={486}
-            className="object-contain"
-            style={{ display: "none" }} // remove when image is available
-          />
-          {/* Placeholder */}
           <div className="w-[200px] h-[400px] rounded-lg bg-white/10" />
         </div>
         {/* Right half: Privacy Panel ON (light background) */}
         <div className="absolute right-0 top-0 w-1/2 h-full bg-[#EDF0F5] flex items-center justify-center">
-          <img
-            src="/case-studies/tempest/comparison-on.webp"
-            alt="Privacy Panel ON"
-            width={225}
-            height={486}
-            className="object-contain"
-            style={{ display: "none" }} // remove when image is available
-          />
-          {/* Placeholder */}
           <div className="w-[200px] h-[400px] rounded-lg bg-black/10" />
         </div>
       </div>
