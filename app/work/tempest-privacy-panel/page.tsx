@@ -118,6 +118,140 @@ export default function TempestCaseStudy() {
       </div>
 
       {/* ── Visual sections below (80px gaps from parent flex gap) ─── */}
+
+      {/* 05 — iPhone comparison card */}
+      <div className="relative w-full h-[442px] rounded-xl overflow-hidden">
+        {/* Left half: Privacy Panel OFF (dark background) */}
+        <div className="absolute left-0 top-0 w-1/2 h-full bg-[#2B313D] flex items-center justify-center">
+          <img
+            src="/case-studies/tempest/comparison-off.webp"
+            alt="Privacy Panel OFF"
+            width={225}
+            height={486}
+            className="object-contain"
+            style={{ display: "none" }} // remove when image is available
+          />
+          {/* Placeholder */}
+          <div className="w-[200px] h-[400px] rounded-lg bg-white/10" />
+        </div>
+        {/* Right half: Privacy Panel ON (light background) */}
+        <div className="absolute right-0 top-0 w-1/2 h-full bg-[#EDF0F5] flex items-center justify-center">
+          <img
+            src="/case-studies/tempest/comparison-on.webp"
+            alt="Privacy Panel ON"
+            width={225}
+            height={486}
+            className="object-contain"
+            style={{ display: "none" }} // remove when image is available
+          />
+          {/* Placeholder */}
+          <div className="w-[200px] h-[400px] rounded-lg bg-black/10" />
+        </div>
+      </div>
+
+      {/* 06 — Flowchart section */}
+      <div className="flex flex-col gap-[32px]">
+        <TextSection heading="Flowchart">
+          The present flowchart displays all user flows that the privacy panel
+          contains. By visually describing the relationships between
+          pages/screens and show all interactive possibilities the collaboration
+          with all stakeholders improved considerably.
+        </TextSection>
+        <ImageBlock
+          alt="User flow flowchart for Tempest Privacy Panel"
+          width={840}
+          height={1131}
+          placeholder
+        />
+      </div>
+
+      {/* 07 — iOS App section */}
+      <div className="flex flex-col gap-[24px]">
+        <TextSection heading="iOS App">
+          Designed Tempest browser for iOS, confronting technical limitations
+          while upholding our commitment to a positive user experience.
+        </TextSection>
+        {/* Two iPhone mockups side-by-side */}
+        <div className="flex gap-4 w-full h-[618px] rounded-xl overflow-hidden bg-[var(--color-surface)]">
+          <div className="flex-1 flex items-center justify-center">
+            <div className="w-[280px] h-[560px] rounded-2xl bg-[var(--color-border)]" />
+          </div>
+          <div className="flex-1 flex items-center justify-center">
+            <div className="w-[280px] h-[560px] rounded-2xl bg-[var(--color-border)]" />
+          </div>
+        </div>
+      </div>
+
+      {/* 08 — Desktop section (multi-state browser mockups) */}
+      <div className="flex flex-col gap-[24px]">
+        <TextSection heading="Desktop">
+          Designed the privacy panel for the desktop app built on Chromium,
+          harnessing its robust foundation while tailoring it to our vision.
+        </TextSection>
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
+          {/* State 1 */}
+          <div className="flex flex-col gap-3">
+            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
+              When a user who sat their preference to &ldquo;No blocking&rdquo;
+              is browsing the web and intends to activate the privacy panel, it
+              becomes imperative that the privacy panel&apos;s toggle remains
+              perpetually accessible, since it&apos;s a critical event.
+            </p>
+          </div>
+          {/* State 2 */}
+          <div className="flex flex-col gap-3">
+            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
+              Once the user turns ON the toggle, this juncture becomes
+              opportune to inquire whether they wish to reconsider their chosen
+              blocking level.
+            </p>
+          </div>
+          {/* State 3 */}
+          <div className="flex flex-col gap-3">
+            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
+              If the user chooses not to make any adjustments, they are alerted
+              that they can update their blocking level on settings.
+            </p>
+          </div>
+          {/* State 4 */}
+          <div className="flex flex-col gap-3">
+            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
+              A subsequent prompt will be presented on the tenth occasion they
+              activate the privacy panel. This time, allowing the user to dismiss
+              the inquiry permanently.
+            </p>
+          </div>
+          {/* State 5 */}
+          <div className="flex flex-col gap-3">
+            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
+              Should they opt for a modification, they are provided confirmation
+              of the changes made and their settings are updated in the
+              background.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 09 — Blocking Level section */}
+      <div className="flex flex-col gap-[24px]">
+        <TextSection heading="Blocking Level">
+          An example where the design team effectively enhanced both user
+          experience and upheld the company&apos;s core objectives revolved
+          around refining the process of activating the privacy panel when the
+          user&apos;s blocking level is set to &ldquo;No Blocking.&rdquo;
+        </TextSection>
+        <ImageBlock
+          alt="Blocking level settings UI"
+          width={840}
+          height={736}
+          placeholder
+        />
+      </div>
     </CaseStudyLayout>
   )
 }
