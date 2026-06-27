@@ -46,41 +46,43 @@ export default function TempestCaseStudy() {
         {/* 01 — Hero image */}
         <HeroItem delay={0} shouldReduceMotion={shouldReduceMotion}>
           <ImageBlock
+            src="/assets/tempest/hero.jpg"
             alt="Tempest Browser Privacy Panel hero"
             width={840}
             height={560}
-            placeholder
           />
         </HeroItem>
 
         {/* 02–04 — Title, metadata, and text sections (560px constrained) */}
         <div className="max-w-[560px] mx-auto flex flex-col gap-[24px]">
-          {/* 02 — Title + intro body */}
-          <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
-            <div className="flex flex-col gap-1">
-              <h1 className="text-base font-semibold text-[var(--color-fg)]">
-                Tempest Browser Privacy Panel
-              </h1>
-              <p className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
-                Tempest Browser is a privacy-centric browser that redefines the
-                way users interact with the web, by allowing users to adjust the
-                intensity of tracking prevention, so they can strike the ideal
-                balance between privacy and functionality.
-              </p>
-            </div>
-          </HeroItem>
+          {/* 02+03 — Title, intro, and metadata (16px gap between them) */}
+          <div className="flex flex-col gap-[16px]">
+            <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
+              <div className="flex flex-col gap-1">
+                <h1 className="text-base font-semibold text-[var(--color-fg)]">
+                  Tempest Browser Privacy Panel
+                </h1>
+                <p className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
+                  Tempest Browser is a privacy-centric browser that redefines the
+                  way users interact with the web, by allowing users to adjust the
+                  intensity of tracking prevention, so they can strike the ideal
+                  balance between privacy and functionality.
+                </p>
+              </div>
+            </HeroItem>
 
-          {/* 03 — Metadata row */}
-          <HeroItem delay={STAGGER * 2} shouldReduceMotion={shouldReduceMotion}>
-            <MetadataRow
-              items={[
-                { label: "Company", value: "Tempest" },
-                { label: "Product", value: "Tempest Browser" },
-                { label: "Platform", value: "iOS and Desktop" },
-                { label: "Year", value: "2023" },
-              ]}
-            />
-          </HeroItem>
+            {/* 03 — Metadata row */}
+            <HeroItem delay={STAGGER * 2} shouldReduceMotion={shouldReduceMotion}>
+              <MetadataRow
+                items={[
+                  { label: "Company", value: "Tempest" },
+                  { label: "Product", value: "Tempest Browser" },
+                  { label: "Platform", value: "iOS and Desktop" },
+                  { label: "Year", value: "2023" },
+                ]}
+              />
+            </HeroItem>
+          </div>
 
           {/* 04 — Four narrative text sections (NOT animated) */}
           <TextSection heading="Background">
@@ -119,16 +121,13 @@ export default function TempestCaseStudy() {
       {/* ── Visual sections below (80px gaps from parent flex gap) ─── */}
 
       {/* 05 — iPhone comparison card */}
-      <div className="relative w-full h-[442px] rounded-xl overflow-hidden">
-        {/* Left half: Privacy Panel OFF (dark background) */}
-        <div className="absolute left-0 top-0 w-1/2 h-full bg-[#2B313D] flex items-center justify-center">
-          <div className="w-[200px] h-[400px] rounded-lg bg-white/10" />
-        </div>
-        {/* Right half: Privacy Panel ON (light background) */}
-        <div className="absolute right-0 top-0 w-1/2 h-full bg-[#EDF0F5] flex items-center justify-center">
-          <div className="w-[200px] h-[400px] rounded-lg bg-black/10" />
-        </div>
-      </div>
+      <ImageBlock
+        src="/assets/tempest/comparison.jpg"
+        alt="Privacy Panel OFF vs ON comparison"
+        width={840}
+        height={442}
+        className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+      />
 
       {/* 06 — Flowchart section */}
       <div className="flex flex-col gap-[32px]">
@@ -152,15 +151,13 @@ export default function TempestCaseStudy() {
           Designed Tempest browser for iOS, confronting technical limitations
           while upholding our commitment to a positive user experience.
         </TextSection>
-        {/* Two iPhone mockups side-by-side */}
-        <div className="flex gap-4 w-full h-[618px] rounded-xl overflow-hidden bg-[var(--color-surface)]">
-          <div className="flex-1 flex items-center justify-center">
-            <div className="w-[280px] h-[560px] rounded-2xl bg-[var(--color-border)]" />
-          </div>
-          <div className="flex-1 flex items-center justify-center">
-            <div className="w-[280px] h-[560px] rounded-2xl bg-[var(--color-border)]" />
-          </div>
-        </div>
+        <ImageBlock
+          src="/assets/tempest/ios.png"
+          alt="Tempest Browser iOS app"
+          width={840}
+          height={618}
+          className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+        />
       </div>
 
       {/* 08 — Desktop section (multi-state browser mockups) */}

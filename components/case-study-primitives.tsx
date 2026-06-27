@@ -42,13 +42,18 @@ export function ImageBlock({
     )
   }
   return (
-    <img
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      className={`w-full rounded-xl object-cover ${className ?? ""}`}
-    />
+    <div className="relative w-full rounded-xl overflow-hidden">
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className="w-full object-cover"
+      />
+      {className && (
+        <div className={`absolute inset-0 rounded-xl pointer-events-none ${className}`} />
+      )}
+    </div>
   )
 }
 
@@ -58,13 +63,13 @@ export function MetadataRow({
   items: Array<{ label: string; value: string }>
 }) {
   return (
-    <div className="flex flex-wrap gap-x-5 gap-y-3">
+    <div className="grid grid-cols-4 gap-y-3">
       {items.map(({ label, value }) => (
         <div key={label} className="flex flex-col gap-0.5">
-          <span className="text-sm text-[var(--color-fg)]" style={{ opacity: 0.7 }}>
+          <span className="text-base text-[var(--color-fg)]" style={{ opacity: 0.7 }}>
             {label}
           </span>
-          <span className="text-sm text-[var(--color-fg)]">{value}</span>
+          <span className="text-base text-[var(--color-fg)]">{value}</span>
         </div>
       ))}
     </div>
