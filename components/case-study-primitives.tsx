@@ -8,7 +8,7 @@ export function TextSection({
   children: ReactNode
 }) {
   return (
-    <div className="max-w-[560px] flex flex-col gap-1">
+    <div className="max-w-[560px] mx-auto flex flex-col gap-1">
       <h2 className="text-base font-semibold text-[var(--color-fg)]">{heading}</h2>
       <div className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
         {children}

@@ -19,7 +19,7 @@ export function CaseStudyLayout({
         {children}
 
         {(footerPrev || footerNext) && (
-          <div className="max-w-[560px] flex justify-between text-base text-[var(--color-fg)]">
+          <div className="max-w-[560px] mx-auto flex justify-between text-base text-[var(--color-fg)]">
             {footerPrev ? (
               <Link href={footerPrev.href}>
                 <DirectionalUnderline>← {footerPrev.label}</DirectionalUnderline>

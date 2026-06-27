@@ -54,7 +54,7 @@ export default function TempestCaseStudy() {
         </HeroItem>
 
         {/* 02–04 — Title, metadata, and text sections (560px constrained) */}
-        <div className="max-w-[560px] flex flex-col gap-[24px]">
+        <div className="max-w-[560px] mx-auto flex flex-col gap-[24px]">
           {/* 02 — Title + intro body */}
           <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
             <div className="flex flex-col gap-1">
