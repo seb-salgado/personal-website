@@ -11,8 +11,8 @@ import {
 } from "@/components/case-study-primitives"
 
 const EASE = [0.23, 1, 0.32, 1] as const
-const DURATION = 0.28
-const STAGGER = 0.06
+const DURATION = 0.3
+const STAGGER = 0.08
 
 function HeroItem({
   children,
@@ -44,7 +44,7 @@ export default function TempestCaseStudy() {
       {/* ── Narrative block (24px gaps throughout) ─────────────────── */}
       <div className="flex flex-col gap-[40px]">
         {/* 01 — Hero image */}
-        <HeroItem delay={0} shouldReduceMotion={shouldReduceMotion}>
+        <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
           <ImageBlock
             src="/assets/tempest/hero.jpg"
             alt="Tempest Browser Privacy Panel hero"
@@ -57,7 +57,7 @@ export default function TempestCaseStudy() {
         <div className="max-w-[560px] mx-auto flex flex-col gap-[24px]">
           {/* 02+03 — Title, intro, and metadata (16px gap between them) */}
           <div className="flex flex-col gap-[16px]">
-            <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
+            <HeroItem delay={STAGGER * 2} shouldReduceMotion={shouldReduceMotion}>
               <div className="flex flex-col gap-1">
                 <h1 className="text-base font-semibold text-[var(--color-fg)]">
                   Tempest Browser Privacy Panel
@@ -72,7 +72,7 @@ export default function TempestCaseStudy() {
             </HeroItem>
 
             {/* 03 — Metadata row */}
-            <HeroItem delay={STAGGER * 2} shouldReduceMotion={shouldReduceMotion}>
+            <HeroItem delay={STAGGER * 3} shouldReduceMotion={shouldReduceMotion}>
               <MetadataRow
                 items={[
                   { label: "Company", value: "Tempest" },
