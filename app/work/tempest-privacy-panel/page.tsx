@@ -17,13 +17,15 @@ const STAGGER = 0.06
 function HeroItem({
   children,
   delay,
+  shouldReduceMotion,
 }: {
   children: ReactNode
   delay: number
+  shouldReduceMotion: boolean | null
 }) {
-  const shouldReduceMotion = useReducedMotion()
   return (
     <motion.div
+      style={{ willChange: shouldReduceMotion ? "auto" : "filter, opacity" }}
       initial={shouldReduceMotion ? false : { opacity: 0, filter: "blur(8px)" }}
       animate={{ opacity: 1, filter: "blur(0px)" }}
       transition={{ duration: DURATION, ease: EASE, delay }}
@@ -34,6 +36,7 @@ function HeroItem({
 }
 
 export default function TempestCaseStudy() {
+  const shouldReduceMotion = useReducedMotion()
   return (
     <CaseStudyLayout
       footerPrev={{ label: "Home", href: "/" }}
@@ -42,7 +45,7 @@ export default function TempestCaseStudy() {
       {/* ── Narrative block (24px gaps throughout) ─────────────────── */}
       <div className="flex flex-col gap-[24px]">
         {/* 01 — Hero image */}
-        <HeroItem delay={0}>
+        <HeroItem delay={0} shouldReduceMotion={shouldReduceMotion}>
           <ImageBlock
             alt="Tempest Browser Privacy Panel hero"
             width={840}
@@ -54,7 +57,7 @@ export default function TempestCaseStudy() {
         {/* 02–04 — Title, metadata, and text sections (560px constrained) */}
         <div className="max-w-[560px] flex flex-col gap-[24px]">
           {/* 02 — Title + intro body */}
-          <HeroItem delay={STAGGER}>
+          <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
             <div className="flex flex-col gap-1">
               <h1 className="text-base font-semibold text-[var(--color-fg)]">
                 Tempest Browser Privacy Panel
@@ -69,7 +72,7 @@ export default function TempestCaseStudy() {
           </HeroItem>
 
           {/* 03 — Metadata row */}
-          <HeroItem delay={STAGGER * 2}>
+          <HeroItem delay={STAGGER * 2} shouldReduceMotion={shouldReduceMotion}>
             <MetadataRow
               items={[
                 { label: "Company", value: "Tempest" },
