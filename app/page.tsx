@@ -12,6 +12,7 @@ import { VideoPlayer } from "@/components/ui/video-player";
 import SurfDevice, { SurfDeviceHandle } from "@/components/surf-device";
 import { Testimonials } from "@/components/testimonials";
 import { JobExperienceModal, type ExperienceItem, type OriginRects } from "@/components/job-experience-modal";
+import { CaseStudiesLockedCard } from "@/components/case-studies-locked-card";
 
 const block = (delay: number, rm: boolean | null | undefined = false) => ({
   initial: rm ? { opacity: 0 } : { opacity: 0, filter: "blur(8px)" },
@@ -357,17 +358,10 @@ export default function Home() {
             <Testimonials />
           </motion.div>
 
-          {/* work — placeholder, not yet designed */}
-          <motion.div {...block(0.44, prefersReducedMotion)} className="flex flex-col gap-1">
+          {/* Case studies — placeholder, not yet designed */}
+          <motion.div {...block(0.44, prefersReducedMotion)} className="flex flex-col gap-2">
             <p className="text-sm text-[var(--color-fg-muted)]">Work</p>
-            <div className="flex flex-col gap-0.5">
-              <Link href="/work/tempest-privacy-panel" className="text-sm text-[var(--color-fg)]">
-                Tempest Browser Privacy Panel
-              </Link>
-              <span className="text-sm text-[var(--color-fg)] opacity-40 cursor-default">
-                Coming soon
-              </span>
-            </div>
+            <CaseStudiesLockedCard />
           </motion.div>
 
           {/* Social links */}

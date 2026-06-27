@@ -4,13 +4,19 @@
 
 **Goal:** Password-protect case studies behind a modal on the home page, serving content from a gated API route so the case study data is never exposed without a valid session token.
 
-**Architecture:** The user enters a password via a modal consistent with the existing `JobExperienceModal` pattern. On success, the API route `/api/auth` returns a JWT signed with a server-only secret. That token is stored in `sessionStorage` (clears on tab close — privacy-appropriate for a DuckDuckGo interview). All case study pages and API routes verify the JWT on every request; without it, the user is redirected home. Case study content lives in `lib/case-studies-data.ts`, which is imported only by API routes — never by pages directly.
+**Current status — 2026-06-27:** Implemented with one shared password, neutral password modal copy, a placeholder locked card on the homepage, `/case-studies` index, and `/case-studies/tempest-browser-privacy-panel` detail route. The old public `/work/tempest-privacy-panel` route now redirects to the gated route. Auth now uses a short-lived first-party `HttpOnly` cookie so the protected pages can server-render without a visible loading state. Remaining user-side deployment step: add `PORTFOLIO_PASSWORD` and `JWT_SECRET` to Vercel project environment variables.
+
+**Decisions:** Use `seb-case-studies-2026` as the current shared password, a generated server-only JWT secret in `.env.local`, and a `case_studies_access` cookie with `HttpOnly`, `SameSite=Strict`, `Max-Age=12h`, and `Path=/case-studies`. The real Tempest card links to the Tempest case study; the second card is an inert placeholder.
+
+**Architecture:** The user enters a password via a modal consistent with the existing `JobExperienceModal` pattern. On success, the API route `/api/auth` sets a JWT signed with a server-only secret in a short-lived first-party `HttpOnly` cookie scoped to `/case-studies`. The case study index and detail pages verify the cookie server-side before rendering; without it, the user is redirected home. Case study content lives in `lib/case-studies-data.ts` and is imported only by server-side code.
 
 **Tech Stack:** Next.js 15 App Router, `jose` (JWT sign/verify), `motion/react` (animations matching existing patterns), Tailwind v4, TypeScript.
 
 ---
 
 ## File Map
+
+Note: the implementation status/architecture above reflects the current cookie-based build. Some older task snippets below still describe the original `sessionStorage` API-fetch approach and should be treated as historical notes, not the current target architecture.
 
 | File | Status | Responsibility |
 |------|--------|---------------|
