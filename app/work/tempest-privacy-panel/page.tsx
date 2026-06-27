@@ -40,9 +40,10 @@ export default function TempestCaseStudy() {
   return (
     <CaseStudyLayout
       footerPrev={{ label: "Home", href: "/" }}
+      readTime="2 min read"
     >
       {/* ── Narrative block (24px gaps throughout) ─────────────────── */}
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-[40px]">
         {/* 01 — Hero image */}
         <HeroItem delay={0} shouldReduceMotion={shouldReduceMotion}>
           <ImageBlock
@@ -130,7 +131,7 @@ export default function TempestCaseStudy() {
       />
 
       {/* 06 — Flowchart section */}
-      <div className="flex flex-col gap-[32px]">
+      <div className="flex flex-col gap-[40px]">
         <TextSection heading="Flowchart">
           The present flowchart displays all user flows that the privacy panel
           contains. By visually describing the relationships between
@@ -146,7 +147,7 @@ export default function TempestCaseStudy() {
       </div>
 
       {/* 07 — iOS App section */}
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-[40px]">
         <TextSection heading="iOS App">
           Designed Tempest browser for iOS, confronting technical limitations
           while upholding our commitment to a positive user experience.
@@ -161,7 +162,7 @@ export default function TempestCaseStudy() {
       </div>
 
       {/* 08 — Desktop section (multi-state browser mockups) */}
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-[40px]">
         <TextSection heading="Desktop">
           Designed the privacy panel for the desktop app built on Chromium,
           harnessing its robust foundation while tailoring it to our vision.
@@ -216,7 +217,7 @@ export default function TempestCaseStudy() {
       </div>
 
       {/* 09 — Blocking Level section */}
-      <div className="flex flex-col gap-[24px]">
+      <div className="flex flex-col gap-[40px]">
         <TextSection heading="Blocking Level">
           An example where the design team effectively enhanced both user
           experience and upheld the company&apos;s core objectives revolved
