@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence, useMotionValue, animate, useReducedMotion, type AnimationPlaybackControls } from "motion/react";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { Tilt } from "@/components/motion-primitives/tilt";
 import { AnimatedBackground } from "@/components/motion-primitives/animated-background";
 import { DirectionalUnderline } from "@/components/ui/directional-underline";
@@ -360,12 +361,12 @@ export default function Home() {
           <motion.div {...block(0.44, prefersReducedMotion)} className="flex flex-col gap-1">
             <p className="text-sm text-[var(--color-fg-muted)]">Work</p>
             <div className="flex flex-col gap-0.5">
-              <a href="/work/tempest-privacy-panel" className="text-sm text-[var(--color-fg)]">
+              <Link href="/work/tempest-privacy-panel" className="text-sm text-[var(--color-fg)]">
                 Tempest Browser Privacy Panel
-              </a>
-              <a href="/" className="text-sm text-[var(--color-fg)] opacity-40 cursor-default" aria-disabled="true">
+              </Link>
+              <span className="text-sm text-[var(--color-fg)] opacity-40 cursor-default">
                 Coming soon
-              </a>
+              </span>
             </div>
           </motion.div>
 
