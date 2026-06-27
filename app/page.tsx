@@ -356,6 +356,19 @@ export default function Home() {
             <Testimonials />
           </motion.div>
 
+          {/* work — placeholder, not yet designed */}
+          <motion.div {...block(0.44, prefersReducedMotion)} className="flex flex-col gap-1">
+            <p className="text-sm text-[var(--color-fg-muted)]">Work</p>
+            <div className="flex flex-col gap-0.5">
+              <a href="/work/tempest-privacy-panel" className="text-sm text-[var(--color-fg)]">
+                Tempest Browser Privacy Panel
+              </a>
+              <a href="/" className="text-sm text-[var(--color-fg)] opacity-40 cursor-default" aria-disabled="true">
+                Coming soon
+              </a>
+            </div>
+          </motion.div>
+
           {/* Social links */}
           <motion.div {...block(0.48, prefersReducedMotion)} className="flex justify-between gap-6 mt-2">
             {socials.map((s) => (
