@@ -167,6 +167,24 @@ export function TempestCaseStudy() {
           Designed the privacy panel for the desktop app built on Chromium,
           harnessing its robust foundation while tailoring it to our vision.
         </TextSection>
+        <div className="relative w-full rounded-xl overflow-hidden">
+          <img src="/assets/tempest/desktop.jpg" alt="Tempest desktop app" className="w-full" />
+          <div className="absolute inset-0 rounded-xl pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
+        </div>
+      </div>
+
+      {/* 09 — Blocking Level section */}
+      <div className="flex flex-col gap-[40px]">
+        <TextSection heading="Blocking Level">
+          An example where the design team effectively enhanced both user
+          experience and upheld the company&apos;s core objectives revolved
+          around refining the process of activating the privacy panel when the
+          user&apos;s blocking level is set to &ldquo;No Blocking.&rdquo;
+        </TextSection>
+        <div className="relative w-full rounded-xl overflow-hidden">
+          <img src="/assets/tempest/desktop-blocking-level.jpg" alt="Tempest desktop blocking level" className="w-full" />
+          <div className="absolute inset-0 rounded-xl pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
+        </div>
         <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
           {/* State 1 */}
           <div className="flex flex-col gap-3">
@@ -214,22 +232,6 @@ export function TempestCaseStudy() {
             </p>
           </div>
         </div>
-      </div>
-
-      {/* 09 — Blocking Level section */}
-      <div className="flex flex-col gap-[40px]">
-        <TextSection heading="Blocking Level">
-          An example where the design team effectively enhanced both user
-          experience and upheld the company&apos;s core objectives revolved
-          around refining the process of activating the privacy panel when the
-          user&apos;s blocking level is set to &ldquo;No Blocking.&rdquo;
-        </TextSection>
-        <ImageBlock
-          alt="Blocking level settings UI"
-          width={840}
-          height={736}
-          placeholder
-        />
       </div>
     </CaseStudyLayout>
   )
