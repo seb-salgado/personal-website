@@ -12,6 +12,7 @@ export function SelectedWorkSection() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const submittingRef = useRef(false);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
@@ -95,13 +96,14 @@ export function SelectedWorkSection() {
           */}
           <motion.div
             layout
-            className={`relative flex items-center rounded-[8px] border has-[:focus-visible]:shadow-[0_0_0_3px_var(--color-ring)] ${expanded ? "bg-[var(--color-surface)]" : ""}`}
+            className={`relative flex items-center rounded-[8px] border overflow-hidden has-[:focus-visible]:shadow-[0_0_0_3px_var(--color-ring)] ${expanded ? "bg-[var(--color-surface)]" : ""}`}
             style={{
               height: 30,
               borderColor: error ? "#ef4444" : "var(--color-border)",
               transition: "border-color 0.15s, box-shadow 0.15s",
             }}
             transition={{ layout: { duration: layoutDuration, ease: EASE } }}
+            whileTap={!expanded ? { scale: 0.97 } : undefined}
           >
             {/* `layout` on Continue counter-scales against the parent FLIP to prevent text distortion */}
             <AnimatePresence mode="popLayout" initial={false}>
@@ -127,9 +129,9 @@ export function SelectedWorkSection() {
                       : { opacity: 0, filter: "blur(3px)" }
                   }
                   transition={{ duration: 0.12, ease: EASE }}
-                  className="h-full px-2 text-sm font-medium whitespace-nowrap cursor-pointer rounded-[8px] hover:bg-[var(--color-surface)] transition-colors duration-150"
+                  className="h-full px-2 text-sm font-medium whitespace-nowrap cursor-pointer rounded-[7px] hover:bg-[var(--color-surface)] transition-colors duration-150"
                   style={{ color: "var(--color-fg)" }}
-                  whileTap={{ scale: 0.97 }}
+
                 >
                   Continue
                 </motion.button>
@@ -167,7 +169,7 @@ export function SelectedWorkSection() {
                     color: "var(--color-fg)",
                     outline: "none",
                   }}
-                  onBlur={() => { setTimeout(collapse, 150); }}
+                  onBlur={() => { setTimeout(() => { if (!submittingRef.current) collapse(); submittingRef.current = false; }, 150); }}
                   onKeyDown={(e) => { if (e.key === "Escape") collapse(); }}
                 />
               )}
@@ -196,11 +198,12 @@ export function SelectedWorkSection() {
                       : { opacity: 0, scale: 0.8, transition: { duration: 0.1, ease: EASE } }
                   }
                   transition={{ duration: 0.16, delay: prefersReducedMotion ? 0 : 0.1, ease: EASE }}
-                  className="flex items-center justify-center rounded-[6px] cursor-pointer disabled:opacity-40 transition-opacity duration-150"
+                  onMouseDown={() => { submittingRef.current = true; }}
+                  className="flex items-center justify-center rounded-[5px] cursor-pointer disabled:opacity-40 transition-opacity duration-150"
                   style={{
                     position: "absolute",
-                    right: 4,
-                    top: 4,
+                    right: 3,
+                    top: 3,
                     width: 22,
                     height: 22,
                     backgroundColor: "var(--color-fg)",
