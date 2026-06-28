@@ -5,9 +5,17 @@ import type { ReactNode } from "react"
 import { motion, useReducedMotion } from "motion/react"
 
 import { CaseStudyBreadcrumb } from "@/components/case-study-breadcrumb"
+import { DirectionalUnderline } from "@/components/ui/directional-underline"
 
 const EASE = [0.23, 1, 0.32, 1] as const
 const DURATION = 0.3
+
+const socials = [
+  { label: "X/Twitter", href: "https://x.com/SebastiaoSommer" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sebastiao-sommer/" },
+  { label: "GitHub", href: "https://github.com/sebastiaosommer-123" },
+  { label: "Email", href: "mailto:hi@sebastiaosommer.com" },
+]
 
 type CaseStudyIndexItem = {
   slug: string
@@ -125,6 +133,38 @@ export function CaseStudiesIndexContent({
           </RevealItem>
         ))}
       </div>
+
+      <RevealItem delay={0.16 + studies.length * 0.05}>
+        <div className="flex justify-between gap-6 mt-[48px]">
+          {socials.map((s) => (
+            <DirectionalUnderline
+              as="a"
+              key={s.label}
+              href={s.href}
+              target={s.href.startsWith("mailto:") ? undefined : "_blank"}
+              className="flex items-center text-base font-medium"
+              style={{ lineHeight: 1.5, color: "var(--color-fg)" }}
+            >
+              {s.label}
+              <svg
+                className="ml-[0.3em] size-[0.55em]"
+                fill="none"
+                viewBox="-1 -1 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M1.004 9.166 9.337.833m0 0v8.333m0-8.333H1.004"
+                  stroke="currentColor"
+                  strokeWidth="1.25"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </DirectionalUnderline>
+          ))}
+        </div>
+      </RevealItem>
     </div>
   )
 }
