@@ -145,6 +145,9 @@ export function TempestCaseStudy() {
           <img src="/assets/tempest/desktop.png" alt="Tempest desktop app" className="w-full" />
           <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
         </div>
+        <div className="w-full rounded-lg overflow-hidden">
+          <img src="/assets/tempest/variations.png" alt="Tempest Privacy Panel variations" className="w-full" />
+        </div>
       </div>
 
       {/* 06 — Designing for Conflicting User Goals */}

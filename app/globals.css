@@ -41,7 +41,7 @@
   --color-fg: #18191C;
   --color-fg-muted: #464749;
   --color-surface: #EAECF1;
-  --color-border: #C8CACD;
+  --color-border: #DCDEE1;
   --color-ring: rgba(24, 25, 28, 0.12);
 }
 
@@ -50,7 +50,7 @@
   --color-fg: #E8E9EB;
   --color-fg-muted: #A0A2A4;
   --color-surface: #242528;
-  --color-border: #383A3D;
+  --color-border: #454749;
   --color-ring: rgba(232, 233, 235, 0.12);
 }
 
