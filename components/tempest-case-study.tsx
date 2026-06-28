@@ -243,6 +243,38 @@ export function TempestCaseStudy() {
           <img src="/assets/tempest/variations.png" alt="Tempest design variations" className="w-full" />
         </div>
       </div>
+      {/* 11 — Final Thoughts */}
+      <TextSection heading="Final Thoughts">
+        Working on Tempest&apos;s privacy panel was a deep dive into balancing
+        user needs with technical constraints. It reinforced how thoughtful
+        interaction design can make complex privacy concepts feel approachable.
+      </TextSection>
+
+      {/* 12 — Next case study */}
+      <div className="flex flex-col">
+        <div className="h-px bg-[var(--color-border)]" />
+        <div className="h-[80px]" />
+        <article className="group overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] cursor-default opacity-55">
+          <div className="aspect-[16/9] w-full overflow-hidden bg-[var(--color-surface)]">
+            <div
+              className="h-full w-full opacity-[0.09]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(var(--color-fg) 1px, transparent 1px), linear-gradient(90deg, var(--color-fg) 1px, transparent 1px)",
+                backgroundSize: "18px 18px",
+              }}
+            />
+          </div>
+          <div className="flex flex-col gap-1 p-4">
+            <h2 className="text-base font-medium leading-[1.3] text-[var(--color-fg)]">
+              Second Case Study
+            </h2>
+            <p className="text-sm leading-[1.45] text-[var(--color-fg-muted)]">
+              A protected case study placeholder coming soon.
+            </p>
+          </div>
+        </article>
+      </div>
     </CaseStudyLayout>
   )
 }
