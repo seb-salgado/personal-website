@@ -167,9 +167,9 @@ export function TempestCaseStudy() {
           Designed the privacy panel for the desktop app built on Chromium,
           harnessing its robust foundation while tailoring it to our vision.
         </TextSection>
-        <div className="relative w-full rounded-xl overflow-hidden">
+        <div className="relative w-full rounded-lg overflow-hidden">
           <img src="/assets/tempest/desktop.jpg" alt="Tempest desktop app" className="w-full" />
-          <div className="absolute inset-0 rounded-xl pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
+          <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
         </div>
       </div>
 
@@ -181,14 +181,14 @@ export function TempestCaseStudy() {
           around refining the process of activating the privacy panel when the
           user&apos;s blocking level is set to &ldquo;No Blocking.&rdquo;
         </TextSection>
-        <div className="relative w-full rounded-xl overflow-hidden">
+        <div className="relative w-full rounded-lg overflow-hidden">
           <img src="/assets/tempest/desktop-blocking-level.jpg" alt="Tempest desktop blocking level" className="w-full" />
-          <div className="absolute inset-0 rounded-xl pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
+          <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
         </div>
         <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
           {/* State 1 */}
           <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
             <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
               When a user who sat their preference to &ldquo;No blocking&rdquo;
               is browsing the web and intends to activate the privacy panel, it
@@ -198,7 +198,7 @@ export function TempestCaseStudy() {
           </div>
           {/* State 2 */}
           <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
             <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
               Once the user turns ON the toggle, this juncture becomes
               opportune to inquire whether they wish to reconsider their chosen
@@ -207,7 +207,7 @@ export function TempestCaseStudy() {
           </div>
           {/* State 3 */}
           <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
             <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
               If the user chooses not to make any adjustments, they are alerted
               that they can update their blocking level on settings.
@@ -215,7 +215,7 @@ export function TempestCaseStudy() {
           </div>
           {/* State 4 */}
           <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
             <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
               A subsequent prompt will be presented on the tenth occasion they
               activate the privacy panel. This time, allowing the user to dismiss
@@ -224,7 +224,7 @@ export function TempestCaseStudy() {
           </div>
           {/* State 5 */}
           <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-xl bg-[var(--color-surface)]" />
+            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
             <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
               Should they opt for a modification, they are provided confirmation
               of the changes made and their settings are updated in the

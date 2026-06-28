@@ -35,14 +35,14 @@ export function ImageBlock({
   if (placeholder || !src) {
     return (
       <div
-        className={`w-full rounded-xl bg-[var(--color-surface)] ${className ?? ""}`}
+        className={`w-full rounded-lg bg-[var(--color-surface)] ${className ?? ""}`}
         style={{ height }}
         aria-hidden="true"
       />
     )
   }
   return (
-    <div className="relative w-full rounded-xl overflow-hidden">
+    <div className="relative w-full rounded-lg overflow-hidden">
       <img
         src={src}
         alt={alt}
@@ -51,7 +51,7 @@ export function ImageBlock({
         className="w-full object-cover"
       />
       {className && (
-        <div className={`absolute inset-0 rounded-xl pointer-events-none ${className}`} />
+        <div className={`absolute inset-0 rounded-lg pointer-events-none ${className}`} />
       )}
     </div>
   )
