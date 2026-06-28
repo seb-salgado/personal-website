@@ -12,6 +12,7 @@ import { VideoPlayer } from "@/components/ui/video-player";
 import SurfDevice, { SurfDeviceHandle } from "@/components/surf-device";
 import { Testimonials } from "@/components/testimonials";
 import { JobExperienceModal, type ExperienceItem, type OriginRects } from "@/components/job-experience-modal";
+import { SelectedWorkSection } from "@/components/selected-work-section";
 
 const block = (delay: number, rm: boolean | null | undefined = false) => ({
   initial: rm ? { opacity: 0 } : { opacity: 0, filter: "blur(8px)" },
@@ -285,8 +286,13 @@ export default function Home() {
             </div>
           </motion.div>
 
+          {/* Selected Work */}
+          <motion.div {...block(0.32, prefersReducedMotion)}>
+            <SelectedWorkSection />
+          </motion.div>
+
           {/* Experience */}
-          <motion.div {...block(0.32, prefersReducedMotion)} className="flex flex-col -mx-2 sm:-mx-3">
+          <motion.div {...block(0.44, prefersReducedMotion)} className="flex flex-col -mx-2 sm:-mx-3">
             <AnimatedBackground
               enableHover={!isTouch}
               className="rounded-xl bg-black/[0.04] dark:bg-white/[0.06]"
@@ -353,12 +359,12 @@ export default function Home() {
           </motion.div>
 
           {/* Testimonials */}
-          <motion.div {...block(0.40, prefersReducedMotion)}>
+          <motion.div {...block(0.52, prefersReducedMotion)}>
             <Testimonials />
           </motion.div>
 
           {/* Social links */}
-          <motion.div {...block(0.48, prefersReducedMotion)} className="flex justify-between gap-6 mt-2">
+          <motion.div {...block(0.56, prefersReducedMotion)} className="flex justify-between gap-6 mt-2">
             {socials.map((s) => (
               <DirectionalUnderline
                 as="a"

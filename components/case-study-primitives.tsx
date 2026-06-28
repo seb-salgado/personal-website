@@ -10,7 +10,7 @@ export function TextSection({
   return (
     <div className="max-w-[560px] mx-auto flex flex-col gap-1">
       <h2 className="text-base font-semibold text-[var(--color-fg)]">{heading}</h2>
-      <div className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
+      <div className="flex flex-col gap-2 text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
         {children}
       </div>
     </div>
@@ -35,14 +35,14 @@ export function ImageBlock({
   if (placeholder || !src) {
     return (
       <div
-        className={`w-full rounded-xl bg-[var(--color-surface)] ${className ?? ""}`}
+        className={`w-full rounded-lg bg-[var(--color-surface)] ${className ?? ""}`}
         style={{ height }}
         aria-hidden="true"
       />
     )
   }
   return (
-    <div className="relative w-full rounded-xl overflow-hidden">
+    <div className="relative w-full rounded-lg overflow-hidden">
       <img
         src={src}
         alt={alt}
@@ -51,7 +51,7 @@ export function ImageBlock({
         className="w-full object-cover"
       />
       {className && (
-        <div className={`absolute inset-0 rounded-xl pointer-events-none ${className}`} />
+        <div className={`absolute inset-0 rounded-lg pointer-events-none ${className}`} />
       )}
     </div>
   )
