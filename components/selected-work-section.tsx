@@ -65,7 +65,7 @@ export function SelectedWorkSection() {
     <div className="flex flex-col">
       {/* Video placeholder */}
       <div
-        className="w-full rounded-xl bg-[var(--color-surface)]"
+        className="w-full rounded-[8px] bg-[var(--color-surface)]"
         style={{ aspectRatio: "16/9" }}
       />
 
