@@ -10,7 +10,7 @@ export function TextSection({
   return (
     <div className="max-w-[560px] mx-auto flex flex-col gap-1">
       <h2 className="text-base font-semibold text-[var(--color-fg)]">{heading}</h2>
-      <div className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
+      <div className="flex flex-col gap-2 text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
         {children}
       </div>
     </div>

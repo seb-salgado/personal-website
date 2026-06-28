@@ -49,7 +49,7 @@ export function TempestCaseStudy() {
   return (
     <CaseStudyLayout
       readTime="2 min read"
-      breadcrumbPage="Tempest Browser Privacy Panel"
+      breadcrumbPage="Tempest Browser"
     >
       {/* Narrative block (24px gaps throughout) */}
       <div className="flex flex-col gap-[40px]">
@@ -70,13 +70,12 @@ export function TempestCaseStudy() {
             <HeroItem delay={STAGGER * 2} shouldReduceMotion={shouldReduceMotion}>
               <div className="flex flex-col gap-1">
                 <h1 className="text-base font-semibold text-[var(--color-fg)]">
-                  Tempest Browser Privacy Panel
+                  Tempest Browser
                 </h1>
                 <p className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
-                  Tempest Browser is a privacy-centric browser that redefines the
-                  way users interact with the web, by allowing users to adjust the
-                  intensity of tracking prevention, so they can strike the ideal
-                  balance between privacy and functionality.
+                  Tempest was building a privacy focused search engine and browser
+                  with a mission to let people live their digital lives on their
+                  own terms.
                 </p>
               </div>
             </HeroItem>
@@ -86,51 +85,37 @@ export function TempestCaseStudy() {
               <MetadataRow
                 items={[
                   { label: "Company", value: "Tempest" },
-                  { label: "Product", value: "Tempest Browser" },
-                  { label: "Platform", value: "iOS and Desktop" },
+                  { label: "Product", value: "Browser" },
+                  { label: "Platform", value: "Desktop, iOS" },
                   { label: "Year", value: "2023" },
                 ]}
               />
             </HeroItem>
           </div>
 
-          {/* 04 — Four narrative text sections (NOT animated) */}
-          <TextSection heading="Background">
-            The rapid expansion of online tracking, aggressive advertising, and
-            data harvesting practices has raised significant privacy issues for
-            internet users. Conventional browsers lack transparency in displaying
-            the extent of invasive content being blocked, leaving users in the
-            dark about the true impact of their privacy settings.
+          {/* 04 — Three narrative text sections (NOT animated) */}
+          <TextSection heading="My Role">
+            Senior Product Designer working across Tempest Browser and Tempest
+            Search, partnering closely with product, engineering, and the VP of
+            Design.
           </TextSection>
 
-          <TextSection heading="Problem">
-            How can we strike a balance between fortifying users&apos; online
-            safety and providing a seamless browsing experience?
+          <TextSection heading="Context">
+            Tempest&apos;s strategy centered on two products: Tempest Search, a
+            privacy focused search engine, and Tempest Browser, a browser
+            designed to drive adoption of Tempest Search.
           </TextSection>
 
-          <TextSection heading="Solution">
-            Design a privacy-centric browser that redefines the way users
-            interact with the web, by allowing users to adjust the intensity of
-            tracking prevention, so they can strike the ideal balance between
-            privacy and functionality. Additionally, add a panel that displays
-            the invasive threats that the browser is blocking in real time – from
-            ads to trackers to cookies – ensuring user&apos;s feeling of online
-            safety.
-          </TextSection>
-
-          <TextSection heading="Achievement">
-            Successfully launched the browser, creating an impactful,
-            privacy-first experience for users. Additionally, developed processes
-            that paved the way for a new business unit at Tempest, Infinity
-            Browsers, now producing white-label browsers for brands like Ecosia
-            and Startpage.
+          <TextSection heading="The Challenge">
+            Users want privacy, but aggressive blocking can break websites or
+            create friction. Most browsers expose privacy controls through
+            technical settings that feel intimidating and disconnected from the
+            browsing experience. The goal was to make privacy protections easier
+            to understand and control.
           </TextSection>
         </div>
       </div>
 
-      {/* Visual sections below (80px gaps from parent flex gap) */}
-
-      {/* 05 — iPhone comparison card */}
       <ImageBlock
         src="/assets/tempest/comparison.jpg"
         alt="Privacy Panel OFF vs ON comparison"
@@ -139,27 +124,15 @@ export function TempestCaseStudy() {
         className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
       />
 
-      {/* 06 — Flowchart section */}
+      {/* 05 — Making Privacy Visible */}
       <div className="flex flex-col gap-[40px]">
-        <TextSection heading="Flowchart">
-          The present flowchart displays all user flows that the privacy panel
-          contains. By visually describing the relationships between
-          pages/screens and show all interactive possibilities the collaboration
-          with all stakeholders improved considerably.
-        </TextSection>
-        <ImageBlock
-          alt="User flow flowchart for Tempest Privacy Panel"
-          width={840}
-          height={1131}
-          placeholder
-        />
-      </div>
-
-      {/* 07 — iOS App section */}
-      <div className="flex flex-col gap-[40px]">
-        <TextSection heading="iOS App">
-          Designed Tempest browser for iOS, confronting technical limitations
-          while upholding our commitment to a positive user experience.
+        <TextSection heading="Making Privacy Visible">
+          One of the key initiatives was the Privacy Panel, a real time view of
+          the protections being applied while users browsed the web. Instead of
+          hiding privacy controls inside settings, we brought them directly into
+          the browsing experience. Users could see blocked trackers, understand
+          what protections were active, and adjust their preferences without
+          leaving the page they were viewing.
         </TextSection>
         <ImageBlock
           src="/assets/tempest/ios.png"
@@ -168,95 +141,95 @@ export function TempestCaseStudy() {
           height={618}
           className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
         />
-      </div>
-
-      {/* 08 — Desktop section (multi-state browser mockups) */}
-      <div className="flex flex-col gap-[40px]">
-        <TextSection heading="Desktop">
-          Designed the privacy panel for the desktop app built on Chromium,
-          harnessing its robust foundation while tailoring it to our vision.
-        </TextSection>
         <div className="relative w-full rounded-lg overflow-hidden">
           <img src="/assets/tempest/desktop.png" alt="Tempest desktop app" className="w-full" />
           <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
         </div>
       </div>
 
+      {/* 06 — Designing for Conflicting User Goals */}
+      <div className="flex flex-col gap-[40px]">
+        <TextSection heading="Designing for Conflicting User Goals">
+          One of the most interesting design challenges involved users who
+          intentionally selected &ldquo;No Blocking.&rdquo; From a product
+          perspective, we wanted users to understand the benefits of stronger
+          privacy protections. From a user perspective, choosing &ldquo;No
+          Blocking&rdquo; was a deliberate decision that needed to be respected.
+          The challenge was finding ways to educate users without creating
+          friction or undermining user choice.
+        </TextSection>
+
       {/* 09 — Blocking Level section */}
       <div className="flex flex-col gap-[40px]">
-        <TextSection heading="Blocking Level">
-          An example where the design team effectively enhanced both user
-          experience and upheld the company&apos;s core objectives revolved
-          around refining the process of activating the privacy panel when the
-          user&apos;s blocking level is set to &ldquo;No Blocking.&rdquo;
-        </TextSection>
         <div className="relative w-full rounded-lg overflow-hidden">
           <img src="/assets/tempest/desktop-blocking-level.png" alt="Tempest desktop blocking level" className="w-full" />
           <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
         </div>
         <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
           {/* State 1 */}
-          <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
-            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
-              When a user who sat their preference to &ldquo;No blocking&rdquo;
-              is browsing the web and intends to activate the privacy panel, it
-              becomes imperative that the privacy panel&apos;s toggle remains
-              perpetually accessible, since it&apos;s a critical event.
-            </p>
+          <div className="relative w-full rounded-lg overflow-hidden">
+            <img src="/assets/tempest/grid-1.png" alt="Blocking level state 1" className="w-full" />
+            <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
           </div>
           {/* State 2 */}
-          <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
-            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
-              Once the user turns ON the toggle, this juncture becomes
-              opportune to inquire whether they wish to reconsider their chosen
-              blocking level.
-            </p>
-          </div>
-          {/* State 3 */}
-          <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
-            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
-              If the user chooses not to make any adjustments, they are alerted
-              that they can update their blocking level on settings.
-            </p>
-          </div>
-          {/* State 4 */}
-          <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
-            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
-              A subsequent prompt will be presented on the tenth occasion they
-              activate the privacy panel. This time, allowing the user to dismiss
-              the inquiry permanently.
-            </p>
-          </div>
-          {/* State 5 */}
-          <div className="flex flex-col gap-3">
-            <div className="w-full aspect-[4/3] rounded-lg bg-[var(--color-surface)]" />
-            <p className="text-base text-[var(--color-fg-muted)] leading-[1.4em]">
-              Should they opt for a modification, they are provided confirmation
-              of the changes made and their settings are updated in the
-              background.
-            </p>
+          <div className="relative w-full rounded-lg overflow-hidden">
+            <img src="/assets/tempest/grid-2.png" alt="Blocking level state 2" className="w-full" />
+            <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
           </div>
         </div>
       </div>
-      {/* 10 — Variations section */}
+      </div>
+      {/* 11 — Outcome and Community Response */}
       <div className="flex flex-col gap-[40px]">
-        <TextSection heading="Variations">
-          Our design journey led us to create an array of screens with multiple
-          variations, depending on the app platform.
+        <TextSection heading="Outcome and Community Response">
+          <p>
+            Tempest Browser launched publicly in 2023 as part of the company&apos;s
+            broader effort to build a privacy focused ecosystem around search and
+            browsing. Shortly after launch, changes to a critical search partnership
+            significantly impacted the viability of the search business. As a
+            result, investment in the product was reduced and development was
+            eventually discontinued.
+          </p>
+          <p>
+            Following launch, the browser generated discussion within privacy and
+            browser communities. While some users appreciated the product&apos;s
+            privacy focused approach and user experience, others raised questions
+            about transparency, open source practices, long term viability, and how
+            Tempest differentiated itself from established competitors.
+          </p>
         </TextSection>
-        <div className="relative w-full rounded-lg overflow-hidden">
-          <img src="/assets/tempest/variations.png" alt="Tempest design variations" className="w-full" />
+        <div className="max-w-[560px] mx-auto w-full flex flex-col gap-[12px]">
+          <ImageBlock
+            src="/assets/tempest/outcome-1.png"
+            alt="Tempest outcome 1"
+            width={560}
+            height={373}
+            className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+          />
+          <ImageBlock
+            src="/assets/tempest/outcome-2.png"
+            alt="Tempest outcome 2"
+            width={560}
+            height={373}
+            className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+          />
+          <ImageBlock
+            src="/assets/tempest/outcome-3.png"
+            alt="Tempest outcome 3"
+            width={560}
+            height={373}
+            className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+          />
         </div>
       </div>
-      {/* 11 — Final Thoughts */}
-      <TextSection heading="Final Thoughts">
-        Working on Tempest&apos;s privacy panel was a deep dive into balancing
-        user needs with technical constraints. It reinforced how thoughtful
-        interaction design can make complex privacy concepts feel approachable.
+
+      {/* 13 — Extending the Work Beyond Tempest */}
+      <TextSection heading="Extending the Work Beyond Tempest">
+        Several interaction patterns, design system foundations, and workflows
+        developed during the project were later reused across Infinity Browsers,
+        a new Tempest business unit. After leaving Tempest, I continued working
+        on browser products at Hop Design, applying and evolving many of these
+        foundations across projects for Ecosia and Startpage.
       </TextSection>
 
       {/* 12 — Next case study */}

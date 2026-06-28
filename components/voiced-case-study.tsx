@@ -49,54 +49,56 @@ export function VoicedCaseStudy() {
 
   return (
     <CaseStudyLayout readTime="4 min read" breadcrumbPage="Voiced">
-      <div className="flex flex-col gap-[40px]">
-        <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
-          <ImageBlock placeholder alt="" width={840} height={560} />
-        </HeroItem>
-
-        <div className="max-w-[560px] mx-auto flex flex-col gap-[16px]">
-          <HeroItem delay={STAGGER * 2} shouldReduceMotion={shouldReduceMotion}>
-            <div className="flex flex-col gap-1">
-              <h1 className="text-base font-semibold text-[var(--color-fg)]">Voiced</h1>
-              <p className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
-                Voiced is an iOS emotional wellbeing companion where people can speak their mind and find clarity through conversation.
-              </p>
-            </div>
+      <div className="flex flex-col gap-[24px]">
+        <div className="flex flex-col gap-[40px]">
+          <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
+            <ImageBlock placeholder alt="" width={840} height={560} />
           </HeroItem>
 
-          <HeroItem delay={STAGGER * 3} shouldReduceMotion={shouldReduceMotion}>
-            <MetadataRow
-              items={[
-                { label: "Company", value: "Sounding" },
-                { label: "App", value: "Voiced" },
-                { label: "Year", value: "2025–2026" },
-                { label: "Timeline", value: "6 months" },
-              ]}
-            />
-          </HeroItem>
+          <div className="max-w-[560px] mx-auto flex flex-col gap-[16px]">
+            <HeroItem delay={STAGGER * 2} shouldReduceMotion={shouldReduceMotion}>
+              <div className="flex flex-col gap-1">
+                <h1 className="text-base font-semibold text-[var(--color-fg)]">Voiced</h1>
+                <p className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
+                  Voiced is an iOS emotional wellbeing companion where people can speak their mind and find clarity through conversation.
+                </p>
+              </div>
+            </HeroItem>
+
+            <HeroItem delay={STAGGER * 3} shouldReduceMotion={shouldReduceMotion}>
+              <MetadataRow
+                items={[
+                  { label: "Company", value: "Sounding" },
+                  { label: "App", value: "Voiced" },
+                  { label: "Year", value: "2025–2026" },
+                  { label: "Timeline", value: "6 months" },
+                ]}
+              />
+            </HeroItem>
+          </div>
         </div>
+
+        <TextSection heading="My Role">
+          <p>
+            As Sounding&apos;s first design hire and the sole product designer on Voiced, I led the product design from research through launch. My responsibilities included user research, product strategy, user experience, visual design, brand design, and App Store marketing assets.
+          </p>
+          <p>
+            I also contributed to the AI conversation experience by synthesizing user insights, refining the system prompt, collaborating on the first conversation flow, and testing prompt variants. In addition, I used AI coding tools to design and implement a custom shader for the chat interface that shipped in production.
+          </p>
+        </TextSection>
+
+        <TextSection heading="Outcomes">
+          <p>
+            Voiced launched and, just five weeks later, became Sounding&apos;s primary product proof point at a16z Speedrun Demo Day and throughout the company&apos;s subsequent fundraising efforts, which led to an $8M seed round.
+          </p>
+          <p>
+            Following launch, I continued improving engagement through conversation quality experiments, onboarding refinements, prompt design, and feature iterations.
+          </p>
+          <p>
+            More detailed results are covered below, including a treatment that improved conversation retention and increased conversations per user, messages per user, and median session duration.
+          </p>
+        </TextSection>
       </div>
-
-      <TextSection heading="My Role">
-        <p>
-          As Sounding&apos;s first design hire and the sole product designer on Voiced, I led the product design from research through launch. My responsibilities included user research, product strategy, user experience, visual design, brand design, and App Store marketing assets.
-        </p>
-        <p>
-          I also contributed to the AI conversation experience by synthesizing user insights, refining the system prompt, collaborating on the first conversation flow, and testing prompt variants. In addition, I used AI coding tools to design and implement a custom shader for the chat interface that shipped in production.
-        </p>
-      </TextSection>
-
-      <TextSection heading="Outcomes">
-        <p>
-          Voiced launched and, just five weeks later, became Sounding&apos;s primary product proof point at a16z Speedrun Demo Day and throughout the company&apos;s subsequent fundraising efforts, which led to an $8M seed round.
-        </p>
-        <p>
-          Following launch, I continued improving engagement through conversation quality experiments, onboarding refinements, prompt design, and feature iterations.
-        </p>
-        <p>
-          More detailed results are covered below, including a treatment that improved conversation retention and increased conversations per user, messages per user, and median session duration.
-        </p>
-      </TextSection>
 
       <ImageBlock placeholder alt="" width={840} height={560} />
 
@@ -125,15 +127,15 @@ export function VoicedCaseStudy() {
         <p>
           My clearest area of ownership was the system prompt. Before changing it, I used product data, anonymized conversation quality signals, and user feedback to define what a successful first conversation should achieve:
         </p>
-        <ul>
+        <ol className="list-decimal list-inside -mt-1">
           <li>Capture intent</li>
           <li>Build early momentum</li>
           <li>Create psychological safety</li>
           <li>Establish personal relevance</li>
           <li>Provide a reason to return</li>
-        </ul>
+        </ol>
         <p>
-          These principles became the foundation for a rewritten system prompt. The goal was not to make Voiced behave more like a therapist. It was to make it a better emotional wellbeing companion: less generic, less eager to force deep exploration, and more grounded in what users were actually saying.
+          These principles became the foundation for a rewritten system prompt. The goal was for Voiced to feel less like a therapist and more like a conversational partner: less generic, less eager to force deep exploration, and more grounded in what users were actually saying.
         </p>
         <p>
           In parallel, the CPO and I scripted the opening messages of Conversation 1 to create a lower pressure starting point and help users get talking. After the initial exchange, the conversation transitioned to the system prompt.
