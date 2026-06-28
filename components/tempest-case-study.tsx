@@ -251,7 +251,7 @@ export function TempestCaseStudy() {
       </TextSection>
 
       {/* 12 — Next case study */}
-      <div className="flex flex-col">
+      <div className="max-w-[560px] mx-auto w-full flex flex-col">
         <div className="h-px bg-[var(--color-border)]" />
         <div className="h-[80px]" />
         <article className="group overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] cursor-default opacity-55">
