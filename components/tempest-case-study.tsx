@@ -241,7 +241,6 @@ export function TempestCaseStudy() {
         </TextSection>
         <div className="relative w-full rounded-lg overflow-hidden">
           <img src="/assets/tempest/variations.png" alt="Tempest design variations" className="w-full" />
-          <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
         </div>
       </div>
     </CaseStudyLayout>
