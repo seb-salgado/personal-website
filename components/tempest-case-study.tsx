@@ -168,7 +168,7 @@ export function TempestCaseStudy() {
           harnessing its robust foundation while tailoring it to our vision.
         </TextSection>
         <div className="relative w-full rounded-lg overflow-hidden">
-          <img src="/assets/tempest/desktop.jpg" alt="Tempest desktop app" className="w-full" />
+          <img src="/assets/tempest/desktop.png" alt="Tempest desktop app" className="w-full" />
           <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
         </div>
       </div>
@@ -182,7 +182,7 @@ export function TempestCaseStudy() {
           user&apos;s blocking level is set to &ldquo;No Blocking.&rdquo;
         </TextSection>
         <div className="relative w-full rounded-lg overflow-hidden">
-          <img src="/assets/tempest/desktop-blocking-level.jpg" alt="Tempest desktop blocking level" className="w-full" />
+          <img src="/assets/tempest/desktop-blocking-level.png" alt="Tempest desktop blocking level" className="w-full" />
           <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
         </div>
         <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
