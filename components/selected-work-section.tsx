@@ -63,10 +63,13 @@ export function SelectedWorkSection() {
 
   return (
     <div className="flex flex-col">
-      {/* Video placeholder */}
-      <div
-        className="w-full rounded-xl bg-[var(--color-surface)]"
-        style={{ aspectRatio: "16/9" }}
+      <video
+        className="w-full rounded-xl"
+        src="https://res.cloudinary.com/dcewfztrv/video/upload/f_auto,q_auto/v1782644616/selected-work_egio2h.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
       />
 
       {/* Footer row */}
