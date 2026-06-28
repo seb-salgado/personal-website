@@ -233,6 +233,17 @@ export function TempestCaseStudy() {
           </div>
         </div>
       </div>
+      {/* 10 — Variations section */}
+      <div className="flex flex-col gap-[40px]">
+        <TextSection heading="Variations">
+          Our design journey led us to create an array of screens with multiple
+          variations, depending on the app platform.
+        </TextSection>
+        <div className="relative w-full rounded-lg overflow-hidden">
+          <img src="/assets/tempest/variations.png" alt="Tempest design variations" className="w-full" />
+          <div className="absolute inset-0 rounded-lg pointer-events-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]" />
+        </div>
+      </div>
     </CaseStudyLayout>
   )
 }
