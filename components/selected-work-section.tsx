@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
 const EASE = [0.23, 1, 0.32, 1] as [number, number, number, number];
 
-export function SelectedWorkSection() {
+export const SelectedWorkSection = memo(function SelectedWorkSection() {
   const [expanded, setExpanded] = useState(false);
   const [arrowVisible, setArrowVisible] = useState(false);
   const [password, setPassword] = useState("");
@@ -230,4 +230,4 @@ export function SelectedWorkSection() {
       </div>
     </div>
   );
-}
+});
