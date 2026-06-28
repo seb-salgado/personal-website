@@ -282,7 +282,7 @@ export function TempestCaseStudy() {
             </p>
           </div>
         </article>
-        <div className="flex justify-between gap-6 mt-8">
+        <div className="flex justify-between gap-6 mt-[80px]">
           {socials.map((s) => (
             <DirectionalUnderline
               as="a"
