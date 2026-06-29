@@ -241,7 +241,12 @@ export function TempestCaseStudy() {
         <div className="h-[80px]" />
         <Link href="/case-studies/voiced" className="group block">
           <article className="overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] cursor-pointer hover:bg-[var(--color-surface)] active:scale-[0.99] transition-colors">
-            <div className="aspect-[16/9] w-full overflow-hidden rounded-t-lg bg-[var(--color-surface)]" />
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-t-lg bg-[var(--color-surface)]">
+              <video autoPlay muted loop playsInline className="h-full w-full object-cover">
+                <source src="https://res.cloudinary.com/dcewfztrv/video/upload/q_auto,f_webm/v1782694307/voiced-cover_p2calv.webm" type="video/webm" />
+                <source src="https://res.cloudinary.com/dcewfztrv/video/upload/q_auto,f_mp4/v1782694307/voiced-cover_p2calv.mp4" type="video/mp4" />
+              </video>
+            </div>
             <div className="flex flex-col gap-1 p-4">
               <h2 className="text-base font-medium leading-[1.3] text-[var(--color-fg)]">
                 Voiced

@@ -17,13 +17,14 @@ export default async function CaseStudiesPage() {
   }
 
   const studies = caseStudies.map(
-    ({ slug, title, client, year, description, coverImage, available }) => ({
+    ({ slug, title, client, year, description, coverImage, coverVideo, available }) => ({
       slug,
       title,
       client,
       year,
       description,
       coverImage,
+      coverVideo,
       available,
     })
   );

@@ -16,6 +16,7 @@ export interface CaseStudy {
   readTime: string;
   description: string;
   coverImage?: string;
+  coverVideo?: string;
   available: boolean;
   sections: CaseStudySection[];
 }
@@ -156,6 +157,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2025",
     readTime: "4 min read",
     description: "Designing an AI companion for emotional wellbeing",
+    coverVideo: "https://res.cloudinary.com/dcewfztrv/video/upload/v1782694307/voiced-cover_p2calv.mp4",
     available: true,
     sections: [],
   },

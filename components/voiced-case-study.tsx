@@ -8,6 +8,7 @@ import { DirectionalUnderline } from "@/components/ui/directional-underline"
 import {
   TextSection,
   ImageBlock,
+  VideoBlock,
   MetadataRow,
 } from "@/components/case-study-primitives"
 import { PTable1 } from "@/components/ui/p-table-1"
@@ -52,7 +53,7 @@ export function VoicedCaseStudy() {
       <div className="flex flex-col gap-[24px]">
         <div className="flex flex-col gap-[40px]">
           <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
-            <ImageBlock placeholder alt="" width={840} height={560} />
+            <VideoBlock src="https://res.cloudinary.com/dcewfztrv/video/upload/v1782694307/voiced-cover_p2calv.mp4" />
           </HeroItem>
 
           <div className="max-w-[560px] mx-auto flex flex-col gap-[16px]">
@@ -100,7 +101,7 @@ export function VoicedCaseStudy() {
         </TextSection>
       </div>
 
-      <ImageBlock placeholder alt="" width={840} height={560} />
+      <VideoBlock src="https://res.cloudinary.com/dcewfztrv/video/upload/v1782693508/voiced-carousel_wektxt.mp4" />
 
       <TextSection heading="Finding The Higher-Leverage Problem">
         <p>
@@ -119,6 +120,13 @@ export function VoicedCaseStudy() {
           The CPO agreed, and we shifted focus.
         </p>
       </TextSection>
+
+      <ImageBlock
+        src="/assets/voiced/better-conversations.png"
+        alt="Better conversations"
+        width={2240}
+        height={1680}
+      />
 
       <TextSection heading="Designing Better Conversations">
         <p>

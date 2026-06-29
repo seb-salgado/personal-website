@@ -22,6 +22,7 @@ type CaseStudyIndexItem = {
   title: string
   description: string
   coverImage?: string
+  coverVideo?: string
   available: boolean
 }
 
@@ -59,8 +60,25 @@ function CaseStudyCard({ study }: { study: CaseStudyIndexItem }) {
           : "cursor-default opacity-55"
       }`}
     >
-      <div className="aspect-[16/9] w-full overflow-hidden bg-[var(--color-surface)]">
-        {study.coverImage ? (
+      <div className="aspect-[4/3] w-full overflow-hidden bg-[var(--color-surface)]">
+        {study.coverVideo ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full object-cover"
+          >
+            <source
+              src={study.coverVideo.replace("/upload/", "/upload/q_auto,f_webm/").replace(/\.mp4$/, ".webm")}
+              type="video/webm"
+            />
+            <source
+              src={study.coverVideo.replace("/upload/", "/upload/q_auto,f_mp4/")}
+              type="video/mp4"
+            />
+          </video>
+        ) : study.coverImage ? (
           <img
             src={study.coverImage}
             alt=""
