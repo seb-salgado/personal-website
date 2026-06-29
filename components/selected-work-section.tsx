@@ -101,7 +101,7 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
             layout
             className={`relative flex items-center rounded-[8px] [overflow:clip] ${expanded ? "bg-[var(--color-surface)]" : ""}`}
             style={{
-              height: 34,
+              height: 38,
               boxShadow: `inset 0 0 0 1px ${error ? "#ef4444" : "var(--color-border)"}`,
               transition: "box-shadow 0.15s",
             }}
@@ -166,7 +166,7 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                   className="text-sm outline-none"
                   style={{
                     width: 140,
-                    height: 34,
+                    height: 38,
                     paddingLeft: 12,
                     paddingRight: 36,
                     color: "var(--color-fg)",
