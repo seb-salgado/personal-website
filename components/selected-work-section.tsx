@@ -99,7 +99,7 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
           */}
           <motion.div
             layout
-            className={`relative flex items-center rounded-[8px] overflow-hidden ${expanded ? "bg-[var(--color-surface)]" : ""}`}
+            className={`relative flex items-center rounded-[8px] [overflow:clip] ${expanded ? "bg-[var(--color-surface)]" : ""}`}
             style={{
               height: 34,
               boxShadow: `inset 0 0 0 1px ${error ? "#ef4444" : "var(--color-border)"}`,
@@ -192,8 +192,8 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                   }
                   animate={
                     prefersReducedMotion
-                      ? { opacity: 1 }
-                      : { opacity: 1, scale: 1 }
+                      ? { opacity: !password || loading ? 0.4 : 1 }
+                      : { opacity: !password || loading ? 0.4 : 1, scale: 1 }
                   }
                   exit={
                     prefersReducedMotion
@@ -202,7 +202,7 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                   }
                   transition={{ duration: 0.16, delay: prefersReducedMotion ? 0 : 0.1, ease: EASE }}
                   onMouseDown={() => { submittingRef.current = true; }}
-                  className="flex items-center justify-center cursor-pointer disabled:opacity-40 transition-opacity duration-150"
+                  className="flex items-center justify-center cursor-pointer disabled:opacity-40"
                   style={{
                     position: "absolute",
                     right: -1,
