@@ -192,8 +192,8 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                   }
                   animate={
                     prefersReducedMotion
-                      ? { opacity: loading ? 0.4 : 1 }
-                      : { opacity: loading ? 0.4 : 1, scale: 1 }
+                      ? { opacity: 1 }
+                      : { opacity: 1, scale: 1 }
                   }
                   exit={
                     prefersReducedMotion
@@ -202,7 +202,7 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                   }
                   transition={{ duration: 0.16, delay: prefersReducedMotion ? 0 : 0.1, ease: EASE }}
                   onMouseDown={() => { submittingRef.current = true; }}
-                  className="flex items-center justify-center cursor-pointer disabled:opacity-40"
+                  className="flex items-center justify-center cursor-pointer"
                   style={{
                     position: "absolute",
                     right: -1,
@@ -213,15 +213,81 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                   }}
                   whileTap={{ scale: 0.96 }}
                 >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path
-                      d="M3 8h10M9 4l4 4-4 4"
-                      stroke="var(--color-bg)"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <AnimatePresence mode="wait" initial={false}>
+                    {loading ? (
+                      <motion.span
+                        key="spinner"
+                        initial={
+                          prefersReducedMotion
+                            ? { opacity: 0 }
+                            : { opacity: 0, scale: 0.8, filter: "blur(3px)" }
+                        }
+                        animate={
+                          prefersReducedMotion
+                            ? { opacity: 1 }
+                            : { opacity: 1, scale: 1, filter: "blur(0px)" }
+                        }
+                        exit={
+                          prefersReducedMotion
+                            ? { opacity: 0 }
+                            : { opacity: 0, scale: 0.8, filter: "blur(3px)", transition: { duration: 0.1, ease: EASE } }
+                        }
+                        transition={{ duration: 0.15, ease: EASE }}
+                        style={{ display: "flex" }}
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          aria-hidden="true"
+                          className="animate-spin"
+                          style={{ animationDuration: "700ms" }}
+                        >
+                          <circle
+                            cx="8"
+                            cy="8"
+                            r="5.5"
+                            stroke="var(--color-bg)"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeDasharray="20 14"
+                          />
+                        </svg>
+                      </motion.span>
+                    ) : (
+                      <motion.span
+                        key="arrow"
+                        initial={
+                          prefersReducedMotion
+                            ? { opacity: 0 }
+                            : { opacity: 0, scale: 0.8, filter: "blur(3px)" }
+                        }
+                        animate={
+                          prefersReducedMotion
+                            ? { opacity: 1 }
+                            : { opacity: 1, scale: 1, filter: "blur(0px)" }
+                        }
+                        exit={
+                          prefersReducedMotion
+                            ? { opacity: 0 }
+                            : { opacity: 0, scale: 0.8, filter: "blur(3px)", transition: { duration: 0.1, ease: EASE } }
+                        }
+                        transition={{ duration: 0.15, ease: EASE }}
+                        style={{ display: "flex" }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                          <path
+                            d="M3 8h10M9 4l4 4-4 4"
+                            stroke="var(--color-bg)"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
                 </motion.button>
               )}
             </AnimatePresence>
