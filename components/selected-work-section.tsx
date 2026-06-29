@@ -73,7 +73,7 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
       />
 
       {/* Footer row */}
-      <div className="flex items-start justify-between gap-4 mt-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4 mt-3">
         {/* Left: title + description */}
         <div className="flex flex-col gap-0.5">
           <span
@@ -91,7 +91,7 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
         </div>
 
         {/* Right: morphing control */}
-        <form onSubmit={handleSubmit} className="flex items-center shrink-0 self-center">
+        <form onSubmit={handleSubmit} className="flex items-center shrink-0 self-start sm:self-center">
           {/*
             `relative` so the arrow button can be absolutely positioned —
             keeping it out of the flex flow so the container width is driven
@@ -99,11 +99,11 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
           */}
           <motion.div
             layout
-            className={`relative flex items-center rounded-[8px] border overflow-hidden has-[:focus-visible]:shadow-[0_0_0_3px_var(--color-ring)] ${expanded ? "bg-[var(--color-surface)]" : ""}`}
+            className={`relative flex items-center rounded-[8px] overflow-hidden ${expanded ? "bg-[var(--color-surface)]" : ""}`}
             style={{
-              height: 30,
-              borderColor: error ? "#ef4444" : "var(--color-border)",
-              transition: "border-color 0.15s, box-shadow 0.15s",
+              height: 34,
+              boxShadow: `inset 0 0 0 1px ${error ? "#ef4444" : "var(--color-border)"}`,
+              transition: "box-shadow 0.15s",
             }}
             transition={{ layout: { duration: layoutDuration, ease: EASE } }}
             whileTap={!expanded ? { scale: 0.97 } : undefined}
@@ -166,9 +166,9 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                   className="text-sm outline-none"
                   style={{
                     width: 140,
-                    height: 30,
+                    height: 34,
                     paddingLeft: 12,
-                    paddingRight: 30,
+                    paddingRight: 36,
                     color: "var(--color-fg)",
                     outline: "none",
                   }}
@@ -202,18 +202,18 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                   }
                   transition={{ duration: 0.16, delay: prefersReducedMotion ? 0 : 0.1, ease: EASE }}
                   onMouseDown={() => { submittingRef.current = true; }}
-                  className="flex items-center justify-center rounded-[5px] cursor-pointer disabled:opacity-40 transition-opacity duration-150"
+                  className="flex items-center justify-center cursor-pointer disabled:opacity-40 transition-opacity duration-150"
                   style={{
                     position: "absolute",
-                    right: 3,
-                    top: 3,
-                    width: 22,
-                    height: 22,
+                    right: -1,
+                    top: -1,
+                    bottom: -1,
+                    width: 35,
                     backgroundColor: "var(--color-fg)",
                   }}
                   whileTap={{ scale: 0.96 }}
                 >
-                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <path
                       d="M3 8h10M9 4l4 4-4 4"
                       stroke="var(--color-bg)"
