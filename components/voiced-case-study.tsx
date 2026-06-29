@@ -153,8 +153,6 @@ export function VoicedCaseStudy() {
         </p>
       </TextSection>
 
-      <ImageBlock placeholder alt="" width={840} height={560} />
-
       <TextSection heading="Experiment Readout">
         <p>
           The experiment compared:
@@ -179,25 +177,17 @@ export function VoicedCaseStudy() {
         />
       </TextSection>
 
-      <ImageBlock placeholder alt="" width={840} height={420} />
-
       <TextSection heading="Additional Contributions">
         Beyond the conversation quality work, I contributed to several smaller improvements that emerged from user feedback and product exploration.
       </TextSection>
 
-      <div className="flex flex-col gap-[40px]">
-        <TextSection heading="Expanding voice options">
+      <TextSection heading="Expanding voice options">
           User feedback consistently highlighted a desire for more voice options, particularly deeper male voices. I synthesized the feedback, advocated for prioritizing the work, and helped make voice selection part of the first time user experience. After launch, first conversation starts appeared to improve following voice selection. While the original metric source is no longer available, I view this as a promising activation signal rather than a validated retention improvement.
         </TextSection>
-        <ImageBlock placeholder alt="" width={840} height={560} />
-      </div>
 
-      <div className="flex flex-col gap-[40px]">
-        <TextSection heading="Building a voice reactive shader">
+      <TextSection heading="Building a voice reactive shader">
           To explore the voice experience, I used AI coding tools to build a shader that responded dynamically to voice amplitude and frequency. The prototype proved effective enough that engineering adapted it for production, allowing us to explore and communicate interaction quality with much greater fidelity than static mocks alone.
         </TextSection>
-        <ImageBlock placeholder alt="" width={840} height={560} />
-      </div>
 
       <TextSection heading="What Was Unresolved">
         <p>
