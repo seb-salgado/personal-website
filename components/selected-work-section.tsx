@@ -184,7 +184,7 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                 <motion.button
                   key="arrow"
                   type="submit"
-                  disabled={!password || loading}
+                  disabled={loading}
                   initial={
                     prefersReducedMotion
                       ? { opacity: 0 }
@@ -192,8 +192,8 @@ export const SelectedWorkSection = memo(function SelectedWorkSection() {
                   }
                   animate={
                     prefersReducedMotion
-                      ? { opacity: !password || loading ? 0.4 : 1 }
-                      : { opacity: !password || loading ? 0.4 : 1, scale: 1 }
+                      ? { opacity: loading ? 0.4 : 1 }
+                      : { opacity: loading ? 0.4 : 1, scale: 1 }
                   }
                   exit={
                     prefersReducedMotion
