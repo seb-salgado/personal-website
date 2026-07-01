@@ -153,6 +153,13 @@ export function VoicedCaseStudy() {
         </p>
       </TextSection>
 
+      <ImageBlock
+        src="/assets/voiced/chat-log.png"
+        alt="Chat log"
+        width={2240}
+        height={1680}
+      />
+
       <TextSection heading="Experiment Readout">
         <p>
           The experiment compared:
@@ -176,6 +183,13 @@ export function VoicedCaseStudy() {
           ]}
         />
       </TextSection>
+
+      <ImageBlock
+        src="/assets/voiced/safe-space.png"
+        alt="Safe space"
+        width={3064}
+        height={2298}
+      />
 
       <TextSection heading="Additional Contributions">
         Beyond the conversation quality work, I contributed to several smaller improvements that emerged from user feedback and product exploration.
