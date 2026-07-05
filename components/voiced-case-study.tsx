@@ -12,6 +12,7 @@ import {
   MetadataRow,
 } from "@/components/case-study-primitives"
 import { PTable1 } from "@/components/ui/p-table-1"
+import { VoicedAppStoreReviews } from "@/components/voiced-app-store-reviews"
 
 const socials = [
   { label: "X/Twitter", href: "https://x.com/SebastiaoSommer" },
@@ -290,6 +291,8 @@ export function VoicedCaseStudy() {
           The outcome was mixed: Voiced resonated with users and proved many of our product hypotheses, but the business ultimately moved in a different direction.
         </p>
       </TextSection>
+
+      <VoicedAppStoreReviews />
 
       <TextSection heading="Takeaway">
         <p>
