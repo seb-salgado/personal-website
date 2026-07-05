@@ -79,7 +79,10 @@ export function MetadataRow({
   items: Array<{ label: string; value: string }>
 }) {
   return (
-    <div className="grid grid-cols-4 gap-y-3">
+    <div
+      className="grid gap-y-3"
+      style={{ gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))` }}
+    >
       {items.map(({ label, value }) => (
         <div key={label} className="flex flex-col gap-0.5">
           <span className="text-base text-[var(--color-fg)]" style={{ opacity: 0.7 }}>

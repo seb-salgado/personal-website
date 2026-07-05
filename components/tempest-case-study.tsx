@@ -85,7 +85,6 @@ export function TempestCaseStudy() {
               <MetadataRow
                 items={[
                   { label: "Company", value: "Tempest" },
-                  { label: "Product", value: "Browser" },
                   { label: "Platform", value: "Desktop, iOS" },
                   { label: "Year", value: "2023" },
                 ]}

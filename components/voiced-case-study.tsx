@@ -72,7 +72,6 @@ export function VoicedCaseStudy() {
                   { label: "Company", value: "Sounding" },
                   { label: "App", value: "Voiced" },
                   { label: "Year", value: "2025–2026" },
-                  { label: "Timeline", value: "6 months" },
                 ]}
               />
             </HeroItem>
