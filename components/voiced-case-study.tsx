@@ -81,22 +81,19 @@ export function VoicedCaseStudy() {
 
         <TextSection heading="My Role">
           <p>
-            As Sounding&apos;s first design hire and the sole product designer on Voiced, I led the product design from research through launch. My responsibilities included user research, product strategy, user experience, visual design, brand design, and App Store marketing assets.
+            As Sounding&apos;s first design hire and sole product designer on Voiced, I owned product design end to end — research, product strategy, UX, visual and brand design, and App Store assets — working closely with the CPO and a small engineering team.
           </p>
           <p>
-            I also contributed to the AI conversation experience by synthesizing user insights, refining the system prompt, collaborating on the first conversation flow, and testing prompt variants. In addition, I used AI coding tools to design and implement a custom shader for the chat interface that shipped in production.
+            Beyond design, I shaped the AI conversation experience by synthesizing user insights, rewriting the system prompt, and testing prompt variants, and I drove the experiments that improved engagement. I also used AI coding tools to build a custom voice-reactive shader that shipped in production.
           </p>
         </TextSection>
 
         <TextSection heading="Outcomes">
           <p>
-            Voiced launched and, just five weeks later, became Sounding&apos;s primary product proof point at a16z Speedrun Demo Day and throughout the company&apos;s subsequent fundraising efforts, which led to an $8M seed round.
+            Voiced launched and, five weeks later, became Sounding&apos;s primary product proof point at a16z Speedrun Demo Day and throughout the fundraising that led to an $8M seed round.
           </p>
           <p>
-            Following launch, I continued improving engagement through conversation quality experiments, onboarding refinements, prompt design, and feature iterations.
-          </p>
-          <p>
-            More detailed results are covered below, including a treatment that improved conversation retention and increased conversations per user, messages per user, and median session duration.
+            Post-launch, I focused on the core conversation loop. My biggest experiment lifted Conversation 2→3 retention from 41% to 55% and nearly doubled messages per user, and a later home redesign showed early D1-retention gains (15% → 22%).
           </p>
         </TextSection>
       </div>
@@ -105,7 +102,7 @@ export function VoicedCaseStudy() {
 
       <TextSection heading="Finding The Higher-Leverage Problem">
         <p>
-          After Demo Day, the team was focused on improving Voiced&apos;s path to profitability. Product data showed that more than half of users displayed signs of overwhelm during their first conversation, leading us to explore a dedicated experience for those users.
+          After Demo Day, the team was focused on improving Voiced&apos;s first time user experience. Product data showed that more than half of users displayed signs of overwhelm during their first conversation, leading us to explore a dedicated experience for those users.
         </p>
         <p>
           My initial proposal was a routing agent that could direct users to different conversational paths based on how the discussion evolved. But after reviewing product metrics and anonymized conversation quality signals, I became less convinced that overwhelm was the real problem.
@@ -151,6 +148,9 @@ export function VoicedCaseStudy() {
         <p>
           We shipped the updated system prompt and scripted Conversation 1 experience together.
         </p>
+        <p>
+          At this stage, we focused on conversation retention as our primary success metric. Our belief was that users who repeatedly returned for conversations were finding value in the product and were more likely to continue using it over time.
+        </p>
       </TextSection>
 
       <ImageBlock
@@ -160,7 +160,7 @@ export function VoicedCaseStudy() {
         height={1680}
       />
 
-      <TextSection heading="Experiment Readout">
+      <div className="max-w-[560px] mx-auto flex flex-col gap-2 text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
         <p>
           The experiment compared:
         </p>
@@ -182,6 +182,73 @@ export function VoicedCaseStudy() {
             { metric: "Median session time", control: "3:04", treatment: "5:08", change: "+68%" },
           ]}
         />
+        <p>
+          Because the first conversation script and system prompt shipped together, I treated the result as a combined treatment. The strongest prompt-specific signal came from later conversations, where the scripted Conversation 1 opening no longer applied.
+        </p>
+      </div>
+
+      <TextSection heading="Designing for Continuity">
+        <p>
+          After improving Conversation 1, I looked at what happened when users returned.
+        </p>
+        <p>
+          Analysis of 1,095 Conversation 1 and Conversation 2 pairs revealed meaningful continuity between conversations. Users often returned to related topics and emotional themes, even when they did not explicitly reference their previous discussion.
+        </p>
+        <p>
+          To help users continue where they left off, I designed a screen that appeared after a user&apos;s first conversation, provided they had written at least 100 characters, suggesting three personalized topics for Conversation 2 based on their previous conversation and onboarding responses.
+        </p>
+        <p>
+          I explored several concepts, including a single recommendation, multiple suggestions, and a fresh start option, before landing on the final design.
+        </p>
+        <p>
+          The experiment increased engagement depth:
+        </p>
+        <PTable1
+          columns={[
+            { key: "metric", label: "Metric" },
+            { key: "control", label: "Control", align: "right" },
+            { key: "c2", label: "C2 suggestions", align: "right" },
+            { key: "change", label: "Change", align: "right" },
+          ]}
+          rows={[
+            { metric: "Conversation 1→2", control: "33.2%", c2: "39.4%", change: "+6.1pp" },
+            { metric: "Words/user", control: "592", c2: "1,109", change: "+87%" },
+            { metric: "User messages/user", control: "22.1", c2: "27.5", change: "+25%" },
+            { metric: "Sessions with message/user", control: "1.73", c2: "2.30", change: "+33%" },
+          ]}
+        />
+        <p>
+          The experiment increased engagement depth across Conversation 2, helping users continue conversations and engage more meaningfully with the product.
+        </p>
+      </TextSection>
+
+      <TextSection heading="Designing for Continuity at Scale">
+        <p>
+          The Conversation 2 topic suggestion experiment showed that users benefited from continuity between conversations. We explored how to extend that continuity beyond a single return session.
+        </p>
+        <p>
+          I redesigned the home screen around a personalized conversation plan. Drawing from previous conversations, it suggested future topics and presented them in a calendar inspired view. The goal was to make users feel that Voiced remembered what they had shared, that conversations were connected, and that there was value in returning.
+        </p>
+        <p>
+          We shipped the redesign in Voiced 1.0.30. Although the rollout was not a controlled A/B test, subsequent version level analysis showed encouraging directional signals:
+        </p>
+        <PTable1
+          columns={[
+            { key: "metric", label: "Metric" },
+            { key: "baseline", label: "1.0.29 baseline", align: "right" },
+            { key: "v131", label: "1.0.31", align: "right" },
+            { key: "change", label: "Change", align: "right" },
+          ]}
+          rows={[
+            { metric: "Conversation 1 started", baseline: "71.7%", v131: "81.0%", change: "+9pp" },
+            { metric: "Conversation 2 reached", baseline: "16.4%", v131: "22.2%", change: "+6pp" },
+            { metric: "Conversation 3 reached", baseline: "4.0%", v131: "11.1%", change: "+7pp" },
+            { metric: "D1 retention", baseline: "14.7%", v131: "21.6%", change: "+6.9pp" },
+          ]}
+        />
+        <p>
+          While not a controlled experiment, the results provided encouraging evidence that continuity and planning could strengthen activation and early retention.
+        </p>
       </TextSection>
 
       <ImageBlock
@@ -202,23 +269,26 @@ export function VoicedCaseStudy() {
         height={1545}
       />
 
-      <TextSection heading="Expanding voice options">
+      <TextSection heading="Expanding Voice Options">
           User feedback consistently highlighted a desire for more voice options, particularly deeper male voices. I synthesized the feedback, advocated for prioritizing the work, and helped make voice selection part of the first time user experience. After launch, first conversation starts appeared to improve following voice selection. While the original metric source is no longer available, I view this as a promising activation signal rather than a validated retention improvement.
         </TextSection>
 
-      <TextSection heading="Building a voice reactive shader">
+      <TextSection heading="Building a Voice Reactive Shader">
           To explore the voice experience, I used AI coding tools to build a shader that responded dynamically to voice amplitude and frequency. The prototype proved effective enough that engineering adapted it for production, allowing us to explore and communicate interaction quality with much greater fidelity than static mocks alone.
         </TextSection>
 
-      <TextSection heading="What Was Unresolved">
+      <TextSection heading="Where It Landed">
         <p>
-          Seven months after launch, Sounding decided to stop investing in Voiced and focus on other products with more promising metrics. ROAS on M13 never exceeded 80%, sustainable acquisition costs were difficult to find, and the team did not identify a sufficiently differentiated position against larger players in the category.
+          Seven months after launch, Sounding decided to focus its resources on other products with more promising metrics.
         </p>
         <p>
-          Even so, the project achieved its original goals. Voiced became Sounding&apos;s first shipped product, supported the company&apos;s Demo Day and fundraising efforts, helped establish internal product and AI workflows, and generated measurable improvements in conversation quality and engagement.
+          While Voiced did not become a long term business, many users found genuine value in the experience. The product received positive App Store reviews, users returned for multiple conversations, and several experiments showed meaningful improvements in engagement and continuity.
         </p>
         <p>
-          The outcome was ultimately mixed: Voiced was an important company milestone and learning vehicle, but not a proven long term business.
+          Voiced became Sounding&apos;s first shipped product, supported the company&apos;s fundraising efforts, established internal AI product workflows, and generated valuable lessons around conversation quality, personalization, and retention.
+        </p>
+        <p>
+          The outcome was mixed: Voiced resonated with users and proved many of our product hypotheses, but the business ultimately moved in a different direction.
         </p>
       </TextSection>
 
@@ -227,7 +297,7 @@ export function VoicedCaseStudy() {
           Voiced was a lesson in designing under early-company ambiguity: shipping the first product quickly, making it credible enough for investor and market signal, then improving the core conversation loop through product judgment and measurable iteration.
         </p>
         <p>
-          The most important work was not simply designing the app&apos;s screens. It was recognizing when a planned feature was not the highest-leverage problem, helping redirect the team toward the core conversation experience, and improving that experience in a way that showed measurable user behavior change.
+          The most important work was not simply designing the app&apos;s screens. It was recognizing when a planned feature was not the highest-leverage problem, helping redirect the team toward the core conversation experience, and then extending that work into continuity and personalization experiments that changed how users came back.
         </p>
       </TextSection>
 
