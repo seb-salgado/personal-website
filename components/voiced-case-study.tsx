@@ -252,10 +252,10 @@ export function VoicedCaseStudy() {
       </TextSection>
 
       <ImageBlock
-        src="/assets/voiced/safe-space.png"
-        alt="Safe space"
-        width={3064}
-        height={2298}
+        src="/assets/voiced/home-redesign.png"
+        alt="Home redesign"
+        width={3360}
+        height={2520}
       />
 
       <TextSection heading="Additional Contributions">
@@ -272,6 +272,13 @@ export function VoicedCaseStudy() {
       <TextSection heading="Expanding Voice Options">
           User feedback consistently highlighted a desire for more voice options, particularly deeper male voices. I synthesized the feedback, advocated for prioritizing the work, and helped make voice selection part of the first time user experience. After launch, first conversation starts appeared to improve following voice selection. While the original metric source is no longer available, I view this as a promising activation signal rather than a validated retention improvement.
         </TextSection>
+
+      <ImageBlock
+        src="/assets/voiced/voice-options.png"
+        alt="Voice options"
+        width={3360}
+        height={2520}
+      />
 
       <TextSection heading="Building a Voice Reactive Shader">
           To explore the voice experience, I used AI coding tools to build a shader that responded dynamically to voice amplitude and frequency. The prototype proved effective enough that engineering adapted it for production, allowing us to explore and communicate interaction quality with much greater fidelity than static mocks alone.
