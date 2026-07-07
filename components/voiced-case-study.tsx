@@ -197,9 +197,16 @@ export function VoicedCaseStudy() {
         <p>
           To help users continue where they left off, I designed a screen that appeared after a user&apos;s first conversation, provided they had written at least 100 characters, suggesting three personalized topics for Conversation 2 based on their previous conversation and onboarding responses.
         </p>
-        <p>
-          I explored several concepts, including a single recommendation, multiple suggestions, and a fresh start option, before landing on the final design.
-        </p>
+      </TextSection>
+
+      <ImageBlock
+        src="/assets/voiced/c2-experiment.png"
+        alt="Conversation 2 topic suggestion experiment"
+        width={3360}
+        height={2520}
+      />
+
+      <div className="max-w-[560px] mx-auto flex flex-col gap-2 text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
         <p>
           The experiment increased engagement depth:
         </p>
@@ -220,7 +227,7 @@ export function VoicedCaseStudy() {
         <p>
           The experiment increased engagement depth across Conversation 2, helping users continue conversations and engage more meaningfully with the product.
         </p>
-      </TextSection>
+      </div>
 
       <TextSection heading="Designing for Continuity at Scale">
         <p>
