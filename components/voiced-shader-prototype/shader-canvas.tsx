@@ -19,14 +19,16 @@ interface ShaderCanvasProps {
 
 // How strongly voice pushes the shader beyond the slider baselines.
 const CONTRAST_GAIN = 1.2
-const SPEED_GAIN = 0.07
+// Voice displaces the noise phase by up to this many units. Bounded (centroid
+// is 0..1), so the reaction has the same magnitude at second 5 and second 500 —
+// unlike scaling absolute time, which grew unboundedly the longer the page ran.
+const VOICE_PHASE_GAIN = 2.0
 const ATTACK_TAU = 0.05
 const RELEASE_TAU = 0.35
 
 const UNIFORM_NAMES = [
   "iTime",
   "iResolution",
-  "uSpeed",
   "uContrast",
   "uGrain",
   "uNoiseScale",
@@ -143,18 +145,14 @@ export function ShaderCanvas({
       if (canvas.width !== width || canvas.height !== height) {
         canvas.width = width
         canvas.height = height
-        gl.viewport(0, 0, width, height)
       }
+      gl.viewport(0, 0, canvas.width, canvas.height)
     }
 
     function frame(now: number) {
       if (!gl || !program || contextLost) return
       const dt = lastTime === 0 ? 0 : Math.min((now - lastTime) / 1000, 0.1)
       lastTime = now
-
-      if (!reducedMotionRef.current) {
-        shaderTime += dt
-      }
 
       const p = paramsRef.current
       const isVoiceEnabled = voiceEnabledRef.current
@@ -181,19 +179,25 @@ export function ShaderCanvas({
         PARAM_CONFIG.contrast.min,
         PARAM_CONFIG.contrast.max
       )
-      const effectiveSpeed = clamp(
-        p.speed + smoothedCentroid * SPEED_GAIN,
-        PARAM_CONFIG.speed.min,
-        PARAM_CONFIG.speed.max
-      )
 
-      gl.uniform1f(uniforms.iTime ?? null, shaderTime)
+      // Ambient motion advances at the baseline speed only.
+      if (!reducedMotionRef.current) {
+        shaderTime += dt * p.speed
+      }
+
+      // Voice reaction: a bounded phase offset riding on top of the ambient
+      // phase. Because it is an offset (not a time-scale), speaking shifts the
+      // pattern by a fixed, repeatable amount regardless of elapsed time.
+      const voicePhase = reducedMotionRef.current
+        ? 0
+        : smoothedCentroid * VOICE_PHASE_GAIN
+
+      gl.uniform1f(uniforms.iTime ?? null, shaderTime + voicePhase)
       gl.uniform2f(
         uniforms.iResolution ?? null,
         gl.drawingBufferWidth,
         gl.drawingBufferHeight
       )
-      gl.uniform1f(uniforms.uSpeed ?? null, effectiveSpeed)
       gl.uniform1f(uniforms.uContrast ?? null, effectiveContrast)
       gl.uniform1f(uniforms.uGrain ?? null, p.grain)
       gl.uniform1f(uniforms.uNoiseScale ?? null, p.noiseScale)

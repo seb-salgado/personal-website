@@ -38,7 +38,13 @@ export function useVoiceAnalyser(
     async function start() {
       try {
         stream = await navigator.mediaDevices.getUserMedia({
-          audio: { echoCancellation: true, noiseSuppression: true },
+          // autoGainControl off: the browser's AGC ramps mic gain over time,
+          // which would make the rms -> contrast response drift upward.
+          audio: {
+            echoCancellation: true,
+            noiseSuppression: true,
+            autoGainControl: false,
+          },
         })
       } catch (err) {
         if (cancelled) return

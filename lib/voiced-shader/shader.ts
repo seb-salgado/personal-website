@@ -1,4 +1,6 @@
-// Fragment shader reused verbatim from the Voiced gradient tool (converted from SKSL).
+// Fragment shader reused from the Voiced gradient tool (converted from SKSL), with one
+// change: motion phase is integrated on the CPU (iTime already includes speed), so speed
+// changes alter the rate of motion instead of jumping the phase by iTime * delta.
 // The vertex shader is rewritten for raw WebGL: fullscreen triangle, no matrices.
 
 export const vertexShader = `
@@ -17,7 +19,6 @@ export const fragmentShader = `
 
   uniform float iTime;
   uniform vec2 iResolution;
-  uniform float uSpeed;
   uniform float uContrast;
   uniform float uGrain;
   uniform float uNoiseScale;
@@ -59,8 +60,8 @@ export const fragmentShader = `
     float aspect = iResolution.x / iResolution.y;
     uv.x *= aspect;
 
-    // Motion speed (parameterized)
-    float t = iTime * uSpeed;
+    // Motion phase, pre-integrated with speed on the CPU
+    float t = iTime;
 
     // Layered noise for organic motion (with noise scale)
     float n1 = noise(uv * 1.2 * uNoiseScale + t * 0.6);
