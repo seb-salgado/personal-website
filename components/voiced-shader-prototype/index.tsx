@@ -8,12 +8,19 @@ import {
 } from "@/lib/voiced-shader/defaults"
 import { ShaderCanvas, type AudioLevels } from "./shader-canvas"
 import { ControlPanel } from "./control-panel"
+import { useVoiceAnalyser } from "./use-voice-analyser"
 
 export function VoicedShaderPrototype() {
   const [params, setParams] = useState<ShaderParams>(DEFAULT_PARAMS)
   const [voiceEnabled, setVoiceEnabled] = useState(false)
-  const [micError, setMicError] = useState<string | null>(null)
   const audioLevelsRef = useRef<AudioLevels>({ rms: 0, centroidNorm: 0 })
+
+  const handleMicDenied = useCallback(() => setVoiceEnabled(false), [])
+  const { error: micError } = useVoiceAnalyser(
+    voiceEnabled,
+    audioLevelsRef,
+    handleMicDenied
+  )
 
   const handleParamChange = useCallback((key: NumericParam, value: number) => {
     setParams((prev) => ({ ...prev, [key]: value }))
@@ -28,7 +35,6 @@ export function VoicedShaderPrototype() {
   }, [])
 
   const handleToggleVoice = useCallback(() => {
-    setMicError(null)
     setVoiceEnabled((prev) => !prev)
   }, [])
 
