@@ -171,6 +171,15 @@ html {
 }
 
 @theme inline {
+  /* Semantic tokens expected by the fluidfunctionalism registry components,
+     mapped onto the site's theme variables. */
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-fg);
+  --color-muted-foreground: var(--color-fg-muted);
+  --color-card: var(--color-surface);
+  --color-accent: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-hover: var(--color-ring);
   --color-surface-1: var(--surface-1);
   --color-surface-2: var(--surface-2);
   --color-surface-3: var(--surface-3);

@@ -26,8 +26,8 @@ import { surfaceClasses } from "@/lib/surface-classes";
 import { useIcon } from "@/lib/icon-context";
 import { useProximityHover } from "@/hooks/use-proximity-hover";
 import { Elevated } from "@/lib/elevated";
-import { Slider } from "@/components/slider";
-import { Tooltip } from "@/components/tooltip";
+import { Slider } from "@/components/ui/slider";
+import { Tooltip } from "@/components/ui/tooltip";
 
 // ---------------------------------------------------------------------------
 // Types
