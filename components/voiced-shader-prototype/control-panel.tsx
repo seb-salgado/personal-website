@@ -128,7 +128,10 @@ export function VoiceToggleButton({
     >
       <span
         aria-hidden="true"
-        className={cn(labelClass, voiceEnabled ? hiddenLabel : visibleLabel)}
+        // The idle pill is always white (it floats over the warm shader), so
+        // "Try Voice" is pinned to the light-mode ink instead of var(--color-fg),
+        // which would flip to a near-white and vanish on the pill in dark mode.
+        className={cn(labelClass, voiceEnabled ? hiddenLabel : visibleLabel, "text-[#18191C]")}
       >
         Try Voice
       </span>
