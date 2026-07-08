@@ -19,6 +19,7 @@ interface ControlPanelProps {
   voiceEnabled: boolean
   onToggleVoice: () => void
   micError: string | null
+  showVoiceButton?: boolean
   className?: string
 }
 
@@ -51,6 +52,7 @@ export function ControlPanel({
   voiceEnabled,
   onToggleVoice,
   micError,
+  showVoiceButton = true,
   className,
 }: ControlPanelProps) {
   return (
@@ -98,40 +100,64 @@ export function ControlPanel({
         </div>
       </section>
 
-      <div className="mt-auto flex flex-col gap-2">
-        <button
-          type="button"
-          aria-pressed={voiceEnabled}
-          onClick={onToggleVoice}
-          className={cn(
-            "flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg text-[13px] font-medium transition-colors duration-150",
-            voiceEnabled
-              ? "bg-[#E8E9EB] text-[#111213] hover:bg-white"
-              : "bg-white/10 text-[#E8E9EB] hover:bg-white/15"
-          )}
-        >
-          {voiceEnabled ? (
-            <>
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#CC5930] opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-[#CC5930]" />
-              </span>
-              Listening…
-            </>
-          ) : (
-            <>
-              <Mic className="size-4" aria-hidden="true" />
-              Enable voice reaction
-            </>
-          )}
-        </button>
-        {micError && (
-          <p className="flex items-start gap-1.5 text-[12px] leading-snug text-white/60">
-            <MicOff className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
-            {micError}
-          </p>
-        )}
-      </div>
+      {showVoiceButton && (
+        <div className="mt-auto flex flex-col gap-2">
+          <VoiceToggleButton
+            voiceEnabled={voiceEnabled}
+            onToggleVoice={onToggleVoice}
+          />
+          {micError && <MicErrorNotice message={micError} />}
+        </div>
+      )}
     </div>
+  )
+}
+
+export function VoiceToggleButton({
+  voiceEnabled,
+  onToggleVoice,
+  className,
+}: {
+  voiceEnabled: boolean
+  onToggleVoice: () => void
+  className?: string
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={voiceEnabled}
+      onClick={onToggleVoice}
+      className={cn(
+        "flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg text-[13px] font-medium transition-colors duration-150",
+        voiceEnabled
+          ? "bg-[#E8E9EB] text-[#111213] hover:bg-white"
+          : "bg-white/10 text-[#E8E9EB] hover:bg-white/15",
+        className
+      )}
+    >
+      {voiceEnabled ? (
+        <>
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#CC5930] opacity-75" />
+            <span className="relative inline-flex size-2 rounded-full bg-[#CC5930]" />
+          </span>
+          Listening…
+        </>
+      ) : (
+        <>
+          <Mic className="size-4" aria-hidden="true" />
+          Enable voice reaction
+        </>
+      )}
+    </button>
+  )
+}
+
+export function MicErrorNotice({ message }: { message: string }) {
+  return (
+    <p className="flex items-start gap-1.5 text-[12px] leading-snug text-white/60">
+      <MicOff className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
+      {message}
+    </p>
   )
 }
