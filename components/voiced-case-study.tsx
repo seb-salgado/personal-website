@@ -13,6 +13,7 @@ import {
 } from "@/components/case-study-primitives"
 import { PTable1 } from "@/components/ui/p-table-1"
 import { VoicedAppStoreReviews } from "@/components/voiced-app-store-reviews"
+import { VoicedShaderPrototype } from "@/components/voiced-shader-prototype"
 
 const socials = [
   { label: "X/Twitter", href: "https://x.com/SebastiaoSommer" },
@@ -290,6 +291,8 @@ export function VoicedCaseStudy() {
       <TextSection heading="Building a Voice Reactive Shader">
           To explore the voice experience, I used AI coding tools to build a shader that responded dynamically to voice amplitude and frequency. The prototype proved effective enough that engineering adapted it for production, allowing us to explore and communicate interaction quality with much greater fidelity than static mocks alone.
         </TextSection>
+
+      <VoicedShaderPrototype />
 
       <TextSection heading="Where It Landed">
         <p>
