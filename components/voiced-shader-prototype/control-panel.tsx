@@ -1,7 +1,6 @@
 "use client"
 
-import type { CSSProperties } from "react"
-import { Mic, MicOff } from "lucide-react"
+import { MicOff } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { rgbToHex } from "@/lib/voiced-shader/color"
 import { SliderComfortable } from "@/components/ui/slider"
@@ -22,17 +21,6 @@ interface ControlPanelProps {
   showVoiceButton?: boolean
   className?: string
 }
-
-// The panel sits on the shader, so it is always dark regardless of site
-// theme. The registry components read these theme variables.
-const darkPanelVars = {
-  "--color-bg": "#111213",
-  "--color-fg": "#E8E9EB",
-  "--color-fg-muted": "#A0A2A4",
-  "--color-surface": "#242528",
-  "--color-border": "rgba(255, 255, 255, 0.16)",
-  "--color-ring": "rgba(232, 233, 235, 0.12)",
-} as CSSProperties
 
 const NUMERIC_PARAMS: NumericParam[] = [
   "speed",
@@ -57,14 +45,13 @@ export function ControlPanel({
 }: ControlPanelProps) {
   return (
     <div
-      style={darkPanelVars}
       className={cn(
-        "flex flex-col gap-5 rounded-xl border border-white/10 bg-black/55 p-4 text-[#E8E9EB] backdrop-blur-md",
+        "flex flex-col gap-5 rounded-none border border-[var(--color-border)] bg-[var(--color-bg)] p-4 text-[var(--color-fg)] [--active:var(--color-fg)] [--background:var(--color-bg)] [--border:var(--color-border)] [--focus-ring:var(--color-fg)] [--foreground:var(--color-fg)] [--muted-foreground:var(--color-fg-muted)]",
         className
       )}
     >
       <section className="flex flex-col gap-3">
-        <h3 className="text-[11px] font-medium uppercase tracking-[0.08em] text-white/50">
+        <h3 className="text-[11px] font-medium uppercase tracking-[0.08em] text-[var(--color-fg-muted)]">
           Parameters
         </h3>
         {NUMERIC_PARAMS.map((key) => (
@@ -78,12 +65,13 @@ export function ControlPanel({
             step={PARAM_CONFIG[key].step}
             formatValue={(v) => formatParam(key, v)}
             onChange={(value) => onParamChange(key, value)}
+            className="rounded-xl"
           />
         ))}
       </section>
 
       <section className="flex flex-col gap-3">
-        <h3 className="text-[11px] font-medium uppercase tracking-[0.08em] text-white/50">
+        <h3 className="text-[11px] font-medium uppercase tracking-[0.08em] text-[var(--color-fg-muted)]">
           Colors
         </h3>
         <div className="grid grid-cols-2 gap-2">
@@ -92,8 +80,7 @@ export function ControlPanel({
               key={i}
               value={color}
               onValueChange={(_, parsed) => onColorChange(i, rgbToHex(parsed.r, parsed.g, parsed.b))}
-              triggerLabel={`${i + 1}`}
-              triggerClassName="w-full"
+              triggerClassName="w-full rounded-xl"
               hideEyedropper
             />
           ))}
@@ -122,40 +109,42 @@ export function VoiceToggleButton({
   onToggleVoice: () => void
   className?: string
 }) {
+  const labelClass =
+    "absolute inset-0 flex items-center justify-center transition-[opacity,transform,filter] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:scale-100 motion-reduce:transition-none motion-reduce:[filter:none]"
+  const visibleLabel = "scale-100 opacity-100 [filter:blur(0px)]"
+  const hiddenLabel = "pointer-events-none scale-95 opacity-0 [filter:blur(2px)]"
+
   return (
     <button
       type="button"
       aria-pressed={voiceEnabled}
+      aria-label={voiceEnabled ? "Voice On" : "Try Voice"}
       onClick={onToggleVoice}
       className={cn(
-        "flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg text-[13px] font-medium transition-colors duration-150",
-        voiceEnabled
-          ? "bg-[#E8E9EB] text-[#111213] hover:bg-white"
-          : "bg-white/10 text-[#E8E9EB] hover:bg-white/15",
-        className
+        "relative flex h-11 w-[116px] cursor-pointer select-none items-center justify-center overflow-hidden rounded-full border border-transparent bg-[var(--color-fg)] text-base font-semibold text-[var(--color-bg)] transition-[background-color,border-color,opacity,transform] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:opacity-90 focus-visible:rounded-full active:scale-[0.98] motion-reduce:transition-none",
+        className,
+        voiceEnabled && "border-white bg-white/15 text-white hover:bg-white/15"
       )}
     >
-      {voiceEnabled ? (
-        <>
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#CC5930] opacity-75" />
-            <span className="relative inline-flex size-2 rounded-full bg-[#CC5930]" />
-          </span>
-          Listening…
-        </>
-      ) : (
-        <>
-          <Mic className="size-4" aria-hidden="true" />
-          Enable voice reaction
-        </>
-      )}
+      <span
+        aria-hidden="true"
+        className={cn(labelClass, voiceEnabled ? hiddenLabel : visibleLabel)}
+      >
+        Try Voice
+      </span>
+      <span
+        aria-hidden="true"
+        className={cn(labelClass, voiceEnabled ? visibleLabel : hiddenLabel)}
+      >
+        Voice On
+      </span>
     </button>
   )
 }
 
 export function MicErrorNotice({ message }: { message: string }) {
   return (
-    <p className="flex items-start gap-1.5 text-[12px] leading-snug text-white/60">
+    <p className="flex items-start gap-1.5 text-[12px] leading-snug text-[var(--color-fg-muted)]">
       <MicOff className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
       {message}
     </p>

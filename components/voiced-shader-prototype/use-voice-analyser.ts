@@ -24,7 +24,11 @@ export function useVoiceAnalyser(
   onDeniedRef.current = onDenied
 
   useEffect(() => {
-    if (!enabled) return
+    if (!enabled) {
+      levelsRef.current.rms = 0
+      levelsRef.current.centroidNorm = 0
+      return
+    }
 
     let cancelled = false
     let rafId = 0

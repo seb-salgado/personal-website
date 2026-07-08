@@ -14,11 +14,12 @@ export interface AudioLevels {
 interface ShaderCanvasProps {
   params: ShaderParams
   audioLevelsRef: React.RefObject<AudioLevels>
+  voiceEnabled: boolean
 }
 
 // How strongly voice pushes the shader beyond the slider baselines.
-const CONTRAST_GAIN = 2.5
-const NOISE_SCALE_GAIN = 1.5
+const CONTRAST_GAIN = 1.2
+const SPEED_GAIN = 0.07
 const ATTACK_TAU = 0.05
 const RELEASE_TAU = 0.35
 
@@ -52,10 +53,17 @@ function compileShader(gl: WebGLRenderingContext, type: number, source: string) 
   return shader
 }
 
-export function ShaderCanvas({ params, audioLevelsRef }: ShaderCanvasProps) {
+export function ShaderCanvas({
+  params,
+  audioLevelsRef,
+  voiceEnabled,
+}: ShaderCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const paramsRef = useRef(params)
   paramsRef.current = params
+
+  const voiceEnabledRef = useRef(voiceEnabled)
+  voiceEnabledRef.current = voiceEnabled
 
   const reducedMotion = useReducedMotion()
   const reducedMotionRef = useRef(reducedMotion)
@@ -75,6 +83,7 @@ export function ShaderCanvas({ params, audioLevelsRef }: ShaderCanvasProps) {
     let shaderTime = 0
     let smoothedRms = 0
     let smoothedCentroid = 0
+    let wasVoiceEnabled = voiceEnabledRef.current
 
     let gl: WebGLRenderingContext | null = null
     let program: WebGLProgram | null = null
@@ -148,7 +157,15 @@ export function ShaderCanvas({ params, audioLevelsRef }: ShaderCanvasProps) {
       }
 
       const p = paramsRef.current
-      const levels = audioLevelsRef.current ?? { rms: 0, centroidNorm: 0 }
+      const isVoiceEnabled = voiceEnabledRef.current
+      if (isVoiceEnabled !== wasVoiceEnabled) {
+        smoothedRms = 0
+        smoothedCentroid = 0
+        wasVoiceEnabled = isVoiceEnabled
+      }
+      const levels = isVoiceEnabled
+        ? (audioLevelsRef.current ?? { rms: 0, centroidNorm: 0 })
+        : { rms: 0, centroidNorm: 0 }
 
       // Asymmetric one-pole smoothing: fast attack, slow release.
       const smooth = (current: number, target: number) => {
@@ -164,10 +181,10 @@ export function ShaderCanvas({ params, audioLevelsRef }: ShaderCanvasProps) {
         PARAM_CONFIG.contrast.min,
         PARAM_CONFIG.contrast.max
       )
-      const effectiveNoiseScale = clamp(
-        p.noiseScale + smoothedCentroid * NOISE_SCALE_GAIN,
-        PARAM_CONFIG.noiseScale.min,
-        PARAM_CONFIG.noiseScale.max
+      const effectiveSpeed = clamp(
+        p.speed + smoothedCentroid * SPEED_GAIN,
+        PARAM_CONFIG.speed.min,
+        PARAM_CONFIG.speed.max
       )
 
       gl.uniform1f(uniforms.iTime ?? null, shaderTime)
@@ -176,10 +193,10 @@ export function ShaderCanvas({ params, audioLevelsRef }: ShaderCanvasProps) {
         gl.drawingBufferWidth,
         gl.drawingBufferHeight
       )
-      gl.uniform1f(uniforms.uSpeed ?? null, p.speed)
+      gl.uniform1f(uniforms.uSpeed ?? null, effectiveSpeed)
       gl.uniform1f(uniforms.uContrast ?? null, effectiveContrast)
       gl.uniform1f(uniforms.uGrain ?? null, p.grain)
-      gl.uniform1f(uniforms.uNoiseScale ?? null, effectiveNoiseScale)
+      gl.uniform1f(uniforms.uNoiseScale ?? null, p.noiseScale)
       const colorUniforms: UniformName[] = [
         "uColor1",
         "uColor2",
