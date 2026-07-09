@@ -22,12 +22,14 @@ export function VoicedShaderPrototype() {
   }, [])
 
   return (
-    <div className="relative w-full overflow-hidden rounded-lg bg-[#3B1C14] aspect-[3/4] sm:aspect-[4/3]">
-      <ShaderCanvas
-        params={DEFAULT_PARAMS}
-        audioLevelsRef={audioLevelsRef}
-        voiceEnabled={voiceEnabled}
-      />
+    <div className="relative w-full overflow-hidden rounded-lg bg-[#F5F1EE] aspect-[4/3]">
+      <div className="absolute left-1/2 top-1/2 aspect-square h-[calc(100%-48px)] max-h-[400px] max-w-[calc(100%-48px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-[#3B1C14]">
+        <ShaderCanvas
+          params={DEFAULT_PARAMS}
+          audioLevelsRef={audioLevelsRef}
+          voiceEnabled={voiceEnabled}
+        />
+      </div>
 
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2">
         {micError && (
