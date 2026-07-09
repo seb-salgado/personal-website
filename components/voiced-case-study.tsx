@@ -14,6 +14,7 @@ import {
 import { PTable1 } from "@/components/ui/p-table-1"
 import { VoicedAppStoreReviews } from "@/components/voiced-app-store-reviews"
 import { VoicedShaderPrototype } from "@/components/voiced-shader-prototype"
+import { VoicedConversationExamples } from "@/components/voiced-conversation-examples"
 
 const socials = [
   { label: "X/Twitter", href: "https://x.com/SebastiaoSommer" },
@@ -154,12 +155,7 @@ export function VoicedCaseStudy() {
         </p>
       </TextSection>
 
-      <ImageBlock
-        src="/assets/voiced/chat-log.png"
-        alt="Chat log"
-        width={2240}
-        height={1680}
-      />
+      <VoicedConversationExamples />
 
       <div className="max-w-[560px] mx-auto flex flex-col gap-2 text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
         <p>
