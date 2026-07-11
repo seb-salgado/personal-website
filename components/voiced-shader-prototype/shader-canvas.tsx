@@ -23,6 +23,11 @@ const CONTRAST_GAIN = 1.2
 // is 0..1), so the reaction has the same magnitude at second 5 and second 500 —
 // unlike scaling absolute time, which grew unboundedly the longer the page ran.
 const VOICE_PHASE_GAIN = 2.0
+// Voice grows the circle mask's diameter by up to this many px.
+const VOICE_SIZE_MAX_PX = 20
+// Maps smoothed rms (speech ≈ 0.05–0.3 with AGC off) onto that range.
+// High gain so normal speech reaches the cap; loudness beyond that clamps.
+const VOICE_SIZE_GAIN_PX = 200
 const ATTACK_TAU = 0.05
 const RELEASE_TAU = 0.35
 
@@ -85,6 +90,7 @@ export function ShaderCanvas({
     let shaderTime = 0
     let smoothedRms = 0
     let smoothedCentroid = 0
+    let maskSize = 0
     let wasVoiceEnabled = voiceEnabledRef.current
 
     let gl: WebGLRenderingContext | null = null
@@ -147,6 +153,9 @@ export function ShaderCanvas({
         canvas.height = height
       }
       gl.viewport(0, 0, canvas.width, canvas.height)
+      // clientWidth is a layout size, unaffected by the scale applied below,
+      // so caching it here cannot feed back through the ResizeObserver.
+      maskSize = container.clientWidth
     }
 
     function frame(now: number) {
@@ -191,6 +200,14 @@ export function ShaderCanvas({
       const voicePhase = reducedMotionRef.current
         ? 0
         : smoothedCentroid * VOICE_PHASE_GAIN
+
+      // Voice swells the circle mask: the standalone `scale` property composes
+      // with the Tailwind translate centering instead of clobbering it.
+      const growthPx = reducedMotionRef.current
+        ? 0
+        : Math.min(smoothedRms * VOICE_SIZE_GAIN_PX, VOICE_SIZE_MAX_PX)
+      container.style.scale =
+        maskSize > 0 ? String((maskSize + growthPx) / maskSize) : ""
 
       gl.uniform1f(uniforms.iTime ?? null, shaderTime + voicePhase)
       gl.uniform2f(
@@ -265,6 +282,7 @@ export function ShaderCanvas({
 
     return () => {
       stop()
+      container.style.scale = ""
       resizeObserver.disconnect()
       intersectionObserver.disconnect()
       canvas.removeEventListener("webglcontextlost", handleContextLost)
