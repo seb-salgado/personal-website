@@ -159,7 +159,7 @@ export function ShaderCanvas({
     }
 
     function frame(now: number) {
-      if (!gl || !program || contextLost) return
+      if (!gl || !program || !container || contextLost) return
       const dt = lastTime === 0 ? 0 : Math.min((now - lastTime) / 1000, 0.1)
       lastTime = now
 
