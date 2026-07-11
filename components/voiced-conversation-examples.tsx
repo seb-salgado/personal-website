@@ -109,23 +109,27 @@ function Avatar({
   alt: string
   className?: string
 }) {
-  if (!src) {
-    return (
-      <div
-        className={cn(
-          "size-8 shrink-0 rounded-full bg-[var(--color-surface)]",
-          className,
-        )}
-        aria-hidden="true"
-      />
-    )
-  }
   return (
-    <img
-      src={src}
-      alt={alt}
-      className={cn("size-8 shrink-0 rounded-full object-cover", className)}
-    />
+    <div className={cn("relative size-8 shrink-0 rounded-full", className)}>
+      {src ? (
+        <img
+          src={src}
+          alt={alt}
+          className="size-full rounded-full object-cover"
+        />
+      ) : (
+        <div
+          className="size-full rounded-full bg-[var(--color-surface)]"
+          aria-hidden="true"
+        />
+      )}
+      {/* Inset hairline ring: 7% black (light) / 7% white (dark). Overlaid so it
+          stays visible on top of the image. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+      />
+    </div>
   )
 }
 
