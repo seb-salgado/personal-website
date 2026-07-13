@@ -23,11 +23,15 @@ const CONTRAST_GAIN = 1.2
 // is 0..1), so the reaction has the same magnitude at second 5 and second 500 —
 // unlike scaling absolute time, which grew unboundedly the longer the page ran.
 const VOICE_PHASE_GAIN = 2.0
-// Voice grows the circle mask's diameter by up to this many px.
-const VOICE_SIZE_MAX_PX = 20
+// Voice grows the circle mask's diameter by up to this many px. Desktop gets a
+// larger, more expressive swell; mobile keeps the restrained cap so the effect
+// doesn't overwhelm small viewports. Tier is chosen by viewport width below.
+const VOICE_SIZE_MAX_DESKTOP_PX = 60
+const VOICE_SIZE_MAX_MOBILE_PX = 20
 // Maps smoothed rms (speech ≈ 0.05–0.3 with AGC off) onto that range.
-// High gain so normal speech reaches the cap; loudness beyond that clamps.
-const VOICE_SIZE_GAIN_PX = 200
+// High gain so even quiet speech swells the mask and normal speech reaches the
+// cap quickly; loudness beyond that clamps.
+const VOICE_SIZE_GAIN_PX = 320
 const ATTACK_TAU = 0.05
 const RELEASE_TAU = 0.35
 
@@ -203,9 +207,12 @@ export function ShaderCanvas({
 
       // Voice swells the circle mask: the standalone `scale` property composes
       // with the Tailwind translate centering instead of clobbering it.
+      const voiceSizeMaxPx = desktopMql.matches
+        ? VOICE_SIZE_MAX_DESKTOP_PX
+        : VOICE_SIZE_MAX_MOBILE_PX
       const growthPx = reducedMotionRef.current
         ? 0
-        : Math.min(smoothedRms * VOICE_SIZE_GAIN_PX, VOICE_SIZE_MAX_PX)
+        : Math.min(smoothedRms * VOICE_SIZE_GAIN_PX, voiceSizeMaxPx)
       container.style.scale =
         maskSize > 0 ? String((maskSize + growthPx) / maskSize) : ""
 
@@ -266,6 +273,10 @@ export function ShaderCanvas({
       canvas.removeEventListener("webglcontextlost", handleContextLost)
       canvas.removeEventListener("webglcontextrestored", handleContextRestored)
     }
+
+    // Reading `.matches` per frame is cheap and stays live as the viewport
+    // resizes, so no change listener or cleanup is needed.
+    const desktopMql = window.matchMedia("(min-width: 768px)")
 
     const resizeObserver = new ResizeObserver(() => resize())
     resizeObserver.observe(container)
