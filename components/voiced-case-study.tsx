@@ -15,6 +15,7 @@ import { PTable1 } from "@/components/ui/p-table-1"
 import { VoicedAppStoreReviews } from "@/components/voiced-app-store-reviews"
 import { VoicedShaderPrototype } from "@/components/voiced-shader-prototype"
 import { VoicedConversationExamples } from "@/components/voiced-conversation-examples"
+import { LittleMomentsStack } from "@/components/little-moments-stack"
 
 const socials = [
   { label: "X/Twitter", href: "https://x.com/SebastiaoSommer" },
@@ -266,12 +267,7 @@ export function VoicedCaseStudy() {
         Beyond the conversation quality work, I contributed to several smaller improvements that emerged from user feedback and product exploration.
       </TextSection>
 
-      <ImageBlock
-        src="/assets/voiced/little-moments.png"
-        alt="Little moments"
-        width={2580}
-        height={1545}
-      />
+      <LittleMomentsStack />
 
       <TextSection heading="Expanding Voice Options">
           User feedback consistently highlighted a desire for more voice options, particularly deeper male voices. I synthesized the feedback, advocated for prioritizing the work, and helped make voice selection part of the first time user experience. After launch, first conversation starts appeared to improve following voice selection. While the original metric source is no longer available, I view this as a promising activation signal rather than a validated retention improvement.
