@@ -17,6 +17,14 @@ export function TextSection({
   )
 }
 
+export function MediaCaption({ children }: { children: ReactNode }) {
+  return (
+    <figcaption className="mt-4 text-sm leading-[1.4em] text-[var(--color-fg-muted)]">
+      {children}
+    </figcaption>
+  )
+}
+
 export function ImageBlock({
   src,
   alt,
@@ -24,6 +32,7 @@ export function ImageBlock({
   height,
   placeholder = false,
   className,
+  caption,
 }: {
   src?: string
   alt: string
@@ -31,17 +40,25 @@ export function ImageBlock({
   height: number
   placeholder?: boolean
   className?: string
+  caption?: ReactNode
 }) {
   if (placeholder || !src) {
-    return (
+    const block = (
       <div
         className={`w-full rounded-lg bg-[var(--color-surface)] ${className ?? ""}`}
         style={{ height }}
         aria-hidden="true"
       />
     )
+    if (!caption) return block
+    return (
+      <figure className="w-full">
+        {block}
+        <MediaCaption>{caption}</MediaCaption>
+      </figure>
+    )
   }
-  return (
+  const block = (
     <div className="relative w-full rounded-lg overflow-hidden">
       <img
         src={src}
@@ -55,21 +72,35 @@ export function ImageBlock({
       )}
     </div>
   )
+  if (!caption) return block
+  return (
+    <figure className="w-full">
+      {block}
+      <MediaCaption>{caption}</MediaCaption>
+    </figure>
+  )
 }
 
-export function VideoBlock({ src }: { src: string }) {
+export function VideoBlock({ src, caption }: { src: string; caption?: ReactNode }) {
   const webmSrc = src
     .replace("/upload/", "/upload/q_auto,f_webm/")
     .replace(/\.mp4$/, ".webm")
   const mp4Src = src.replace("/upload/", "/upload/q_auto,f_mp4/")
 
-  return (
+  const block = (
     <div className="w-full rounded-lg overflow-hidden">
       <video autoPlay muted loop playsInline className="w-full h-auto block">
         <source src={webmSrc} type="video/webm" />
         <source src={mp4Src} type="video/mp4" />
       </video>
     </div>
+  )
+  if (!caption) return block
+  return (
+    <figure className="w-full">
+      {block}
+      <MediaCaption>{caption}</MediaCaption>
+    </figure>
   )
 }
 

@@ -10,6 +10,7 @@ import {
   ImageBlock,
   VideoBlock,
   MetadataRow,
+  MediaCaption,
 } from "@/components/case-study-primitives"
 import { PTable1 } from "@/components/ui/p-table-1"
 import { VoicedAppStoreReviews } from "@/components/voiced-app-store-reviews"
@@ -101,7 +102,10 @@ export function VoicedCaseStudy() {
         </TextSection>
       </div>
 
-      <VideoBlock src="https://res.cloudinary.com/dcewfztrv/video/upload/v1782693508/voiced-carousel_wektxt.mp4" />
+      <VideoBlock
+        src="https://res.cloudinary.com/dcewfztrv/video/upload/v1782693508/voiced-carousel_wektxt.mp4"
+        caption="Voiced&apos;s MVP home screen."
+      />
 
       <TextSection heading="Finding The Higher-Leverage Problem">
         <p>
@@ -126,6 +130,7 @@ export function VoicedCaseStudy() {
         alt="Better conversations"
         width={2240}
         height={1680}
+        caption="Close-up of the chat screen."
       />
 
       <TextSection heading="Designing Better Conversations">
@@ -156,7 +161,12 @@ export function VoicedCaseStudy() {
         </p>
       </TextSection>
 
-      <VoicedConversationExamples />
+      <figure className="w-full">
+        <VoicedConversationExamples />
+        <MediaCaption>
+          Before-and-after example conversations based on common user themes.
+        </MediaCaption>
+      </figure>
 
       <div className="max-w-[560px] mx-auto flex flex-col gap-2 text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
         <p>
@@ -202,6 +212,7 @@ export function VoicedCaseStudy() {
         alt="Conversation 2 topic suggestion experiment"
         width={3360}
         height={2520}
+        caption="Personalized topic suggestions helped users continue into Conversation 2 based on what they had already shared."
       />
 
       <div className="max-w-[560px] mx-auto flex flex-col gap-2 text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
@@ -261,13 +272,19 @@ export function VoicedCaseStudy() {
         alt="Home redesign"
         width={3360}
         height={2520}
+        caption="Redesigned home screen using a personalized conversation plan to promote continuity between sessions."
       />
 
       <TextSection heading="Additional Contributions">
-        Beyond the conversation quality work, I contributed to several smaller improvements that emerged from user feedback and product exploration.
+        Alongside the larger product work, I contributed to several smaller improvements that emerged from user feedback and product exploration.
       </TextSection>
 
-      <LittleMomentsStack />
+      <figure className="w-full">
+        <LittleMomentsStack />
+        <MediaCaption>
+          Examples of AI-generated imagery created for Voiced&apos;s in-app visual language.
+        </MediaCaption>
+      </figure>
 
       <TextSection heading="Expanding Voice Options">
           User feedback consistently highlighted a desire for more voice options, particularly deeper male voices. I synthesized the feedback, advocated for prioritizing the work, and helped make voice selection part of the first time user experience. After launch, first conversation starts appeared to improve following voice selection. While the original metric source is no longer available, I view this as a promising activation signal rather than a validated retention improvement.
@@ -278,13 +295,19 @@ export function VoicedCaseStudy() {
         alt="Voice options"
         width={3360}
         height={2520}
+        caption="Voice selection became part of onboarding, allowing users to preview options and choose the voice they preferred."
       />
 
       <TextSection heading="Building a Voice Reactive Shader">
           To explore the voice experience, I used AI coding tools to build a shader that responded dynamically to voice amplitude and frequency. The prototype proved effective enough that engineering adapted it for production, allowing us to explore and communicate interaction quality with much greater fidelity than static mocks alone.
         </TextSection>
 
-      <VoicedShaderPrototype />
+      <figure className="w-full">
+        <VoicedShaderPrototype />
+        <MediaCaption>
+          Try the interactive shader prototype to see how the visual responds to voice.
+        </MediaCaption>
+      </figure>
 
       <TextSection heading="Where It Landed">
         <p>
@@ -311,6 +334,13 @@ export function VoicedCaseStudy() {
           The most important work was not simply designing the app&apos;s screens. It was recognizing when a planned feature was not the highest-leverage problem, helping redirect the team toward the core conversation experience, and then extending that work into continuity and personalization experiments that changed how users came back.
         </p>
       </TextSection>
+
+      <div className="max-w-[560px] mx-auto flex flex-col gap-1 text-sm text-[var(--color-fg-muted)]">
+        <h2 className="font-medium">Acknowledgments</h2>
+        <p className="font-normal leading-[1.4em]">
+          The work shown here was made alongside a small team I was lucky to work with: Will Wynne (CPO), and engineers Hakan Özdemir, Diego Rodriguez, and George Bakogiannis.
+        </p>
+      </div>
 
       <div className="max-w-[560px] mx-auto w-full flex flex-col">
         <div className="h-px bg-[var(--color-border)]" />
