@@ -2,11 +2,9 @@
 
 import type { ReactNode } from "react"
 import Link from "next/link"
-import { motion, useReducedMotion } from "motion/react"
 import { CaseStudyBreadcrumb } from "@/components/case-study-breadcrumb"
+import { Reveal } from "@/components/case-study-primitives"
 import { DirectionalUnderline } from "@/components/ui/directional-underline"
-
-const EASE = [0.23, 1, 0.32, 1] as const
 
 type FooterLink = { label: string; href: string }
 
@@ -23,21 +21,17 @@ export function CaseStudyLayout({
   readTime?: string
   breadcrumbPage?: string
 }) {
-  const shouldReduceMotion = useReducedMotion()
   return (
     <main className="min-h-screen flex items-start justify-center px-6 pt-10 md:pt-[60px] lg:pt-[80px] pb-10 md:pb-[60px] lg:pb-[80px]">
       <div className="relative w-full max-w-[840px] flex flex-col gap-[80px]">
         {readTime && (
-          <motion.div
-            style={{ willChange: shouldReduceMotion ? "auto" : "filter, opacity" }}
-            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, filter: "blur(8px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 0.3, ease: EASE, delay: 0 }}
+          <Reveal
+            index={0}
             className="-mb-[40px] max-w-[560px] mx-auto w-full flex justify-between items-center text-sm text-[var(--color-fg-muted)]"
           >
             <CaseStudyBreadcrumb currentPage={breadcrumbPage} />
             <span className="opacity-70">{readTime}</span>
-          </motion.div>
+          </Reveal>
         )}
         {children}
 

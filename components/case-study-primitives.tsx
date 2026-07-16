@@ -1,4 +1,38 @@
-import type { ReactNode } from "react"
+"use client"
+
+import { useState, type ReactNode } from "react"
+import { motion, useReducedMotion } from "motion/react"
+import { block, revealDelay } from "@/lib/reveal"
+
+// One block in the page-load reveal chain. `index` is its position in that chain —
+// see lib/reveal.ts for the delay schedule.
+export function Reveal({
+  index,
+  className,
+  children,
+}: {
+  index: number
+  className?: string
+  children: ReactNode
+}) {
+  const shouldReduceMotion = useReducedMotion()
+  // The hint is only worth paying for while the animation runs; left on, it would pin
+  // a compositor layer per block for the life of the page.
+  const [settled, setSettled] = useState(false)
+
+  return (
+    <motion.div
+      {...block(revealDelay(index), shouldReduceMotion)}
+      onAnimationComplete={() => setSettled(true)}
+      className={className}
+      style={{
+        willChange: shouldReduceMotion || settled ? "auto" : "filter, opacity",
+      }}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 export function TextSection({
   heading,

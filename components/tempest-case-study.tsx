@@ -1,11 +1,10 @@
 "use client"
 
-import type { ReactNode } from "react"
 import Link from "next/link"
-import { motion, useReducedMotion } from "motion/react"
 import { CaseStudyLayout } from "@/components/case-study-layout"
 import { DirectionalUnderline } from "@/components/ui/directional-underline"
 import {
+  Reveal,
   TextSection,
   ImageBlock,
   MetadataRow,
@@ -18,34 +17,7 @@ const socials = [
   { label: "Email", href: "mailto:hi@sebastiaosommer.com" },
 ]
 
-const EASE = [0.23, 1, 0.32, 1] as const
-const DURATION = 0.3
-const STAGGER = 0.08
-
-function HeroItem({
-  children,
-  delay,
-  shouldReduceMotion,
-}: {
-  children: ReactNode
-  delay: number
-  shouldReduceMotion: boolean | null
-}) {
-  return (
-    <motion.div
-      style={{ willChange: shouldReduceMotion ? "auto" : "filter, opacity" }}
-      initial={shouldReduceMotion ? false : { opacity: 0, filter: "blur(8px)" }}
-      animate={{ opacity: 1, filter: "blur(0px)" }}
-      transition={{ duration: DURATION, ease: EASE, delay }}
-    >
-      {children}
-    </motion.div>
-  )
-}
-
 export function TempestCaseStudy() {
-  const shouldReduceMotion = useReducedMotion()
-
   return (
     <CaseStudyLayout
       readTime="2 min read"
@@ -54,20 +26,20 @@ export function TempestCaseStudy() {
       {/* Narrative block (24px gaps throughout) */}
       <div className="flex flex-col gap-[40px]">
         {/* 01 — Hero image */}
-        <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
+        <Reveal index={1}>
           <ImageBlock
             src="/assets/tempest/hero.jpg"
             alt="Tempest Browser Privacy Panel hero"
             width={840}
             height={560}
           />
-        </HeroItem>
+        </Reveal>
 
         {/* 02–04 — Title, metadata, and text sections (560px constrained) */}
         <div className="max-w-[560px] mx-auto flex flex-col gap-[24px]">
           {/* 02+03 — Title, intro, and metadata (16px gap between them) */}
           <div className="flex flex-col gap-[16px]">
-            <HeroItem delay={STAGGER * 2} shouldReduceMotion={shouldReduceMotion}>
+            <Reveal index={2}>
               <div className="flex flex-col gap-1">
                 <h1 className="text-base font-semibold text-[var(--color-fg)]">
                   Tempest Browser
@@ -78,10 +50,10 @@ export function TempestCaseStudy() {
                   own terms.
                 </p>
               </div>
-            </HeroItem>
+            </Reveal>
 
             {/* 03 — Metadata row */}
-            <HeroItem delay={STAGGER * 3} shouldReduceMotion={shouldReduceMotion}>
+            <Reveal index={3}>
               <MetadataRow
                 items={[
                   { label: "Company", value: "Tempest" },
@@ -89,42 +61,50 @@ export function TempestCaseStudy() {
                   { label: "Year", value: "2023" },
                 ]}
               />
-            </HeroItem>
+            </Reveal>
           </div>
 
-          {/* 04 — Three narrative text sections (NOT animated) */}
-          <TextSection heading="My Role">
-            Senior Product Designer working across Tempest Browser and Tempest
-            Search, partnering closely with product, engineering, and the VP of
-            Design.
-          </TextSection>
+          {/* 04 — Three narrative text sections */}
+          <Reveal index={4}>
+            <TextSection heading="My Role">
+              Senior Product Designer working across Tempest Browser and Tempest
+              Search, partnering closely with product, engineering, and the VP of
+              Design.
+            </TextSection>
+          </Reveal>
 
-          <TextSection heading="Context">
-            Tempest&apos;s strategy centered on two products: Tempest Search, a
-            privacy focused search engine, and Tempest Browser, a browser
-            designed to drive adoption of Tempest Search.
-          </TextSection>
+          <Reveal index={5}>
+            <TextSection heading="Context">
+              Tempest&apos;s strategy centered on two products: Tempest Search, a
+              privacy focused search engine, and Tempest Browser, a browser
+              designed to drive adoption of Tempest Search.
+            </TextSection>
+          </Reveal>
 
-          <TextSection heading="The Challenge">
-            Users want privacy, but aggressive blocking can break websites or
-            create friction. Most browsers expose privacy controls through
-            technical settings that feel intimidating and disconnected from the
-            browsing experience. The goal was to make privacy protections easier
-            to understand and control.
-          </TextSection>
+          <Reveal index={6}>
+            <TextSection heading="The Challenge">
+              Users want privacy, but aggressive blocking can break websites or
+              create friction. Most browsers expose privacy controls through
+              technical settings that feel intimidating and disconnected from the
+              browsing experience. The goal was to make privacy protections easier
+              to understand and control.
+            </TextSection>
+          </Reveal>
         </div>
       </div>
 
-      <ImageBlock
-        src="/assets/tempest/comparison.jpg"
-        alt="Privacy Panel OFF vs ON comparison"
-        width={840}
-        height={442}
-        className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
-      />
+      <Reveal index={7}>
+        <ImageBlock
+          src="/assets/tempest/comparison.jpg"
+          alt="Privacy Panel OFF vs ON comparison"
+          width={840}
+          height={442}
+          className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+        />
+      </Reveal>
 
       {/* 05 — Making Privacy Visible */}
-      <div className="flex flex-col gap-[40px]">
+      <Reveal index={8} className="flex flex-col gap-[40px]">
         <TextSection heading="Making Privacy Visible">
           One of the key initiatives was the Privacy Panel, a real time view of
           the protections being applied while users browsed the web. Instead of
@@ -147,10 +127,10 @@ export function TempestCaseStudy() {
         <div className="w-full rounded-lg overflow-hidden">
           <img src="/assets/tempest/variations.png" alt="Tempest Privacy Panel variations" className="w-full" />
         </div>
-      </div>
+      </Reveal>
 
       {/* 06 — Designing for Conflicting User Goals */}
-      <div className="flex flex-col gap-[40px]">
+      <Reveal index={9} className="flex flex-col gap-[40px]">
         <TextSection heading="Designing for Conflicting User Goals">
           One of the most interesting design challenges involved users who
           intentionally selected &ldquo;No Blocking.&rdquo; From a product
@@ -180,9 +160,10 @@ export function TempestCaseStudy() {
           </div>
         </div>
       </div>
-      </div>
+      </Reveal>
+
       {/* 11 — Outcome and Community Response */}
-      <div className="flex flex-col gap-[40px]">
+      <Reveal index={10} className="flex flex-col gap-[40px]">
         <TextSection heading="Outcome and Community Response">
           <p>
             Tempest Browser launched publicly in 2023 as part of the company&apos;s
@@ -223,19 +204,21 @@ export function TempestCaseStudy() {
             className="shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
           />
         </div>
-      </div>
+      </Reveal>
 
       {/* 13 — Extending the Work Beyond Tempest */}
-      <TextSection heading="Extending the Work Beyond Tempest">
-        Several interaction patterns, design system foundations, and workflows
-        developed during the project were later reused across Infinity Browsers,
-        a new Tempest business unit. After leaving Tempest, I continued working
-        on browser products at Hop Design, applying and evolving many of these
-        foundations across projects for Ecosia and Startpage.
-      </TextSection>
+      <Reveal index={11}>
+        <TextSection heading="Extending the Work Beyond Tempest">
+          Several interaction patterns, design system foundations, and workflows
+          developed during the project were later reused across Infinity Browsers,
+          a new Tempest business unit. After leaving Tempest, I continued working
+          on browser products at Hop Design, applying and evolving many of these
+          foundations across projects for Ecosia and Startpage.
+        </TextSection>
+      </Reveal>
 
       {/* 12 — Next case study */}
-      <div className="max-w-[560px] mx-auto w-full flex flex-col">
+      <Reveal index={12} className="max-w-[560px] mx-auto w-full flex flex-col">
         <div className="h-px bg-[var(--color-border)]" />
         <div className="h-[80px]" />
         <Link href="/case-studies/voiced" className="group block">
@@ -285,7 +268,7 @@ export function TempestCaseStudy() {
             </DirectionalUnderline>
           ))}
         </div>
-      </div>
+      </Reveal>
     </CaseStudyLayout>
   )
 }
