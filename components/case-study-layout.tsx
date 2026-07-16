@@ -23,11 +23,11 @@ export function CaseStudyLayout({
 }) {
   return (
     <main className="min-h-screen flex items-start justify-center px-6 pt-10 md:pt-[60px] lg:pt-[80px] pb-10 md:pb-[60px] lg:pb-[80px]">
-      <div className="relative w-full max-w-[840px] flex flex-col gap-[80px]">
+      <div className="relative w-full max-w-[840px] flex flex-col gap-[40px] md:gap-[80px]">
         {readTime && (
           <Reveal
             index={0}
-            className="-mb-[40px] max-w-[560px] mx-auto w-full flex justify-between items-center text-sm text-[var(--color-fg-muted)]"
+            className="-mb-[20px] md:-mb-[40px] max-w-[560px] mx-auto w-full flex justify-between items-center text-sm text-[var(--color-fg-muted)]"
           >
             <CaseStudyBreadcrumb currentPage={breadcrumbPage} />
             <span className="opacity-70">{readTime}</span>
