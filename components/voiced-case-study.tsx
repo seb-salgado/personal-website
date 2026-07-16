@@ -26,7 +26,7 @@ const socials = [
 
 export function VoicedCaseStudy() {
   return (
-    <CaseStudyLayout readTime="4 min read" breadcrumbPage="Voiced">
+    <CaseStudyLayout readTime="10 min read" breadcrumbPage="Voiced">
       <div className="flex flex-col gap-[24px]">
         <div className="flex flex-col gap-[40px]">
           <Reveal index={1}>
