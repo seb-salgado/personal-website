@@ -213,7 +213,7 @@ export function VoicedCaseStudy() {
           columns={[
             { key: "metric", label: "Metric" },
             { key: "control", label: "Control", align: "right" },
-            { key: "c2", label: "C2 suggestions", align: "right" },
+            { key: "c2", label: "C2 topics", align: "right" },
             { key: "change", label: "Change", align: "right" },
           ]}
           rows={[
@@ -237,12 +237,12 @@ export function VoicedCaseStudy() {
           I redesigned the home screen around a personalized conversation plan. Drawing from previous conversations, it suggested future topics and presented them in a calendar inspired view. The goal was to make users feel that Voiced remembered what they had shared, that conversations were connected, and that there was value in returning.
         </p>
         <p>
-          We shipped the redesign in Voiced 1.0.30. Although the rollout was not a controlled A/B test, subsequent version level analysis showed encouraging directional signals:
+          We shipped the redesign in Voiced 1.0.30. Although the rollout was not a controlled A/B test, comparing the 1.0.29 baseline with 1.0.31 showed encouraging directional signals:
         </p>
         <PTable1
           columns={[
             { key: "metric", label: "Metric" },
-            { key: "baseline", label: "1.0.29 baseline", align: "right" },
+            { key: "baseline", label: "1.0.29", align: "right" },
             { key: "v131", label: "1.0.31", align: "right" },
             { key: "change", label: "Change", align: "right" },
           ]}

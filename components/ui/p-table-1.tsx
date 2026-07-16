@@ -27,8 +27,8 @@ export function PTable1({ columns, rows, className }: PTable1Props) {
               <th
                 key={col.key}
                 className={cn(
-                  "py-2 font-medium text-[var(--color-fg-muted)] text-left",
-                  col.align === "right" && "text-right"
+                  "py-2 px-2 first:pl-0 last:pr-0 whitespace-nowrap font-medium text-[var(--color-fg-muted)] text-left",
+                  col.align === "right" && "text-right tabular-nums"
                 )}
               >
                 {col.label}
@@ -43,8 +43,8 @@ export function PTable1({ columns, rows, className }: PTable1Props) {
                 <td
                   key={col.key}
                   className={cn(
-                    "py-3 text-[var(--color-fg)] align-top",
-                    col.align === "right" && "text-right"
+                    "py-3 px-2 first:pl-0 last:pr-0 text-[var(--color-fg)] align-top",
+                    col.align === "right" && "text-right tabular-nums"
                   )}
                 >
                   {row[col.key]}
