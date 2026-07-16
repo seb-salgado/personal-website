@@ -58,7 +58,10 @@ export function VoicedCaseStudy() {
       <div className="flex flex-col gap-[24px]">
         <div className="flex flex-col gap-[40px]">
           <HeroItem delay={STAGGER} shouldReduceMotion={shouldReduceMotion}>
-            <VideoBlock src="https://res.cloudinary.com/dcewfztrv/video/upload/v1782694307/voiced-cover_p2calv.mp4" />
+            <VideoBlock
+              src="https://res.cloudinary.com/dcewfztrv/video/upload/v1782694307/voiced-cover_p2calv.mp4"
+              aspectRatio="4 / 3"
+            />
           </HeroItem>
 
           <div className="max-w-[560px] mx-auto flex flex-col gap-[16px]">
@@ -104,6 +107,7 @@ export function VoicedCaseStudy() {
 
       <VideoBlock
         src="https://res.cloudinary.com/dcewfztrv/video/upload/v1782693508/voiced-carousel_wektxt.mp4"
+        aspectRatio="4 / 3"
         caption="Voiced&apos;s MVP home screen."
       />
 

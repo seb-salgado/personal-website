@@ -81,15 +81,23 @@ export function ImageBlock({
   )
 }
 
-export function VideoBlock({ src, caption }: { src: string; caption?: ReactNode }) {
+export function VideoBlock({
+  src,
+  caption,
+  aspectRatio = "4 / 3",
+}: {
+  src: string
+  caption?: ReactNode
+  aspectRatio?: string
+}) {
   const webmSrc = src
     .replace("/upload/", "/upload/q_auto,f_webm/")
     .replace(/\.mp4$/, ".webm")
   const mp4Src = src.replace("/upload/", "/upload/q_auto,f_mp4/")
 
   const block = (
-    <div className="w-full rounded-lg overflow-hidden">
-      <video autoPlay muted loop playsInline className="w-full h-auto block">
+    <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio }}>
+      <video autoPlay muted loop playsInline className="w-full h-full object-cover block">
         <source src={webmSrc} type="video/webm" />
         <source src={mp4Src} type="video/mp4" />
       </video>
