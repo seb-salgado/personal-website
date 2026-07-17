@@ -218,7 +218,7 @@ export function TempestCaseStudy() {
       </Reveal>
 
       {/* 12 — Next case study */}
-      <Reveal index={12} className="max-w-[560px] mx-auto w-full flex flex-col">
+      <Reveal index={12} className="max-w-[560px] mx-auto w-full flex flex-col mt-10 md:mt-0">
         <div className="h-px bg-[var(--color-border)]" />
         <div className="h-[80px]" />
         <Link href="/case-studies/voiced" className="group block">

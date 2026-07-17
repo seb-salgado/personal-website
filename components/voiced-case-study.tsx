@@ -354,7 +354,7 @@ export function VoicedCaseStudy() {
         </p>
       </Reveal>
 
-      <Reveal index={27} className="max-w-[560px] mx-auto w-full flex flex-col">
+      <Reveal index={27} className="max-w-[560px] mx-auto w-full flex flex-col mt-10 md:mt-0">
         <div className="h-px bg-[var(--color-border)]" />
         <div className="h-[80px]" />
         <Link href="/case-studies/tempest-browser-privacy-panel" className="group block">
