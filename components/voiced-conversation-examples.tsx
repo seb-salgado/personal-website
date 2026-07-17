@@ -110,7 +110,7 @@ function Avatar({
   className?: string
 }) {
   return (
-    <div className={cn("relative size-8 shrink-0 rounded-full", className)}>
+    <div className={cn("relative size-6 shrink-0 rounded-full sm:size-8", className)}>
       {src ? (
         <img
           src={src}
@@ -140,13 +140,13 @@ function VoicedAvatar({ status }: { status: "before" | "after" }) {
     <div className="relative mb-1 shrink-0">
       <Avatar src={VOICED_AVATAR} alt="Voiced" />
       <span
-        className="absolute -bottom-0.5 -right-0.5 flex size-[18px] items-center justify-center rounded-full border-[1.5px] border-[var(--color-bg)]"
+        className="absolute -bottom-0.5 -right-0.5 flex size-[14px] items-center justify-center rounded-full border-[1.5px] border-[var(--color-bg)] sm:size-[18px]"
         style={{ backgroundColor: isBefore ? "#ff3b3b" : "#68b22f" }}
       >
         {isBefore ? (
-          <X size={12} strokeWidth={3} className="text-white" />
+          <X strokeWidth={3} className="size-[9px] text-white sm:size-3" />
         ) : (
-          <Check size={12} strokeWidth={3} className="text-white" />
+          <Check strokeWidth={3} className="size-[9px] text-white sm:size-3" />
         )}
       </span>
     </div>
@@ -161,17 +161,17 @@ function ConversationCard({ example }: { example: ConversationExample }) {
     <div className="flex flex-col px-4 pt-4 sm:px-6 sm:pt-6">
       <div className="flex flex-col gap-4">
         {/* Voiced greeting */}
-        <div className="flex items-end gap-3">
+        <div className="flex items-end gap-2 sm:gap-3">
           <Avatar src={VOICED_AVATAR} alt="Voiced" className="mb-1" />
-          <div className="flex max-w-[492px] flex-col gap-0.5">
+          <div className="mr-8 flex max-w-[492px] flex-col gap-0.5 sm:mr-0">
             <span className={labelClass}>Voiced</span>
             <p className={bodyClass}>{GREETING}</p>
           </div>
         </div>
 
         {/* User message */}
-        <div className="flex items-end justify-end gap-3">
-          <div className="flex max-w-[494px] flex-col gap-0.5 rounded-xl rounded-br-[4px] border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3">
+        <div className="flex items-end justify-end gap-2 sm:gap-3">
+          <div className="ml-8 flex max-w-[494px] flex-col gap-0.5 rounded-xl rounded-br-[4px] border border-[var(--color-border)] bg-[var(--color-bg)] px-3 py-2 sm:ml-0 sm:px-4 sm:py-3">
             <span className={labelClass}>User</span>
             <p className={bodyClass}>{example.userMessage}</p>
           </div>
@@ -182,18 +182,18 @@ function ConversationCard({ example }: { example: ConversationExample }) {
         </div>
 
         {/* Voiced (Before) */}
-        <div className="flex items-end gap-3">
+        <div className="flex items-end gap-2 sm:gap-3">
           <VoicedAvatar status="before" />
-          <div className="flex max-w-[492px] flex-col gap-0.5">
+          <div className="mr-8 flex max-w-[492px] flex-col gap-0.5 sm:mr-0">
             <span className={labelClass}>Voiced (Before)</span>
             <p className={bodyClass}>{example.before}</p>
           </div>
         </div>
 
         {/* Voiced (After) */}
-        <div className="flex items-end gap-3">
+        <div className="flex items-end gap-2 sm:gap-3">
           <VoicedAvatar status="after" />
-          <div className="flex max-w-[492px] flex-col gap-0.5">
+          <div className="mr-8 flex max-w-[492px] flex-col gap-0.5 sm:mr-0">
             <span className={labelClass}>Voiced (After)</span>
             <p className={bodyClass}>{example.after}</p>
           </div>
@@ -277,15 +277,24 @@ export function VoicedConversationExamples() {
   const total = EXAMPLES.length
 
   // Reserve the tallest card's height so the box never jumps between examples
-  // (mode="wait" renders only the active card at a time).
+  // (mode="wait" renders only the active card at a time). Re-measured on resize:
+  // the tallest card is ~2x taller at 320px than at 640px, so a value captured
+  // once at mount is wrong on rotation or any width change.
   const [minHeight, setMinHeight] = useState<number | undefined>(undefined)
   const measureRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
-    if (!measureRef.current) return
-    const heights = Array.from(measureRef.current.children).map(
-      (el) => (el as HTMLElement).offsetHeight
-    )
-    setMinHeight(Math.max(...heights))
+    const node = measureRef.current
+    if (!node) return
+    const measure = () => {
+      const heights = Array.from(node.children).map(
+        (el) => (el as HTMLElement).offsetHeight
+      )
+      setMinHeight(Math.max(...heights))
+    }
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(node)
+    return () => observer.disconnect()
   }, [])
 
   const prefersReducedMotion = useReducedMotion()
