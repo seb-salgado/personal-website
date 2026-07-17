@@ -286,7 +286,7 @@ export function VoicedCaseStudy() {
 
       <Reveal index={19}>
       <TextSection heading="Expanding Voice Options">
-          User feedback consistently highlighted a desire for more voice options, particularly deeper male voices. I synthesized the feedback, advocated for prioritizing the work, and helped make voice selection part of the first time user experience. After launch, first conversation starts appeared to improve following voice selection. While the original metric source is no longer available, I view this as a promising activation signal rather than a validated retention improvement.
+          User feedback consistently highlighted a desire for more voice options, particularly deeper male voices. I synthesized the feedback, advocated for prioritizing the work, and made voice selection part of the first-time user experience. Early post-launch data pointed to an uptick in first conversation starts.
         </TextSection>
       </Reveal>
 
