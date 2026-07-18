@@ -116,10 +116,13 @@ export function ImageBlock({
 }
 
 export function VideoBlock({ src, caption }: { src: string; caption?: ReactNode }) {
+  // Cap delivery at 1680px (the 840px column max-width × 2 for retina) so the
+  // encoder spends bitrate on visible pixels, not the oversized source — sharper
+  // and smaller. c_limit never upscales.
   const webmSrc = src
-    .replace("/upload/", "/upload/q_auto,f_webm/")
+    .replace("/upload/", "/upload/q_auto:best,w_1680,c_limit,f_webm/")
     .replace(/\.mp4$/, ".webm")
-  const mp4Src = src.replace("/upload/", "/upload/q_auto,f_mp4/")
+  const mp4Src = src.replace("/upload/", "/upload/q_auto:best,w_1680,c_limit,f_mp4/")
 
   const block = (
     <div className="w-full rounded-lg overflow-hidden">
