@@ -225,8 +225,8 @@ export function TempestCaseStudy() {
           <article className="overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] cursor-pointer hover:bg-[var(--color-surface)] active:scale-[0.99] transition-colors">
             <div className="aspect-[4/3] w-full overflow-hidden rounded-t-lg bg-[var(--color-surface)]">
               <video autoPlay muted loop playsInline className="h-full w-full object-cover">
-                <source src="https://res.cloudinary.com/dcewfztrv/video/upload/q_auto,f_webm/v1782694307/voiced-cover_p2calv.webm" type="video/webm" />
-                <source src="https://res.cloudinary.com/dcewfztrv/video/upload/q_auto,f_mp4/v1782694307/voiced-cover_p2calv.mp4" type="video/mp4" />
+                <source src="https://res.cloudinary.com/dcewfztrv/video/upload/q_auto,f_webm/v1784379494/voiced-voice-mode_ct713c.webm" type="video/webm" />
+                <source src="https://res.cloudinary.com/dcewfztrv/video/upload/q_auto,f_mp4/v1784379494/voiced-voice-mode_ct713c.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="flex flex-col gap-1 p-4">
