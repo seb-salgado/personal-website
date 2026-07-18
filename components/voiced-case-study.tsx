@@ -30,7 +30,10 @@ export function VoicedCaseStudy() {
       <div className="flex flex-col gap-[24px]">
         <div className="flex flex-col gap-[40px]">
           <Reveal index={1}>
-            <VideoBlock src="https://res.cloudinary.com/dcewfztrv/video/upload/v1784379494/voiced-voice-mode_ct713c.mp4" />
+            <VideoBlock
+              src="https://res.cloudinary.com/dcewfztrv/video/upload/v1784398182/voiced-voice-mode-chat_upbhjc.mp4"
+              priority
+            />
           </Reveal>
 
           <div className="max-w-[560px] mx-auto flex flex-col gap-[16px]">

@@ -115,7 +115,15 @@ export function ImageBlock({
   )
 }
 
-export function VideoBlock({ src, caption }: { src: string; caption?: ReactNode }) {
+export function VideoBlock({
+  src,
+  caption,
+  priority = false,
+}: {
+  src: string
+  caption?: ReactNode
+  priority?: boolean
+}) {
   // These clips are UI walkthroughs full of fine text, which video codecs soften
   // first (chroma subsampling + quantization). Deliver at full source resolution
   // with a high fixed quality (q_90) so text edges stay crisp on high-DPI screens.
@@ -123,10 +131,21 @@ export function VideoBlock({ src, caption }: { src: string; caption?: ReactNode 
     .replace("/upload/", "/upload/q_90,f_webm/")
     .replace(/\.mp4$/, ".webm")
   const mp4Src = src.replace("/upload/", "/upload/q_90,f_mp4/")
+  const posterSrc = src
+    .replace("/upload/", "/upload/so_0,q_auto:best,w_1920,c_limit,f_jpg/")
+    .replace(/\.mp4$/, ".jpg")
 
   const block = (
     <div className="w-full rounded-lg overflow-hidden">
-      <video autoPlay muted loop playsInline className="w-full h-auto block">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload={priority ? "auto" : undefined}
+        poster={priority ? posterSrc : undefined}
+        className="w-full h-auto block"
+      >
         <source src={webmSrc} type="video/webm" />
         <source src={mp4Src} type="video/mp4" />
       </video>

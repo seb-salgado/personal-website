@@ -157,7 +157,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2025",
     readTime: "4 min read",
     description: "Designing an AI companion for emotional wellbeing",
-    coverVideo: "https://res.cloudinary.com/dcewfztrv/video/upload/v1784379494/voiced-voice-mode_ct713c.mp4",
+    coverVideo: "https://res.cloudinary.com/dcewfztrv/video/upload/v1784398182/voiced-voice-mode-chat_upbhjc.mp4",
     available: true,
     sections: [],
   },

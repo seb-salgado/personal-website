@@ -67,6 +67,10 @@ function CaseStudyCard({ study }: { study: CaseStudyIndexItem }) {
             muted
             loop
             playsInline
+            preload="auto"
+            poster={study.coverVideo
+              .replace("/upload/", "/upload/so_0,q_auto:best,w_1120,c_limit,f_jpg/")
+              .replace(/\.mp4$/, ".jpg")}
             className="h-full w-full object-cover"
           >
             <source
