@@ -80,7 +80,7 @@ export function VoicedCaseStudy() {
 
       <Reveal index={6}>
       <VideoBlock
-        src="https://res.cloudinary.com/dcewfztrv/video/upload/v1782693508/voiced-carousel_wektxt.mp4"
+        src="https://res.cloudinary.com/dcewfztrv/video/upload/v1784370428/voiced-home-mvp_qg4kq9.mp4"
         caption="Voiced&apos;s MVP home screen."
       />
       </Reveal>
