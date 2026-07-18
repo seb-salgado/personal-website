@@ -70,11 +70,11 @@ function CaseStudyCard({ study }: { study: CaseStudyIndexItem }) {
             className="h-full w-full object-cover"
           >
             <source
-              src={study.coverVideo.replace("/upload/", "/upload/q_auto,f_webm/").replace(/\.mp4$/, ".webm")}
+              src={study.coverVideo.replace("/upload/", "/upload/q_auto:best,w_1120,c_limit,f_webm/").replace(/\.mp4$/, ".webm")}
               type="video/webm"
             />
             <source
-              src={study.coverVideo.replace("/upload/", "/upload/q_auto,f_mp4/")}
+              src={study.coverVideo.replace("/upload/", "/upload/q_auto:best,w_1120,c_limit,f_mp4/")}
               type="video/mp4"
             />
           </video>
