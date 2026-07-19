@@ -97,7 +97,7 @@ export function VoicedCaseStudy() {
           My initial proposal was a routing agent that could direct users to different conversational paths based on how the discussion evolved. But after reviewing product metrics and anonymized conversation quality signals, I became less convinced that overwhelm was the real problem.
         </p>
         <p>
-          What I saw was a broader issue. Across many conversations, the AI sometimes rushed into deep emotional exploration before earning it. It could miss important details from previous messages, lose track of the user&apos;s story, or respond with the wrong emotional weight. These issues weren&apos;t isolated to overwhelmed users. They affected the core experience itself.
+          What I saw was a broader issue. The clearest tell was frustration: across many conversations, users pushed back when the AI probed for emotional depth too early. The pattern ran deeper too, the AI could miss important details from previous messages, lose track of the user&apos;s story, or respond with the wrong emotional weight. These issues affected the core experience for all users.
         </p>
         <p>
           I argued that improving the first conversation and the system prompt would be a higher leverage investment than building a separate overwhelmed user flow. It would improve every conversation, require less engineering effort, and more directly strengthen Voiced&apos;s core promise: helping people feel heard and gain clarity.
