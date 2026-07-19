@@ -345,7 +345,7 @@ export function VoicedCaseStudy() {
           Voiced was a lesson in designing under early-company ambiguity: shipping the first product quickly, making it credible enough for investor and market signal, then improving the core conversation loop through product judgment and measurable iteration.
         </p>
         <p>
-          The most important work was not simply designing the app&apos;s screens. It was recognizing when a planned feature was not the highest-leverage problem, helping redirect the team toward the core conversation experience, and then extending that work into continuity and personalization experiments that changed how users came back.
+          The most important work was recognizing when a planned feature was not the highest-leverage problem, helping redirect the team toward the core conversation experience, and then extending that work into continuity and personalization experiments that changed how users came back.
         </p>
       </TextSection>
       </Reveal>
