@@ -150,13 +150,14 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "voiced",
-    title: "Voiced",
+    title: "Voiced: a voice-first conversation app",
     client: "Sounding",
     product: "Voiced",
     platform: "iOS",
     year: "2025",
     readTime: "4 min read",
-    description: "Designing an AI companion for emotional wellbeing",
+    description:
+      "Owning product design end to end, from system prompt to shipped App Store product.",
     coverVideo: "https://res.cloudinary.com/dcewfztrv/video/upload/v1784398182/voiced-voice-mode-chat_upbhjc.mp4",
     available: true,
     sections: [],

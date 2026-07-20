@@ -231,10 +231,10 @@ export function TempestCaseStudy() {
             </div>
             <div className="flex flex-col gap-1 p-4">
               <h2 className="text-base font-medium leading-[1.3] text-[var(--color-fg)]">
-                Voiced
+                Voiced: a voice-first conversation app
               </h2>
               <p className="text-sm leading-[1.45] text-[var(--color-fg-muted)]">
-                Designing an AI companion for emotional wellbeing
+                Owning product design end to end, from system prompt to shipped App Store product.
               </p>
             </div>
           </article>

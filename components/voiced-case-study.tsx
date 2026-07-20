@@ -39,9 +39,9 @@ export function VoicedCaseStudy() {
           <div className="max-w-[560px] mx-auto flex flex-col gap-[16px]">
             <Reveal index={2}>
               <div className="flex flex-col gap-1">
-                <h1 className="text-base font-semibold text-[var(--color-fg)]">Voiced</h1>
+                <h1 className="text-base font-semibold text-[var(--color-fg)]">Voiced: a voice-first conversation app</h1>
                 <p className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
-                  Voiced is an iOS emotional wellbeing companion where people can speak their mind and find clarity through conversation.
+                  Voiced is an iOS app where people speak their mind and find clarity through conversation.
                 </p>
               </div>
             </Reveal>
