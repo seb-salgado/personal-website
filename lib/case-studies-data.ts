@@ -23,6 +23,20 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "voiced",
+    title: "Voiced: a voice-first conversation app",
+    client: "Sounding",
+    product: "Voiced",
+    platform: "iOS",
+    year: "2025",
+    readTime: "4 min read",
+    description:
+      "Owning product design end to end, from system prompt to shipped App Store product.",
+    coverVideo: "https://res.cloudinary.com/dcewfztrv/video/upload/v1784398182/voiced-voice-mode-chat_upbhjc.mp4",
+    available: true,
+    sections: [],
+  },
+  {
     slug: "tempest-browser-privacy-panel",
     title: "Tempest Browser Privacy Panel",
     client: "Tempest",
@@ -147,19 +161,5 @@ export const caseStudies: CaseStudy[] = [
         height: 736,
       },
     ],
-  },
-  {
-    slug: "voiced",
-    title: "Voiced: a voice-first conversation app",
-    client: "Sounding",
-    product: "Voiced",
-    platform: "iOS",
-    year: "2025",
-    readTime: "4 min read",
-    description:
-      "Owning product design end to end, from system prompt to shipped App Store product.",
-    coverVideo: "https://res.cloudinary.com/dcewfztrv/video/upload/v1784398182/voiced-voice-mode-chat_upbhjc.mp4",
-    available: true,
-    sections: [],
   },
 ];
