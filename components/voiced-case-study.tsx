@@ -353,7 +353,7 @@ export function VoicedCaseStudy() {
       <Reveal index={26} className="max-w-[560px] mx-auto flex flex-col gap-1 text-sm text-[var(--color-fg-muted)]">
         <h2 className="font-medium">Acknowledgments</h2>
         <p className="font-normal leading-[1.4em]">
-          The work shown here was made alongside a small team I was lucky to work with: Will Wynne (CPO), and engineers Hakan Özdemir, Diego Rodriguez, and George Bakogiannis.
+          The work shown here was made alongside a small team I was lucky to work with: Will Wynne (CPO), and engineers Hakan Özdemir, Diego Rodriguez, Harris Kalash, and George Bakogiannis.
         </p>
       </Reveal>
 
