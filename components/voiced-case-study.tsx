@@ -18,7 +18,7 @@ import { VoicedConversationExamples } from "@/components/voiced-conversation-exa
 import { LittleMomentsStack } from "@/components/little-moments-stack"
 
 const socials = [
-  { label: "X/Twitter", href: "https://x.com/SebastiaoSommer" },
+  { label: "X/Twitter", href: "https://x.com/sebsalgado2" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/sebastiao-sommer/" },
   { label: "GitHub", href: "https://github.com/sebastiaosommer-123" },
   { label: "Email", href: "mailto:hi@sebsalgado.com" },

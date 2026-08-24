@@ -10,7 +10,7 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Sebastião Sommer",
+  title: "Sebastião Salgado",
   description: "Founding Product Designer",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },

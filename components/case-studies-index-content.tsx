@@ -11,7 +11,7 @@ const EASE = [0.23, 1, 0.32, 1] as const
 const DURATION = 0.3
 
 const socials = [
-  { label: "X/Twitter", href: "https://x.com/SebastiaoSommer" },
+  { label: "X/Twitter", href: "https://x.com/sebsalgado2" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/sebastiao-sommer/" },
   { label: "GitHub", href: "https://github.com/sebastiaosommer-123" },
   { label: "Email", href: "mailto:hi@sebsalgado.com" },

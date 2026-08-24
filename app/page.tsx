@@ -64,7 +64,7 @@ const experience: ExperienceItem[] = [
 ];
 
 const socials = [
-  { label: "X/Twitter", href: "https://x.com/SebastiaoSommer" },
+  { label: "X/Twitter", href: "https://x.com/sebsalgado2" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/sebastiao-sommer/" },
   { label: "GitHub", href: "https://github.com/sebastiaosommer-123" },
   { label: "Email", href: "mailto:hi@sebsalgado.com" },
@@ -231,7 +231,7 @@ export default function Home() {
             className="font-medium text-base"
             style={{ lineHeight: 1.3, color: "var(--color-fg)" }}
           >
-            Sebastião Sommer
+            Sebastião Salgado
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, ...(prefersReducedMotion ? {} : { filter: "blur(8px)" }) }}
