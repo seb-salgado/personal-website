@@ -13,7 +13,7 @@ const DURATION = 0.3
 const socials = [
   { label: "X/Twitter", href: "https://x.com/sebsalgado2" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/sebastiao-salgado/" },
-  { label: "GitHub", href: "https://github.com/sebastiaosommer-123" },
+  { label: "GitHub", href: "https://github.com/seb-salgado" },
   { label: "Email", href: "mailto:hi@sebsalgado.com" },
 ]
 
