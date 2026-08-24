@@ -12,7 +12,7 @@ import {
 
 const socials = [
   { label: "X/Twitter", href: "https://x.com/sebsalgado2" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/sebastiao-sommer/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sebastiao-salgado/" },
   { label: "GitHub", href: "https://github.com/sebastiaosommer-123" },
   { label: "Email", href: "mailto:hi@sebsalgado.com" },
 ]
