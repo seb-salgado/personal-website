@@ -170,21 +170,27 @@ function ModalContent({ experience, originRects, onClose, onCloseStart }: ModalC
   }, []);
 
   useLayoutEffect(() => {
+    const html = document.documentElement;
     const scrollY = window.scrollY;
     const prevOverflow = document.body.style.overflow;
     const prevPosition = document.body.style.position;
     const prevTop = document.body.style.top;
     const prevWidth = document.body.style.width;
     const bodyWidth = document.body.getBoundingClientRect().width;
+    // Hiding overflow removes a classic (non-overlay) scrollbar and widens the viewport.
+    // Fixed layers inset their right edge by --scrollbar-gap so nothing shifts sideways.
+    const scrollbarGap = window.innerWidth - html.clientWidth;
     document.body.style.overflow = 'hidden';
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = `${bodyWidth}px`;
+    html.style.setProperty('--scrollbar-gap', `${scrollbarGap}px`);
     return () => {
       document.body.style.overflow = prevOverflow;
       document.body.style.position = prevPosition;
       document.body.style.top = prevTop;
       document.body.style.width = prevWidth;
+      html.style.removeProperty('--scrollbar-gap');
       window.scrollTo(0, scrollY);
     };
   }, []);
@@ -254,7 +260,7 @@ function ModalContent({ experience, originRects, onClose, onCloseStart }: ModalC
       />
 
       {/* Card wrapper — handles click-outside-to-close; pointer-events-auto so touch scroll works on mobile */}
-      <div className="fixed inset-0 z-[10001] flex items-start justify-center px-4 sm:px-3 py-6 overflow-y-auto" onClick={handleClose}>
+      <div className="fixed inset-y-0 left-0 right-[var(--scrollbar-gap,0px)] z-[10001] flex items-start justify-center px-4 sm:px-3 py-6 overflow-y-auto" onClick={handleClose}>
         <motion.div
           ref={containerRef}
           animate={containerControls}

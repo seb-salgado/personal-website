@@ -40,7 +40,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           {children}
-          <div className="fixed top-4 right-4 z-50" data-surf-ignore>
+          <div className="fixed top-4 right-[calc(1rem+var(--scrollbar-gap,0px))] z-50" data-surf-ignore>
             <AnimatedThemeToggler className="text-[var(--color-fg)]" />
           </div>
         </ThemeProvider>

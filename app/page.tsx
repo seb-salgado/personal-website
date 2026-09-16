@@ -410,7 +410,7 @@ export default function Home() {
         {(surfPeeking || surfOpen) && (
           <div
             ref={constraintsRef}
-            className={`fixed inset-0 pointer-events-none ${modalClosing ? 'z-[10002]' : 'z-[60]'}`}
+            className={`fixed inset-y-0 left-0 right-[var(--scrollbar-gap,0px)] pointer-events-none ${modalClosing ? 'z-[10002]' : 'z-[60]'}`}
           >
             {isTouch && surfOpen && (
               <div className="absolute inset-0 pointer-events-auto" onClick={closeSurf} />
