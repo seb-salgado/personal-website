@@ -35,19 +35,23 @@ function ModalContent({ onClose, onSuccess }: Omit<PasswordModalProps, "isOpen">
   }, [onClose]);
 
   useEffect(() => {
+    const html = document.documentElement;
     const scrollY = window.scrollY;
     const bodyWidth = document.body.getBoundingClientRect().width;
+    const scrollbarGap = window.innerWidth - html.clientWidth;
 
     document.body.style.overflow = "hidden";
     document.body.style.position = "fixed";
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = `${bodyWidth}px`;
+    html.style.setProperty("--scrollbar-gap", `${scrollbarGap}px`);
 
     return () => {
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
+      html.style.removeProperty("--scrollbar-gap");
       if (shouldRestoreScrollRef.current) {
         window.scrollTo(0, scrollY);
       }
@@ -91,7 +95,7 @@ function ModalContent({ onClose, onSuccess }: Omit<PasswordModalProps, "isOpen">
         transition={transition}
         onClick={onClose}
       />
-      <div className="fixed inset-0 z-[10001] flex items-center justify-center px-4" onClick={onClose}>
+      <div className="fixed inset-y-0 left-0 right-[var(--scrollbar-gap,0px)] z-[10001] flex items-center justify-center px-4" onClick={onClose}>
         <motion.div
           className="relative w-full max-w-[360px] rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-5 shadow-xl"
           initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: 8 }}
