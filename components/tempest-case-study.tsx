@@ -221,7 +221,7 @@ export function TempestCaseStudy() {
       <Reveal index={12} className="max-w-[560px] mx-auto w-full flex flex-col mt-10 md:mt-0">
         <div className="h-px bg-[var(--color-border)]" />
         <div className="h-[80px]" />
-        <Link href="/case-studies/voiced" className="group block">
+        <Link href="/case-studies/leti" className="group block">
           <article className="overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] cursor-pointer hover:bg-[var(--color-surface)] active:scale-[0.99] transition-colors">
             <div className="aspect-[4/3] w-full overflow-hidden rounded-t-lg bg-[var(--color-surface)]">
               <video autoPlay muted loop playsInline className="h-full w-full object-cover">
@@ -231,7 +231,7 @@ export function TempestCaseStudy() {
             </div>
             <div className="flex flex-col gap-1 p-4">
               <h2 className="text-base font-medium leading-[1.3] text-[var(--color-fg)]">
-                Voiced: a voice-first conversation app
+                Leti: a voice-first conversation app
               </h2>
               <p className="text-sm leading-[1.45] text-[var(--color-fg-muted)]">
                 Owning product design end to end, from system prompt to shipped App Store product.

@@ -1,4 +1,4 @@
-// Fragment shader reused from the Voiced gradient tool (converted from SKSL), with one
+// Fragment shader reused from the Leti gradient tool (converted from SKSL), with one
 // change: motion phase is integrated on the CPU (iTime already includes speed), so speed
 // changes alter the rate of motion instead of jumping the phase by iTime * delta.
 // The vertex shader is rewritten for raw WebGL: fullscreen triangle, no matrices.

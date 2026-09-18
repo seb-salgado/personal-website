@@ -23,10 +23,10 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "voiced",
-    title: "Voiced: a voice-first conversation app",
+    slug: "leti",
+    title: "Leti: a voice-first conversation app",
     client: "Sounding",
-    product: "Voiced",
+    product: "Leti",
     platform: "iOS",
     year: "2025",
     readTime: "4 min read",

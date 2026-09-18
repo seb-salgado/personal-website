@@ -45,12 +45,12 @@ const THRESHOLD = 50
 const DRAG_RANGE = 160 // distance over which exit values are fully reached
 const ELASTICITY = 0.3 // rubber-band feel: 0 = hard stop, 1 = no resistance
 
-// Avatar images (dropped into /public/assets/voiced/). Set to a path once the
+// Avatar images (dropped into /public/assets/leti/). Set to a path once the
 // asset exists; leave undefined to render a neutral placeholder circle.
-const VOICED_AVATAR: string | undefined = "/assets/voiced/voiced-avatar.webp"
-const DEFAULT_USER_AVATAR: string | undefined = "/assets/voiced/user-01.webp"
+const LETI_AVATAR: string | undefined = "/assets/leti/leti-avatar.webp"
+const DEFAULT_USER_AVATAR: string | undefined = "/assets/leti/user-01.webp"
 
-// The Voiced greeting is constant across every example.
+// The Leti greeting is constant across every example.
 const GREETING = "What’s on your mind?"
 
 type ConversationExample = {
@@ -69,7 +69,7 @@ const EXAMPLES: ConversationExample[] = [
       "It's normal to dwell on feedback; it shows you care about your work. Reflecting on this, it might be worth considering what specifically about their feedback has impacted you the most. What feelings come up when you think about their comments?",
     after:
       "That sounds frustrating to dwell on. What specific issues did they point out?",
-    userAvatar: "/assets/voiced/user-01.webp",
+    userAvatar: "/assets/leti/user-01.webp",
   },
   {
     userMessage:
@@ -78,7 +78,7 @@ const EXAMPLES: ConversationExample[] = [
       "It's natural to feel anxious when you sense disappointment. You mentioned forgetting an important date—how do you feel about their reaction?",
     after:
       "It must feel uncomfortable to sense that annoyance. What was the date you forgot?",
-    userAvatar: "/assets/voiced/user-02.webp",
+    userAvatar: "/assets/leti/user-02.webp",
   },
   {
     userMessage:
@@ -87,7 +87,7 @@ const EXAMPLES: ConversationExample[] = [
       "It's natural to feel uncertain in situations like this. You may be picking up on changes in communication patterns. How did their message make you feel about your connection with them?",
     after:
       "That feels a bit off. What was the message you sent that prompted their response?",
-    userAvatar: "/assets/voiced/user-03.webp",
+    userAvatar: "/assets/leti/user-03.webp",
   },
   {
     userMessage:
@@ -96,7 +96,7 @@ const EXAMPLES: ConversationExample[] = [
       "It's common for couples to face disagreements over travel plans. It sounds like you're both invested in making this trip special. What do you think is at the root of these debates?",
     after:
       "It's tough when planning turns into a debate. What have been some of the places you've considered?",
-    userAvatar: "/assets/voiced/user-04.webp",
+    userAvatar: "/assets/leti/user-04.webp",
   },
 ]
 
@@ -133,12 +133,12 @@ function Avatar({
   )
 }
 
-// Voiced avatar with a status badge (red ✕ for Before, green ✓ for After).
-function VoicedAvatar({ status }: { status: "before" | "after" }) {
+// Leti avatar with a status badge (red ✕ for Before, green ✓ for After).
+function LetiAvatar({ status }: { status: "before" | "after" }) {
   const isBefore = status === "before"
   return (
     <div className="relative mb-1 shrink-0">
-      <Avatar src={VOICED_AVATAR} alt="Voiced" />
+      <Avatar src={LETI_AVATAR} alt="Leti" />
       <span
         className="absolute -bottom-0.5 -right-0.5 flex size-[14px] items-center justify-center rounded-full border-[1.5px] border-[var(--color-bg)] sm:size-[18px]"
         style={{ backgroundColor: isBefore ? "#ff3b3b" : "#68b22f" }}
@@ -160,11 +160,11 @@ function ConversationCard({ example }: { example: ConversationExample }) {
   return (
     <div className="flex flex-col px-4 pt-4 sm:px-6 sm:pt-6">
       <div className="flex flex-col gap-4">
-        {/* Voiced greeting */}
+        {/* Leti greeting */}
         <div className="flex items-end gap-2 sm:gap-3">
-          <Avatar src={VOICED_AVATAR} alt="Voiced" className="mb-1" />
+          <Avatar src={LETI_AVATAR} alt="Leti" className="mb-1" />
           <div className="mr-8 flex max-w-[492px] flex-col gap-0.5 sm:mr-0">
-            <span className={labelClass}>Voiced</span>
+            <span className={labelClass}>Leti</span>
             <p className={bodyClass}>{GREETING}</p>
           </div>
         </div>
@@ -181,20 +181,20 @@ function ConversationCard({ example }: { example: ConversationExample }) {
           />
         </div>
 
-        {/* Voiced (Before) */}
+        {/* Leti (Before) */}
         <div className="flex items-end gap-2 sm:gap-3">
-          <VoicedAvatar status="before" />
+          <LetiAvatar status="before" />
           <div className="mr-8 flex max-w-[492px] flex-col gap-0.5 sm:mr-0">
-            <span className={labelClass}>Voiced (Before)</span>
+            <span className={labelClass}>Leti (Before)</span>
             <p className={bodyClass}>{example.before}</p>
           </div>
         </div>
 
-        {/* Voiced (After) */}
+        {/* Leti (After) */}
         <div className="flex items-end gap-2 sm:gap-3">
-          <VoicedAvatar status="after" />
+          <LetiAvatar status="after" />
           <div className="mr-8 flex max-w-[492px] flex-col gap-0.5 sm:mr-0">
-            <span className={labelClass}>Voiced (After)</span>
+            <span className={labelClass}>Leti (After)</span>
             <p className={bodyClass}>{example.after}</p>
           </div>
         </div>
@@ -272,7 +272,7 @@ function CarouselControls({
   )
 }
 
-export function VoicedConversationExamples() {
+export function LetiConversationExamples() {
   const [index, setIndex] = useState(0)
   const total = EXAMPLES.length
 

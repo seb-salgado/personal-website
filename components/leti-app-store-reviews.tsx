@@ -24,7 +24,7 @@ const reviews: Review[] = [
     date: "31/01/2026",
   },
   {
-    title: "Reflecting on voiced",
+    title: "Reflecting on Leti",
     body: "As someone with my masters and counseling and my own therapist, I wondered how voice could help me. I found that it's really nice to have someone keep engaging you with more questions who you can just stop when you're done. I'll find this to be a very constructive tool to journal issues that are going on in my mind.",
     reviewer: "Peacesyne",
     date: "12/08/2025",
@@ -91,7 +91,7 @@ function ReviewCard({ review }: { review: Review }) {
   )
 }
 
-export function VoicedAppStoreReviews() {
+export function LetiAppStoreReviews() {
   const shouldReduceMotion = useReducedMotion()
 
   return (

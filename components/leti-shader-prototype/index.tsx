@@ -1,12 +1,12 @@
 "use client"
 
 import { useCallback, useRef, useState } from "react"
-import { DEFAULT_PARAMS } from "@/lib/voiced-shader/defaults"
+import { DEFAULT_PARAMS } from "@/lib/leti-shader/defaults"
 import { ShaderCanvas, type AudioLevels } from "./shader-canvas"
 import { MicErrorNotice, VoiceToggleButton } from "./control-panel"
 import { useVoiceAnalyser } from "./use-voice-analyser"
 
-export function VoicedShaderPrototype() {
+export function LetiShaderPrototype() {
   const [voiceEnabled, setVoiceEnabled] = useState(false)
   const audioLevelsRef = useRef<AudioLevels>({ rms: 0, centroidNorm: 0 })
 

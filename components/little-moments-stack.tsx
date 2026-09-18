@@ -43,9 +43,9 @@ type Card = {
 
 // Left → middle → right. Middle sits at the back; the outer cards overlap it.
 const CARDS: Card[] = [
-  { rotate: -15, x: -78, y: 0, z: 1, src: "/assets/voiced/stack-image-1.png", alt: "Sunlit sea foam" }, // bottom of stack
-  { rotate: -1, x: 0, y: -14, z: 2, src: "/assets/voiced/stack-image-2.png", alt: "Open window at sunset" },
-  { rotate: 14, x: 78, y: 0, z: 3, src: "/assets/voiced/stack-image-3.png", alt: "Wildflowers at golden hour" }, // front
+  { rotate: -15, x: -78, y: 0, z: 1, src: "/assets/leti/stack-image-1.png", alt: "Sunlit sea foam" }, // bottom of stack
+  { rotate: -1, x: 0, y: -14, z: 2, src: "/assets/leti/stack-image-2.png", alt: "Open window at sunset" },
+  { rotate: 14, x: 78, y: 0, z: 3, src: "/assets/leti/stack-image-3.png", alt: "Wildflowers at golden hour" }, // front
 ]
 
 // Tunable motion constants — the main things we'll dial in live.

@@ -12,9 +12,9 @@ import {
   MediaCaption,
 } from "@/components/case-study-primitives"
 import { PTable1 } from "@/components/ui/p-table-1"
-import { VoicedAppStoreReviews } from "@/components/voiced-app-store-reviews"
-import { VoicedShaderPrototype } from "@/components/voiced-shader-prototype"
-import { VoicedConversationExamples } from "@/components/voiced-conversation-examples"
+import { LetiAppStoreReviews } from "@/components/leti-app-store-reviews"
+import { LetiShaderPrototype } from "@/components/leti-shader-prototype"
+import { LetiConversationExamples } from "@/components/leti-conversation-examples"
 import { LittleMomentsStack } from "@/components/little-moments-stack"
 
 const socials = [
@@ -24,9 +24,9 @@ const socials = [
   { label: "Email", href: "mailto:hi@sebsalgado.com" },
 ]
 
-export function VoicedCaseStudy() {
+export function LetiCaseStudy() {
   return (
-    <CaseStudyLayout readTime="10 min read" breadcrumbPage="Voiced">
+    <CaseStudyLayout readTime="10 min read" breadcrumbPage="Leti">
       <div className="flex flex-col gap-[24px]">
         <div className="flex flex-col gap-[40px]">
           <Reveal index={1}>
@@ -39,9 +39,9 @@ export function VoicedCaseStudy() {
           <div className="max-w-[560px] mx-auto flex flex-col gap-[16px]">
             <Reveal index={2}>
               <div className="flex flex-col gap-1">
-                <h1 className="text-base font-semibold text-[var(--color-fg)]">Voiced: a voice-first conversation app</h1>
+                <h1 className="text-base font-semibold text-[var(--color-fg)]">Leti: a voice-first conversation app</h1>
                 <p className="text-base font-normal text-[var(--color-fg)] leading-[1.4em]">
-                  Voiced is an iOS app where people speak their mind and find clarity through conversation.
+                  Leti is an iOS app where people speak their mind and find clarity through conversation.
                 </p>
               </div>
             </Reveal>
@@ -50,7 +50,7 @@ export function VoicedCaseStudy() {
               <MetadataRow
                 items={[
                   { label: "Company", value: "Sounding" },
-                  { label: "App", value: "Voiced" },
+                  { label: "App", value: "Leti" },
                   { label: "Year", value: "2025–2026" },
                 ]}
               />
@@ -61,7 +61,7 @@ export function VoicedCaseStudy() {
         <Reveal index={4}>
         <TextSection heading="My Role">
           <p>
-            As Sounding&apos;s first design hire and sole product designer on Voiced, I owned product design end to end — research, product strategy, UX, visual and brand design, and App Store assets — working closely with the CPO and a small engineering team.
+            As Sounding&apos;s first design hire and sole product designer on Leti, I owned product design end to end — research, product strategy, UX, visual and brand design, and App Store assets — working closely with the CPO and a small engineering team.
           </p>
           <p>
             Beyond design, I shaped the AI conversation experience by synthesizing user insights, rewriting the system prompt, and testing prompt variants, and I drove the experiments that improved engagement. I also used AI coding tools to build a custom voice-reactive shader that shipped in production.
@@ -72,7 +72,7 @@ export function VoicedCaseStudy() {
         <Reveal index={5}>
         <TextSection heading="Outcomes">
           <p>
-            Voiced launched and, five weeks later, became Sounding&apos;s primary product proof point at a16z Speedrun Demo Day and throughout the fundraising that led to an $8M seed round.
+            Leti launched and, five weeks later, became Sounding&apos;s primary product proof point at a16z Speedrun Demo Day and throughout the fundraising that led to an $8M seed round.
           </p>
           <p>
             Post-launch, I focused on the core conversation loop. My biggest experiment lifted Conversation 2→3 retention from 41% to 55% and nearly doubled messages per user, and a later home redesign showed early D1-retention gains (15% → 22%).
@@ -84,14 +84,14 @@ export function VoicedCaseStudy() {
       <Reveal index={6}>
       <VideoBlock
         src="https://res.cloudinary.com/dcewfztrv/video/upload/v1784382159/voiced-mvp-home_ki1kn2.mp4"
-        caption="Voiced&apos;s MVP home screen."
+        caption="Leti&apos;s MVP home screen."
       />
       </Reveal>
 
       <Reveal index={7}>
       <TextSection heading="Finding The Higher-Leverage Problem">
         <p>
-          After Demo Day, the team was focused on improving Voiced&apos;s first time user experience. Product data showed that more than half of users displayed signs of overwhelm during their first conversation, leading us to explore a dedicated experience for those users.
+          After Demo Day, the team was focused on improving Leti&apos;s first time user experience. Product data showed that more than half of users displayed signs of overwhelm during their first conversation, leading us to explore a dedicated experience for those users.
         </p>
         <p>
           My initial proposal was a routing agent that could direct users to different conversational paths based on how the discussion evolved. But after reviewing product metrics and anonymized conversation quality signals, I became less convinced that overwhelm was the real problem.
@@ -100,7 +100,7 @@ export function VoicedCaseStudy() {
           What I saw was a broader issue. The clearest tell was frustration: across many conversations, users pushed back when the AI probed for emotional depth too early. The pattern ran deeper too, the AI could miss important details from previous messages, lose track of the user&apos;s story, or respond with the wrong emotional weight. These issues affected the core experience for all users.
         </p>
         <p>
-          I argued that improving the first conversation and the system prompt would be a higher leverage investment than building a separate overwhelmed user flow. It would improve every conversation, require less engineering effort, and more directly strengthen Voiced&apos;s core promise: helping people feel heard and gain clarity.
+          I argued that improving the first conversation and the system prompt would be a higher leverage investment than building a separate overwhelmed user flow. It would improve every conversation, require less engineering effort, and more directly strengthen Leti&apos;s core promise: helping people feel heard and gain clarity.
         </p>
         <p>
           The CPO agreed, and we shifted focus.
@@ -110,7 +110,7 @@ export function VoicedCaseStudy() {
 
       <Reveal index={8}>
       <ImageBlock
-        src="/assets/voiced/better-conversations.png"
+        src="/assets/leti/better-conversations.png"
         alt="Better conversations"
         width={2240}
         height={1680}
@@ -121,7 +121,7 @@ export function VoicedCaseStudy() {
       <Reveal index={9}>
       <TextSection heading="Designing Better Conversations">
         <p>
-          Once we aligned on the problem, I focused on improving Conversation 1, one of the most important moments in the user journey. As part of the first time user experience, it played a critical role in activation, retention, and shaping a user&apos;s perception of Voiced.
+          Once we aligned on the problem, I focused on improving Conversation 1, one of the most important moments in the user journey. As part of the first time user experience, it played a critical role in activation, retention, and shaping a user&apos;s perception of Leti.
         </p>
         <p>
           My clearest area of ownership was the system prompt. Before changing it, I used product data, anonymized conversation quality signals, and user feedback to define what a successful first conversation should achieve:
@@ -134,7 +134,7 @@ export function VoicedCaseStudy() {
           <li>Provide a reason to return</li>
         </ol>
         <p>
-          These principles became the foundation for a rewritten system prompt. The goal was for Voiced to feel less like a therapist and more like a conversational partner: less generic, less eager to force deep exploration, and more grounded in what users were actually saying.
+          These principles became the foundation for a rewritten system prompt. The goal was for Leti to feel less like a therapist and more like a conversational partner: less generic, less eager to force deep exploration, and more grounded in what users were actually saying.
         </p>
         <p>
           In parallel, the CPO and I scripted the opening messages of Conversation 1 to create a lower pressure starting point and help users get talking. After the initial exchange, the conversation transitioned to the system prompt.
@@ -150,7 +150,7 @@ export function VoicedCaseStudy() {
 
       <Reveal index={10}>
       <figure className="w-full">
-        <VoicedConversationExamples />
+        <LetiConversationExamples />
         <MediaCaption>
           Before-and-after example conversations based on common user themes.
         </MediaCaption>
@@ -200,7 +200,7 @@ export function VoicedCaseStudy() {
 
       <Reveal index={13}>
       <ImageBlock
-        src="/assets/voiced/c2-experiment.png"
+        src="/assets/leti/c2-experiment.png"
         alt="Conversation 2 topic suggestion experiment"
         width={3360}
         height={2520}
@@ -237,10 +237,10 @@ export function VoicedCaseStudy() {
           The Conversation 2 topic suggestion experiment showed that users benefited from continuity between conversations. We explored how to extend that continuity beyond a single return session.
         </p>
         <p>
-          I redesigned the home screen around a personalized conversation plan. Drawing from previous conversations, it suggested future topics and presented them in a calendar inspired view. The goal was to make users feel that Voiced remembered what they had shared, that conversations were connected, and that there was value in returning.
+          I redesigned the home screen around a personalized conversation plan. Drawing from previous conversations, it suggested future topics and presented them in a calendar inspired view. The goal was to make users feel that Leti remembered what they had shared, that conversations were connected, and that there was value in returning.
         </p>
         <p>
-          We shipped the redesign in Voiced 1.0.30. Although the rollout was not a controlled A/B test, comparing the 1.0.29 baseline with 1.0.31 showed encouraging directional signals:
+          We shipped the redesign in Leti 1.0.30. Although the rollout was not a controlled A/B test, comparing the 1.0.29 baseline with 1.0.31 showed encouraging directional signals:
         </p>
         <PTable1
           columns={[
@@ -264,7 +264,7 @@ export function VoicedCaseStudy() {
 
       <Reveal index={16}>
       <ImageBlock
-        src="/assets/voiced/home-redesign.png"
+        src="/assets/leti/home-redesign.png"
         alt="Home redesign"
         width={3360}
         height={2520}
@@ -282,7 +282,7 @@ export function VoicedCaseStudy() {
       <figure className="w-full">
         <LittleMomentsStack />
         <MediaCaption>
-          Examples of AI-generated imagery created for Voiced&apos;s in-app visual language.
+          Examples of AI-generated imagery created for Leti&apos;s in-app visual language.
         </MediaCaption>
       </figure>
       </Reveal>
@@ -295,7 +295,7 @@ export function VoicedCaseStudy() {
 
       <Reveal index={20}>
       <ImageBlock
-        src="/assets/voiced/voice-options.png"
+        src="/assets/leti/voice-options.png"
         alt="Voice options"
         width={3360}
         height={2520}
@@ -311,7 +311,7 @@ export function VoicedCaseStudy() {
 
       <Reveal index={22}>
       <figure className="w-full">
-        <VoicedShaderPrototype />
+        <LetiShaderPrototype />
         <MediaCaption>
           Try the interactive shader prototype to see how the visual responds to voice.
         </MediaCaption>
@@ -324,25 +324,25 @@ export function VoicedCaseStudy() {
           Seven months after launch, Sounding decided to focus its resources on other products with more promising metrics.
         </p>
         <p>
-          While Voiced did not become a long term business, many users found genuine value in the experience. The product received positive App Store reviews, users returned for multiple conversations, and several experiments showed meaningful improvements in engagement and continuity.
+          While Leti did not become a long term business, many users found genuine value in the experience. The product received positive App Store reviews, users returned for multiple conversations, and several experiments showed meaningful improvements in engagement and continuity.
         </p>
         <p>
-          Voiced became Sounding&apos;s first shipped product, supported the company&apos;s fundraising efforts, established internal AI product workflows, and generated valuable lessons around conversation quality, personalization, and retention.
+          Leti became Sounding&apos;s first shipped product, supported the company&apos;s fundraising efforts, established internal AI product workflows, and generated valuable lessons around conversation quality, personalization, and retention.
         </p>
         <p>
-          The outcome was mixed: Voiced resonated with users and proved many of our product hypotheses, but the business ultimately moved in a different direction.
+          The outcome was mixed: Leti resonated with users and proved many of our product hypotheses, but the business ultimately moved in a different direction.
         </p>
       </TextSection>
       </Reveal>
 
       <Reveal index={24}>
-      <VoicedAppStoreReviews />
+      <LetiAppStoreReviews />
       </Reveal>
 
       <Reveal index={25}>
       <TextSection heading="Takeaway">
         <p>
-          Voiced was a lesson in designing under early-company ambiguity: shipping the first product quickly, making it credible enough for investor and market signal, then improving the core conversation loop through product judgment and measurable iteration.
+          Leti was a lesson in designing under early-company ambiguity: shipping the first product quickly, making it credible enough for investor and market signal, then improving the core conversation loop through product judgment and measurable iteration.
         </p>
         <p>
           The most important work was recognizing when a planned feature was not the highest-leverage problem, helping redirect the team toward the core conversation experience, and then extending that work into continuity and personalization experiments that changed how users came back.

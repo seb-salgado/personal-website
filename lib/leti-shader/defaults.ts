@@ -1,4 +1,4 @@
-// Default parameter values for the gradient shader, reused from the Voiced gradient tool.
+// Default parameter values for the gradient shader, reused from the Leti gradient tool.
 
 export interface ShaderParams {
   speed: number;

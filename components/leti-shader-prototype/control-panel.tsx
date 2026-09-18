@@ -2,14 +2,14 @@
 
 import { MicOff } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { rgbToHex } from "@/lib/voiced-shader/color"
+import { rgbToHex } from "@/lib/leti-shader/color"
 import { SliderComfortable } from "@/components/ui/slider"
 import { ColorPickerPopover } from "@/components/ui/color-picker"
 import {
   PARAM_CONFIG,
   type NumericParam,
   type ShaderParams,
-} from "@/lib/voiced-shader/defaults"
+} from "@/lib/leti-shader/defaults"
 
 interface ControlPanelProps {
   params: ShaderParams

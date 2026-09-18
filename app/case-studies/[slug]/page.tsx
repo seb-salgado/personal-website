@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import type React from "react"
 import { TempestCaseStudy } from "@/components/tempest-case-study";
-import { VoicedCaseStudy } from "@/components/voiced-case-study";
+import { LetiCaseStudy } from "@/components/leti-case-study";
 import { CASE_STUDIES_COOKIE, verifyToken } from "@/lib/auth";
 
 async function verifyAccess() {
@@ -13,7 +13,7 @@ async function verifyAccess() {
 
 const CASE_STUDY_COMPONENTS: Record<string, React.ComponentType> = {
   "tempest-browser-privacy-panel": TempestCaseStudy,
-  "voiced": VoicedCaseStudy,
+  "leti": LetiCaseStudy,
 }
 
 export default async function CaseStudyPage({

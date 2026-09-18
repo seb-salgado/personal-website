@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react"
 import { useReducedMotion } from "motion/react"
-import { fragmentShader, vertexShader } from "@/lib/voiced-shader/shader"
-import { type ShaderParams, PARAM_CONFIG } from "@/lib/voiced-shader/defaults"
-import { clamp, hexToVec3 } from "@/lib/voiced-shader/color"
+import { fragmentShader, vertexShader } from "@/lib/leti-shader/shader"
+import { type ShaderParams, PARAM_CONFIG } from "@/lib/leti-shader/defaults"
+import { clamp, hexToVec3 } from "@/lib/leti-shader/color"
 
 export interface AudioLevels {
   rms: number

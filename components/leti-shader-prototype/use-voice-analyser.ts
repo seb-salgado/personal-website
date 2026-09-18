@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { clamp } from "@/lib/voiced-shader/color"
+import { clamp } from "@/lib/leti-shader/color"
 import type { AudioLevels } from "./shader-canvas"
 
 // Silence gate: below this RMS the spectral centroid is noise, not signal.
